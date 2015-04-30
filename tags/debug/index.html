@@ -1,5 +1,5 @@
 
- <!DOCTYPE HTML>
+  <!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
@@ -14,7 +14,7 @@
     <meta name="description" content="Android | 多媒体开发 | Life | otaku">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tsuinteru">
-<meta property="og:url" content="http://tsuinte.ru/index.html">
+<meta property="og:url" content="http://tsuinte.ru/tags/debug/index.html">
 <meta property="og:site_name" content="tsuinteru">
 <meta property="og:description" content="Android | 多媒体开发 | Life | otaku">
 <meta name="twitter:card" content="summary">
@@ -34,9 +34,9 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
 
-  <body>
-    <header>
-      
+    <body>
+      <header>
+        
 <div>
 		
 			<div id="textlogo">
@@ -65,103 +65,36 @@
 				</ul>
 			</nav>			
 </div>
-    </header>
-    <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/18/how-to-print-stack-trace/" title="如何打印程序的 stack trace" itemprop="url">如何打印程序的 stack trace</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://tsuinte.ru/about" title="Ludy Su" target="_blank" itemprop="author">Ludy Su</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-17T16:32:17.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
+      </header>
+      <div id="container">
         
-        <h1 id="Java">Java</h1><p>非常简单，创建一个 Throwable 对象，就可以得到当前的 stack trace。下面例子是打出调用 foobar() 函数的 trace：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">foobar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Throwable t = <span class="keyword">new</span> Throwable();</span><br><span class="line">    Log.d(TAG, <span class="string">"stack trace is "</span>, t);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="C++">C++</h1><h2 id="Android_4-4_及之前版本">Android 4.4 及之前版本</h2><p>也比较简单，使用 utils/Callstack 类即可。头文件位于 frameworks/native/include/utils/CallStack.h，一般无需修改 Android.mk 可直接使用。</p>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/04/18/how-to-print-stack-trace/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
 
-
-  <div class="article-tags">
+<div class="archive-title" >
+  <h2 class="tag-icon">debug</h2>
   
-  <span></span> <a href="/tags/Android/">Android</a><a href="/tags/debug/">debug</a>
+</div>
+<div id="main" class="archive-part clearfix">
+  <div id="archive-page">
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/04/18/how-to-print-stack-trace/" title="如何打印程序的 stack trace" itemprop="url">
+  
+
+    <time datetime="2015-04-17T16:32:17.000Z" itemprop="datePublished">2015-04-18</time>
+
+
+    <h1 itemprop="name">如何打印程序的 stack trace</h1>
+
+  </a>
+</section>
+
+
   </div>
-
 </div>
 
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-</div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			
-				<li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/debug/" title="debug">debug<sup>1</sup></a></li>
-			
-		
-		</ul>
-</div>
-
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
+      </div>
+      <footer><div id="footer" >
 	
 	<div class="line">
 		<span></span>
@@ -204,7 +137,7 @@
 		</p>
 </div>
 </footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
+      <script src="/js/jquery-2.0.3.min.js"></script>
 <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
@@ -312,5 +245,5 @@ $(document).ready(function(){
 
 <!-- Tiny_search End -->
 
-  </body>
- </html>
+    </body>
+   </html>
