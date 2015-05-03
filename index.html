@@ -75,6 +75,71 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/05/03/leetcode-database-180-consecutive-numbers/" title="Leetcode Database: #180 Consecutive Numbers" itemprop="url">Leetcode Database: #180 Consecutive Numbers</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="Ludy Su" target="_blank" itemprop="author">Ludy Su</a>
+		
+  <p class="article-time">
+    <time datetime="2015-05-03T12:43:50.000Z" itemprop="datePublished"> 发表于 2015-05-03</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/consecutive-numbers/">#180 Consecutive Numbers</a></p>
+<h1 id="解题思路">解题思路</h1><p>使用临时变量 <code>prevVal</code> 保存上一个 <code>Num</code> 值，然后使用临时变量 <code>count</code> 保存当前连续出现相同数字的次数。最外层 SELECT 再把 <code>Num</code> 这一列中 <strong>nowCount &gt;= 3</strong> 的值取出。</p>
+<p>连续数字计数可使用 <code>@count := IF(@prevVal = Num, @count + 1, 1)</code> 条件，<code>prevVal</code> 若为 <code>NULL</code>，等式不成立 <code>count</code> 初始化为 1；若 <code>prevVal</code> 是正常值则正常比较，现在值等于前值则加 1，否则初始化为 1。</p>
+<p>这里如果用 <code>CASE WHEN</code> 则代码会长一些：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CASE</span><br><span class="line">    WHEN @prevVal = Num THEN @count:=@count + 1</span><br><span class="line">    ELSE @count:=1</span><br><span class="line"><span class="operator"><span class="keyword">END</span> <span class="keyword">AS</span> nowCount</span></span><br></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/05/03/leetcode-database-180-consecutive-numbers/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/05/03/jacman-theme-customizations/" title="对 Jacman 主题的一些个性化修改" itemprop="url">对 Jacman 主题的一些个性化修改</a>
   </h1>
   <p class="article-author">By
@@ -147,7 +212,13 @@
     <div class="article-content">
         
         <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/rising-temperature/">#197 Rising Temperature</a></p>
-<h1 id="构造测试数据">构造测试数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Weather (</span><br><span class="line">    Id <span class="built_in">INT</span>,</span><br><span class="line">    <span class="built_in">Date</span> <span class="built_in">DATE</span>,</span><br><span class="line">    Temperature <span class="built_in">INT</span></span><br><span class="line">);</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">delete</span> <span class="keyword">from</span> Weather;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 比题目中增加了一些行</span></span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Weather <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="string">'2015-01-01'</span>, <span class="number">10</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="string">'2015-01-02'</span>, <span class="number">25</span>),</span><br><span class="line">(<span class="number">4</span>, <span class="string">'2015-01-04'</span>, <span class="number">30</span>),</span><br><span class="line">(<span class="number">3</span>, <span class="string">'2015-01-03'</span>, <span class="number">32</span>),</span><br><span class="line">(<span class="number">5</span>, <span class="string">'2015-01-06'</span>, <span class="number">35</span>);</span></span><br></pre></td></tr></table></figure>
+<h1 id="解题思路">解题思路</h1><p>依然是 Ranking 类问题。首先构造一个临时表 <code>tmpTable</code>，里面构造一个临时变量 <code>prevVal</code> 储存上一个 <code>Temperature</code> 值，把比较结果储存在临时列 <code>isRising</code>；构造一个临时变量 <code>prevDate</code> 用于判断日期是否连续。然后 SELECT 所有临时表中 <strong>isRising = 1 AND isDateOk = 1</strong> 的行。最后最外层过滤其他列，只选出 <code>Id</code> 一列。</p>
+<p>日期比较方法有以下几种，第一第二种差不多，第三种当 @preDate = NULL 时 <code>DATE_ADD</code> 函数会出错不建议使用</p>
+<ul>
+<li>Date BETWEEN Date AND @prevDate + INTERVAL 1 DAY</li>
+<li>Date &gt; @prevDate AND Date &lt;= @prevDate + INTERVAL 1 DAY</li>
+<li>Date BETWEEN Date AND DATE_ADD(@prevDate, INTERVAL 1 DAY)</li>
+</ul>
         
         
         <p class="article-more-link">
@@ -270,7 +341,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>1</sup></a></li>
+			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>2</sup></a></li>
 		  
 		
 		</ul>
@@ -283,11 +354,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>1</sup></a></li>
+				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/database/" title="database">database<sup>1</sup></a></li>
+				<li><a href="/tags/database/" title="database">database<sup>2</sup></a></li>
 			
 		
 			

@@ -12,17 +12,17 @@
 
     
     <meta name="description" content="题目#197 Rising Temperature
-构造测试数据123456789101112131415CREATE TABLE Weather (    Id INT,    Date DATE,    Temperature INT);delete from Weather;-- 比题目中增加了一些行INSERT INTO Weather VALUES(1, &apos;2015-01-01&apos;, 10">
+解题思路依然是 Ranking 类问题。首先构造一个临时表 tmpTable，里面构造一个临时变量 prevVal 储存上一个 Temperature 值，把比较结果储存在临时列 isRising；构造一个临时变量 prevDate 用于判断日期是否连续。然后 SELECT 所有临时表中 isRising = 1 AND isDateOk = 1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode Database: #197 Rising Temperature">
 <meta property="og:url" content="http://tsuinte.ru/2015/04/28/leetcode-database-197-rising-temperature/index.html">
 <meta property="og:site_name" content="tsuinteru">
 <meta property="og:description" content="题目#197 Rising Temperature
-构造测试数据123456789101112131415CREATE TABLE Weather (    Id INT,    Date DATE,    Temperature INT);delete from Weather;-- 比题目中增加了一些行INSERT INTO Weather VALUES(1, &apos;2015-01-01&apos;, 10">
+解题思路依然是 Ranking 类问题。首先构造一个临时表 tmpTable，里面构造一个临时变量 prevVal 储存上一个 Temperature 值，把比较结果储存在临时列 isRising；构造一个临时变量 prevDate 用于判断日期是否连续。然后 SELECT 所有临时表中 isRising = 1 AND isDateOk = 1">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Database: #197 Rising Temperature">
 <meta name="twitter:description" content="题目#197 Rising Temperature
-构造测试数据123456789101112131415CREATE TABLE Weather (    Id INT,    Date DATE,    Temperature INT);delete from Weather;-- 比题目中增加了一些行INSERT INTO Weather VALUES(1, &apos;2015-01-01&apos;, 10">
+解题思路依然是 Ranking 类问题。首先构造一个临时表 tmpTable，里面构造一个临时变量 prevVal 储存上一个 Temperature 值，把比较结果储存在临时列 isRising；构造一个临时变量 prevDate 用于判断日期是否连续。然后 SELECT 所有临时表中 isRising = 1 AND isDateOk = 1">
 
     
     <link rel="alternative" href="/atom.xml" title="tsuinteru" type="application/atom+xml">
@@ -92,15 +92,11 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构造测试数据"><span class="toc-number">2.</span> <span class="toc-text">构造测试数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解题思路"><span class="toc-number">3.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意事项"><span class="toc-number">4.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一种答案"><span class="toc-number">5.</span> <span class="toc-text">一种答案</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解题思路"><span class="toc-number">2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意事项"><span class="toc-number">3.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构造测试数据"><span class="toc-number">4.</span> <span class="toc-text">构造测试数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一种答案"><span class="toc-number">5.</span> <span class="toc-text">一种答案</span></a></li></ol>
 		
 		</div>
 		
 		<h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/rising-temperature/" target="_blank" rel="external">#197 Rising Temperature</a></p>
-<h1 id="构造测试数据">构造测试数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Weather (</span><br><span class="line">    Id <span class="built_in">INT</span>,</span><br><span class="line">    <span class="built_in">Date</span> <span class="built_in">DATE</span>,</span><br><span class="line">    Temperature <span class="built_in">INT</span></span><br><span class="line">);</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">delete</span> <span class="keyword">from</span> Weather;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 比题目中增加了一些行</span></span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Weather <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="string">'2015-01-01'</span>, <span class="number">10</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="string">'2015-01-02'</span>, <span class="number">25</span>),</span><br><span class="line">(<span class="number">4</span>, <span class="string">'2015-01-04'</span>, <span class="number">30</span>),</span><br><span class="line">(<span class="number">3</span>, <span class="string">'2015-01-03'</span>, <span class="number">32</span>),</span><br><span class="line">(<span class="number">5</span>, <span class="string">'2015-01-06'</span>, <span class="number">35</span>);</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>预期结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+----+&#10;| Id |&#10;+----+&#10;|  2 |&#10;|  3 |&#10;+----+</span><br></pre></td></tr></table></figure>
 <h1 id="解题思路">解题思路</h1><p>依然是 Ranking 类问题。首先构造一个临时表 <code>tmpTable</code>，里面构造一个临时变量 <code>prevVal</code> 储存上一个 <code>Temperature</code> 值，把比较结果储存在临时列 <code>isRising</code>；构造一个临时变量 <code>prevDate</code> 用于判断日期是否连续。然后 SELECT 所有临时表中 <strong>isRising = 1 AND isDateOk = 1</strong> 的行。最后最外层过滤其他列，只选出 <code>Id</code> 一列。</p>
 <p>日期比较方法有以下几种，第一第二种差不多，第三种当 @preDate = NULL 时 <code>DATE_ADD</code> 函数会出错不建议使用</p>
 <ul>
@@ -108,6 +104,7 @@
 <li>Date &gt; @prevDate AND Date &lt;= @prevDate + INTERVAL 1 DAY</li>
 <li>Date BETWEEN Date AND DATE_ADD(@prevDate, INTERVAL 1 DAY)</li>
 </ul>
+<a id="more"></a>
 <h1 id="注意事项">注意事项</h1><ul>
 <li><p>Date 列的数据是乱序排列，不像题中例子那样是顺序的 </p>
 <blockquote>
@@ -120,6 +117,9 @@
 </blockquote>
 </li>
 </ul>
+<h1 id="构造测试数据">构造测试数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Weather (</span><br><span class="line">    Id <span class="built_in">INT</span>,</span><br><span class="line">    <span class="built_in">Date</span> <span class="built_in">DATE</span>,</span><br><span class="line">    Temperature <span class="built_in">INT</span></span><br><span class="line">);</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Weather;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 根据测试用例增加了容易出错的一些行</span></span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Weather <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="string">'2015-01-01'</span>, <span class="number">10</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="string">'2015-01-02'</span>, <span class="number">25</span>),</span><br><span class="line">(<span class="number">4</span>, <span class="string">'2015-01-04'</span>, <span class="number">30</span>),</span><br><span class="line">(<span class="number">3</span>, <span class="string">'2015-01-03'</span>, <span class="number">32</span>),</span><br><span class="line">(<span class="number">5</span>, <span class="string">'2015-01-06'</span>, <span class="number">35</span>);</span></span><br></pre></td></tr></table></figure>
+<p>预期结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+----+&#10;| Id |&#10;+----+&#10;|  2 |&#10;|  3 |&#10;+----+</span><br></pre></td></tr></table></figure>
 <h1 id="一种答案">一种答案</h1><p>完整答案</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    Id</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    (<span class="keyword">SELECT</span> </span><br><span class="line">        Id,</span><br><span class="line">            <span class="keyword">IF</span>(Temperature &gt; @prevVal, <span class="number">1</span>, <span class="number">0</span>) <span class="keyword">AS</span> isRising,</span><br><span class="line">            <span class="keyword">IF</span>(<span class="built_in">Date</span> &gt; @prevDate</span><br><span class="line">                <span class="keyword">AND</span> <span class="built_in">Date</span> &lt;= @prevDate + <span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>, <span class="number">1</span>, <span class="number">0</span>) <span class="keyword">AS</span> isDateOk,</span><br><span class="line">            @prevVal:=Temperature,</span><br><span class="line">            @prevDate:=<span class="built_in">Date</span></span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        Weather, (<span class="keyword">SELECT</span> @prevVal:=<span class="literal">NULL</span>) tmpVal, (<span class="keyword">SELECT</span> @prevDate:=<span class="literal">NULL</span>) tmpDate</span><br><span class="line">    <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="built_in">Date</span>) tmpTable</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    isRising = <span class="number">1</span> <span class="keyword">AND</span> isDateOk = <span class="number">1</span></span></span><br></pre></td></tr></table></figure>
 <p>其中内层查询得到 <code>tmpTable</code> 的语句是：</p>
@@ -235,7 +235,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构造测试数据"><span class="toc-number">2.</span> <span class="toc-text">构造测试数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解题思路"><span class="toc-number">3.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意事项"><span class="toc-number">4.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一种答案"><span class="toc-number">5.</span> <span class="toc-text">一种答案</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解题思路"><span class="toc-number">2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意事项"><span class="toc-number">3.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构造测试数据"><span class="toc-number">4.</span> <span class="toc-text">构造测试数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一种答案"><span class="toc-number">5.</span> <span class="toc-text">一种答案</span></a></li></ol>
  
   </div>
 
@@ -253,7 +253,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>1</sup></a></li>
+			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>2</sup></a></li>
 		  
 		
 		</ul>
@@ -266,11 +266,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>1</sup></a></li>
+				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/database/" title="database">database<sup>1</sup></a></li>
+				<li><a href="/tags/database/" title="database">database<sup>2</sup></a></li>
 			
 		
 			
