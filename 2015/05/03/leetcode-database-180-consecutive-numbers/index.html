@@ -7,7 +7,7 @@
     <title>Leetcode Database: #180 Consecutive Numbers | tsuinteru</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
-    <meta name="author" content="Ludy Su">
+    <meta name="author" content="双马尾魔法使">
     
 
     
@@ -83,7 +83,7 @@
   </h1>
   <p class="article-author">By
        
-		<a href="http://tsuinte.ru/about" title="Ludy Su" target="_blank" itemprop="author">Ludy Su</a>
+		<a href="http://tsuinte.ru/about" title="双马尾魔法使" target="_blank" itemprop="author">双马尾魔法使</a>
 		
   <p class="article-time">
     <time datetime="2015-05-03T12:43:50.000Z" itemprop="datePublished"> 发表于 2015-05-03</time>
@@ -117,7 +117,6 @@
 </blockquote>
 </li>
 </ul>
-<!-- more -->
 <h1 id="构造测试数据">构造测试数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">Logs</span> (</span><br><span class="line">    Id <span class="built_in">INT</span>,</span><br><span class="line">    Num <span class="built_in">INT</span></span><br><span class="line">);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 比题目中增加了一些容易出错的用例</span></span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">Logs</span> <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">3</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">4</span>, <span class="number">2</span>),</span><br><span class="line">(<span class="number">5</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">6</span>, <span class="number">2</span>),</span><br><span class="line">(<span class="number">7</span>, <span class="number">2</span>),</span><br><span class="line">(<span class="number">8</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">9</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">10</span>, <span class="number">1</span>);</span></span><br></pre></td></tr></table></figure>
 <h1 id="一种答案">一种答案</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span></span><br><span class="line">    Num</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    (<span class="keyword">SELECT</span> </span><br><span class="line">        Num,</span><br><span class="line">            @<span class="keyword">count</span>:=<span class="keyword">IF</span>(@prevVal = Num, @<span class="keyword">count</span> + <span class="number">1</span>, <span class="number">1</span>) <span class="keyword">AS</span> nowCount,</span><br><span class="line">            @prevVal:=Num</span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        <span class="keyword">Logs</span>, (<span class="keyword">SELECT</span> @prevVal:=<span class="literal">NULL</span>) tmpVar) tmpTable</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    nowCount &gt;= <span class="number">3</span></span></span><br></pre></td></tr></table></figure>
 <p>其中内层查询得到临时表 <code>tmpTable</code> 的语句为：</p>
@@ -219,6 +218,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2015/05/04/leetcode-database-184-department-highest-salary/" title="Leetcode Database: #184 Department Highest Salary">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Leetcode Database: #184 Department Highest Salary</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2015/05/03/jacman-theme-customizations/"  title="对 Jacman 主题的一些个性化修改">
@@ -252,11 +259,11 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/Android-Debug-and-Profiling/" title="Android_Debug_and_Profiling">Android_Debug_and_Profiling<sup>1</sup></a></li>
+			<li><a href="/categories/Android-Debug-and-Profiling/" title="Android_Debug_and_Profiling">Android_Debug_and_Profiling<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>2</sup></a></li>
+			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>3</sup></a></li>
 		  
 		
 		</ul>
@@ -269,23 +276,23 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>2</sup></a></li>
+				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/database/" title="database">database<sup>2</sup></a></li>
+				<li><a href="/tags/database/" title="database">database<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/debug/" title="debug">debug<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -336,7 +343,7 @@
 		<p class="copyright">
 		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
 		
-		<a href="http://tsuinte.ru/about" target="_blank" title="Ludy Su">Ludy Su</a>
+		<a href="http://tsuinte.ru/about" target="_blank" title="双马尾魔法使">双马尾魔法使</a>
 		
 		
 		</p>

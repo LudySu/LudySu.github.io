@@ -7,7 +7,7 @@
     <title>对 Jacman 主题的一些个性化修改 | tsuinteru</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
-    <meta name="author" content="Ludy Su">
+    <meta name="author" content="双马尾魔法使">
     
 
     
@@ -83,7 +83,7 @@ banner 图片上的文字加阴影本博客 banner 图片搭配白色字体很�
   </h1>
   <p class="article-author">By
        
-		<a href="http://tsuinte.ru/about" title="Ludy Su" target="_blank" itemprop="author">Ludy Su</a>
+		<a href="http://tsuinte.ru/about" title="双马尾魔法使" target="_blank" itemprop="author">双马尾魔法使</a>
 		
   <p class="article-time">
     <time datetime="2015-05-03T11:17:57.000Z" itemprop="datePublished"> 发表于 2015-05-03</time>
@@ -108,6 +108,33 @@ banner 图片上的文字加阴影本博客 banner 图片搭配白色字体很�
 <figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="header">--- a/themes/jacman/_config.yml</span></span><br><span class="line"><span class="header">+++ b/themes/jacman/_config.yml</span></span><br><span class="line">@@ -85,6 +85,8 @@ jiathis:</span><br><span class="line">   enable: false ## if you use jiathis as your share tool,the built-in share tool won't be display.</span><br><span class="line">   id:    ## e.g. 1889330 your jiathis ID. </span><br><span class="line">   tsina: ## e.g. 2176287895 Your weibo id,It will be used in share button.</span><br><span class="line"><span class="addition">+jacmanshare:</span></span><br><span class="line"><span class="addition">+  enable: false ## jacman theme build-in share buttons</span></span><br><span class="line"> </span><br><span class="line"> #### Analytics</span><br><span class="line"> google_analytics:</span><br><span class="line">diff --git a/themes/jacman/layout/_partial/after_footer.ejs b/themes/jacman/layout/_partial/after_footer.ejs</span><br><span class="line">index 9ec284c..d3d9ba4 100644</span><br><span class="line"><span class="header">--- a/themes/jacman/layout/_partial/after_footer.ejs</span></span><br><span class="line"><span class="header">+++ b/themes/jacman/layout/_partial/after_footer.ejs</span></span><br><span class="line">@@ -80,7 +80,7 @@ $(document).ready(function()&#123;</span><br><span class="line"> &#125;);</span><br><span class="line"> &lt;/script&gt;</span><br><span class="line"> &lt;% &#125; %&gt;</span><br><span class="line"><span class="deletion">-&lt;% if ((page.layout=='post'||page.layout=='page'||page.layout=='photo')&amp;&amp;!theme.jiathis.enable) &#123; %&gt;</span></span><br><span class="line"><span class="addition">+&lt;% if ((page.layout=='post'||page.layout=='page'||page.layout=='photo')&amp;&amp;!theme.jiathis.enable&amp;&amp;theme.jacmanshare.enable) &#123; %&gt;</span></span><br><span class="line"> &lt;script type="text/javascript"&gt;</span><br><span class="line"> $(document).ready(function()&#123; </span><br><span class="line">   var $this = $('.share'),</span><br></pre></td></tr></table></figure>
 <h1 id="表格加边框">表格加边框</h1><p>默认的表格样式只有行边框，没有最外层边框和列边框，需要修改一下 <code>table</code> 样式；表头也加了个灰色的背景。注意的是 hexo 的代码块也是一个 table，需要特别设置，不然你的代码块也会有边框：</p>
 <figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="header">--- a/themes/jacman/source/css/_partial/article.styl</span></span><br><span class="line"><span class="header">+++ b/themes/jacman/source/css/_partial/article.styl</span></span><br><span class="line">@@ -181,16 +181,20 @@ article</span><br><span class="line">       max-width 100%</span><br><span class="line">       border-collapse collapse</span><br><span class="line">       border-spacing 0</span><br><span class="line"><span class="addition">+      border 1px solid lighten(color-gray,30%)</span></span><br><span class="line">       margin-top: 1em</span><br><span class="line">       th</span><br><span class="line">         font-weight bold</span><br><span class="line"><span class="deletion">-        border-bottom 2px solid lighten(color-gray,30%)</span></span><br><span class="line"><span class="addition">+        background-color lighten(color-gray,50%)</span></span><br><span class="line"><span class="addition">+        border 1px solid lighten(color-gray,30%)</span></span><br><span class="line">         padding 0.5em</span><br><span class="line">         line-height: 1.3em</span><br><span class="line">       td </span><br><span class="line"><span class="deletion">-        border-bottom 1px solid lighten(color-gray,30%)</span></span><br><span class="line"><span class="addition">+        border 1px solid lighten(color-gray,30%)</span></span><br><span class="line">         padding 0.5em</span><br><span class="line">         line-height: 1.3em</span><br><span class="line"><span class="addition">+    .highlight table</span></span><br><span class="line"><span class="addition">+      border none</span></span><br><span class="line">     .pullquote</span><br><span class="line">       text-align left</span><br><span class="line">       width 45%</span><br></pre></td></tr></table></figure>
+<p>最终效果是这样的：</p>
+<table>
+<thead>
+<tr>
+<th>Department</th>
+<th>Name</th>
+<th>Salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sales</td>
+<td>Henry</td>
+<td>80000</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>Max</td>
+<td>90000</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>Tom</td>
+<td>90000</td>
+</tr>
+</tbody>
+</table>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -179,11 +206,11 @@ banner 图片上的文字加阴影本博客 banner 图片搭配白色字体很�
 		<ul>
 		
 		  
-			<li><a href="/categories/Android-Debug-and-Profiling/" title="Android_Debug_and_Profiling">Android_Debug_and_Profiling<sup>1</sup></a></li>
+			<li><a href="/categories/Android-Debug-and-Profiling/" title="Android_Debug_and_Profiling">Android_Debug_and_Profiling<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>2</sup></a></li>
+			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>3</sup></a></li>
 		  
 		
 		</ul>
@@ -196,23 +223,23 @@ banner 图片上的文字加阴影本博客 banner 图片搭配白色字体很�
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>2</sup></a></li>
+				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/database/" title="database">database<sup>2</sup></a></li>
+				<li><a href="/tags/database/" title="database">database<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/debug/" title="debug">debug<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -263,7 +290,7 @@ banner 图片上的文字加阴影本博客 banner 图片搭配白色字体很�
 		<p class="copyright">
 		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
 		
-		<a href="http://tsuinte.ru/about" target="_blank" title="Ludy Su">Ludy Su</a>
+		<a href="http://tsuinte.ru/about" target="_blank" title="双马尾魔法使">双马尾魔法使</a>
 		
 		
 		</p>
