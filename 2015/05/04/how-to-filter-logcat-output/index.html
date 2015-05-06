@@ -121,6 +121,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb logcat | grep &#34;^..MyApp\|^..MyActivity&#34;&#10;adb logcat | grep -E &#34;^..MyApp|^..MyActivity&#34;  #&#20351;&#29992; egrep &#26080;&#39035;&#36716;&#20041;&#31526;</span><br></pre></td></tr></table></figure>
 <p><strong>NOTE</strong>: 不想每次都输入这么长命令的，可以在 .bashrc 配置文件中设置别名，还或者用 shell 脚本包装一下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># .bashrc&#10;alias grep=&#39;grep -E --color=auto -i&#39;&#10;alisa mylog=&#39;adb logcat | grep -E --color=auto -i&#39;</span><br></pre></td></tr></table></figure>
+<p><strong>NOTE</strong>: 如果还和其他管道命令串联使用则需要注意 buffer，默认是满了下一个管道才有数据输入。加入 <code>--line-buffered</code> 选项这样减小 grep 的 buffer：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb logcat | grep --line-buffered MyApp | tee aa.txt</span><br></pre></td></tr></table></figure>
 <h1 id="过滤不需要的输出，黑名单">过滤不需要的输出，黑名单</h1><p>还是使用 grep，用法也跟上面的一样，加一个 -v 即可。例如要过滤 tag 为 MyApp 和 MyActivity 的输出：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb logcat | grep -v &#34;^..MyApp\|^..MyActivity&#34;&#10;adb logcat | grep -vE &#34;^..MyApp|^..MyActivity&#34;  #&#20351;&#29992; egrep &#26080;&#39035;&#36716;&#20041;&#31526;</span><br></pre></td></tr></table></figure>
 <h1 id="显示同一个进程的所有输出">显示同一个进程的所有输出</h1><p>有时一个程序里面的 tag 有多个，需要输出该程序（同一个 PID）的所有 tag；仅使用 tag 过滤有时也会漏掉一些错误信息，而一般错误信息也是和程序同一个 PID。还是通过 grep 实现，思路是先根据包名找到 pid 号，然后匹配 pid。写成 shell 脚本如下，参数是程序的包名（如 com.android.media/mediaserver）。</p>
@@ -130,7 +132,7 @@
 <h1 id="过滤_log_文件">过滤 log 文件</h1><p>有时需要分析 log 文件，过滤 log 文件还是使用 grep。例如 log 文件为 myapp.log，要匹配 tag 为 MyApp 和 MyActivity 的输出，然后输出到 newmyapp.log：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat myapp.log | grep &#34;^..MyApp\|^..MyActivity&#34; &#62; newmyapp.log</span><br></pre></td></tr></table></figure>
 <p>Windows 下推荐使用 Notepad++，一个免费强大的记事本，支持正则表达式查找替换。可以高亮显示匹配内容，也可以删除不需要的内容。</p>
-<p>以上的技巧主要用到了 grep，其实 logcat 本身也有过滤功能，可以根据 tag、优先级过滤 log，具体请参考 Android 官方文档 <a href="http://developer.android.com/guide/developing/debugging/debugging-log.html" target="_blank" rel="external">Reading and Writing Logs</a>。如果喜欢使用图形界面，请参考 <a href="http://developer.android.com/guide/developing/debugging/ddms.html" target="_blank" rel="external">Using DDMS</a>，DDMS 里面的 logcat 也可以同样过滤。</p>
+<p>以上的技巧主要用到了 grep，其实 logcat 本身也有过滤功能，可以根据 tag、优先级过滤 log，但不如 grep 强大和方便，具体请参考 Android 官方文档 <a href="http://developer.android.com/guide/developing/debugging/debugging-log.html" target="_blank" rel="external">Reading and Writing Logs</a>。如果喜欢使用图形界面，请参考 <a href="http://developer.android.com/guide/developing/debugging/ddms.html" target="_blank" rel="external">Using DDMS</a>，DDMS 里面的 logcat 也可以同样过滤。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -166,6 +168,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2015/05/06/leetcode-database-196-delete-duplicate-emails/" title="Leetcode Database: #196 Delete Duplicate Emails">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Leetcode Database: #196 Delete Duplicate Emails</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2015/05/04/leetcode-database-184-department-highest-salary/"  title="Leetcode Database: #184 Department Highest Salary">
@@ -203,7 +213,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>3</sup></a></li>
+			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>4</sup></a></li>
 		  
 		
 		</ul>
@@ -216,11 +226,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>3</sup></a></li>
+				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/database/" title="database">database<sup>3</sup></a></li>
+				<li><a href="/tags/database/" title="database">database<sup>4</sup></a></li>
 			
 		
 			

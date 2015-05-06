@@ -4,28 +4,31 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Leetcode Database: #180 Consecutive Numbers | tsuinteru</title>
+    <title>Leetcode Database: #196 Delete Duplicate Emails | tsuinteru</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="双马尾魔法使">
     
 
     
-    <meta name="description" content="题目#180 Consecutive Numbers
-解题思路使用临时变量 prevVal 保存上一个 Num 值，然后使用临时变量 count 保存当前连续出现相同数字的次数。最外层 SELECT 再把 Num 这一列中 nowCount &amp;gt;= 3 的值取出。
-连续数字计数可使用 @count := IF(@prevVal = Num, @count + 1, 1) 条件，prevVal">
+    <meta name="description" content="题目#196 Delete Duplicate Emails
+解题思路奇怪的是这题标明难度是 EASY，但通过率却是倒数第三，看来不少人在这个坑离栽跟头。那我们换个思路不直接想如何 DELETE 重复值，而是先 SELECT 出我们需要的，非重复 Email 和其对应的最小 Id，然后把原表格中其他的数据删掉。
+注意事项
+不能在一个语句中既更改表中数据（DELETE/UPDATE）又在子查询语句中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode Database: #180 Consecutive Numbers">
-<meta property="og:url" content="http://tsuinte.ru/2015/05/03/leetcode-database-180-consecutive-numbers/index.html">
+<meta property="og:title" content="Leetcode Database: #196 Delete Duplicate Emails">
+<meta property="og:url" content="http://tsuinte.ru/2015/05/06/leetcode-database-196-delete-duplicate-emails/index.html">
 <meta property="og:site_name" content="tsuinteru">
-<meta property="og:description" content="题目#180 Consecutive Numbers
-解题思路使用临时变量 prevVal 保存上一个 Num 值，然后使用临时变量 count 保存当前连续出现相同数字的次数。最外层 SELECT 再把 Num 这一列中 nowCount &amp;gt;= 3 的值取出。
-连续数字计数可使用 @count := IF(@prevVal = Num, @count + 1, 1) 条件，prevVal">
+<meta property="og:description" content="题目#196 Delete Duplicate Emails
+解题思路奇怪的是这题标明难度是 EASY，但通过率却是倒数第三，看来不少人在这个坑离栽跟头。那我们换个思路不直接想如何 DELETE 重复值，而是先 SELECT 出我们需要的，非重复 Email 和其对应的最小 Id，然后把原表格中其他的数据删掉。
+注意事项
+不能在一个语句中既更改表中数据（DELETE/UPDATE）又在子查询语句中">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode Database: #180 Consecutive Numbers">
-<meta name="twitter:description" content="题目#180 Consecutive Numbers
-解题思路使用临时变量 prevVal 保存上一个 Num 值，然后使用临时变量 count 保存当前连续出现相同数字的次数。最外层 SELECT 再把 Num 这一列中 nowCount &amp;gt;= 3 的值取出。
-连续数字计数可使用 @count := IF(@prevVal = Num, @count + 1, 1) 条件，prevVal">
+<meta name="twitter:title" content="Leetcode Database: #196 Delete Duplicate Emails">
+<meta name="twitter:description" content="题目#196 Delete Duplicate Emails
+解题思路奇怪的是这题标明难度是 EASY，但通过率却是倒数第三，看来不少人在这个坑离栽跟头。那我们换个思路不直接想如何 DELETE 重复值，而是先 SELECT 出我们需要的，非重复 Email 和其对应的最小 Id，然后把原表格中其他的数据删掉。
+注意事项
+不能在一个语句中既更改表中数据（DELETE/UPDATE）又在子查询语句中">
 
     
     <link rel="alternative" href="/atom.xml" title="tsuinteru" type="application/atom+xml">
@@ -79,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/05/03/leetcode-database-180-consecutive-numbers/" title="Leetcode Database: #180 Consecutive Numbers" itemprop="url">Leetcode Database: #180 Consecutive Numbers</a>
+      <a href="/2015/05/06/leetcode-database-196-delete-duplicate-emails/" title="Leetcode Database: #196 Delete Duplicate Emails" itemprop="url">Leetcode Database: #196 Delete Duplicate Emails</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://tsuinte.ru/about" title="双马尾魔法使" target="_blank" itemprop="author">双马尾魔法使</a>
 		
   <p class="article-time">
-    <time datetime="2015-05-03T12:43:50.000Z" itemprop="datePublished"> 发表于 2015-05-03</time>
+    <time datetime="2015-05-06T05:33:30.000Z" itemprop="datePublished"> 发表于 2015-05-06</time>
     
   </p>
 </header>
@@ -99,90 +102,60 @@
 		
 		</div>
 		
-		<h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/consecutive-numbers/" target="_blank" rel="external">#180 Consecutive Numbers</a></p>
-<h1 id="解题思路">解题思路</h1><p>使用临时变量 <code>prevVal</code> 保存上一个 <code>Num</code> 值，然后使用临时变量 <code>count</code> 保存当前连续出现相同数字的次数。最外层 SELECT 再把 <code>Num</code> 这一列中 <strong>nowCount &gt;= 3</strong> 的值取出。</p>
-<p>连续数字计数可使用 <code>@count := IF(@prevVal = Num, @count + 1, 1)</code> 条件，<code>prevVal</code> 若为 <code>NULL</code>，等式不成立 <code>count</code> 初始化为 1；若 <code>prevVal</code> 是正常值则正常比较，现在值等于前值则加 1，否则初始化为 1。</p>
-<p>这里如果用 <code>CASE WHEN</code> 则代码会长一些：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CASE</span><br><span class="line">    WHEN @prevVal = Num THEN @count:=@count + 1</span><br><span class="line">    ELSE @count:=1</span><br><span class="line"><span class="operator"><span class="keyword">END</span> <span class="keyword">AS</span> nowCount</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+		<h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/delete-duplicate-emails/" target="_blank" rel="external">#196 Delete Duplicate Emails</a></p>
+<h1 id="解题思路">解题思路</h1><p>奇怪的是这题标明难度是 EASY，但通过率却是倒数第三，看来不少人在这个坑离栽跟头。那我们换个思路不直接想如何 DELETE 重复值，而是<strong>先 SELECT 出我们需要的</strong>，非重复 Email 和其对应的最小 Id，然后把原表格中其他的数据删掉。</p>
 <h1 id="注意事项">注意事项</h1><ul>
-<li><p>刚开始没理解题目意思是要<strong>连续出现</strong>的数字，使用这样的查询结果答案是错误的 <code>SELECT Num FROM Logs GROUP BY Num HAVING COUNT(Num) &gt;= 3</code></p>
+<li><p>不能在一个语句中既更改表中数据（DELETE/UPDATE）又在子查询语句中 SELECT 该表。例如这样是不允许的 <code>DELETE FROM Person WHERE Id IN (SELECT Id FROM Person)</code>，会报错。</p>
 <blockquote>
-<p>找方法判断这些数字是连续</p>
-</blockquote>
-</li>
-<li><p>有一个测试案例是：某个数字连续出现 3 次，接着是其他数字，然后又连续出现三次。这时结果中这个数字会出现两次。</p>
-<blockquote>
-<p>加上 <code>DISTINCT Num</code>，相同数字只取一个</p>
+<p>有一个 trick，可以再加一层 SELECT 把这个结果变成一个临时表。那么 MySQL 就会先运行子查询语句生成临时表，这样就和你真正要 DELETE 的表不算同一个表了。</p>
 </blockquote>
 </li>
 </ul>
-<h1 id="构造测试数据">构造测试数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">Logs</span> (</span><br><span class="line">    Id <span class="built_in">INT</span>,</span><br><span class="line">    Num <span class="built_in">INT</span></span><br><span class="line">);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 比题目中增加了一些容易出错的用例</span></span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">Logs</span> <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">3</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">4</span>, <span class="number">2</span>),</span><br><span class="line">(<span class="number">5</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">6</span>, <span class="number">2</span>),</span><br><span class="line">(<span class="number">7</span>, <span class="number">2</span>),</span><br><span class="line">(<span class="number">8</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">9</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">10</span>, <span class="number">1</span>);</span></span><br></pre></td></tr></table></figure>
-<h1 id="一种答案">一种答案</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span></span><br><span class="line">    Num</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    (<span class="keyword">SELECT</span> </span><br><span class="line">        Num,</span><br><span class="line">            @<span class="keyword">count</span>:=<span class="keyword">IF</span>(@prevVal = Num, @<span class="keyword">count</span> + <span class="number">1</span>, <span class="number">1</span>) <span class="keyword">AS</span> nowCount,</span><br><span class="line">            @prevVal:=Num</span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        <span class="keyword">Logs</span>, (<span class="keyword">SELECT</span> @prevVal:=<span class="literal">NULL</span>) tmpVar) tmpTable</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    nowCount &gt;= <span class="number">3</span></span></span><br></pre></td></tr></table></figure>
-<p>其中内层查询得到临时表 <code>tmpTable</code> 的语句为：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    Num,</span><br><span class="line">    @<span class="keyword">count</span>:=<span class="keyword">IF</span>(@prevVal = Num, @<span class="keyword">count</span> + <span class="number">1</span>, <span class="number">1</span>) <span class="keyword">AS</span> nowCount,</span><br><span class="line">    @prevVal:=Num</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    <span class="keyword">Logs</span>,</span><br><span class="line">    (<span class="keyword">SELECT</span> @prevVal:=<span class="literal">NULL</span>) tmpVar</span></span><br></pre></td></tr></table></figure>
-<p>内层查询得到的结果为：</p>
+<a id="more"></a>
+<h1 id="构造测试数据">构造测试数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Person (</span><br><span class="line">    Id <span class="built_in">INT</span>,</span><br><span class="line">    Email <span class="built_in">VARCHAR</span>(<span class="number">100</span>)</span><br><span class="line">);</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Person;</span></span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Person <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="string">'john@example.com'</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="string">'bob@example.com'</span>),</span><br><span class="line">(<span class="number">3</span>, <span class="string">'john@example.com'</span>);</span></span><br></pre></td></tr></table></figure>
+<p>预期运行后 Person 表数据：</p>
 <table>
 <thead>
 <tr>
-<th>Num</th>
-<th>nowCount</th>
-<th>@prevVal:=Num</th>
+<th>min(Id)</th>
+<th>Email</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>1</td>
-<td>1</td>
+<td>2</td>
+<td>bob@example.com</td>
 </tr>
 <tr>
 <td>1</td>
-<td>2</td>
-<td>1</td>
-</tr>
-<tr>
-<td>1</td>
-<td>3</td>
-<td>1</td>
-</tr>
-<tr>
-<td>2</td>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>2</td>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr>
-<td>2</td>
-<td>2</td>
-<td>2</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>1</td>
-<td>2</td>
-<td>1</td>
-</tr>
-<tr>
-<td>1</td>
-<td>3</td>
-<td>1</td>
+<td>john@example.com</td>
 </tr>
 </tbody>
 </table>
+<h1 id="一种答案">一种答案</h1><p>完整答案：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Person </span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    Person.Id <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="keyword">SELECT</span> </span><br><span class="line">        minId</span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        (<span class="keyword">SELECT</span> </span><br><span class="line">            <span class="keyword">MIN</span>(Id) <span class="keyword">AS</span> minId, Email</span><br><span class="line">        <span class="keyword">FROM</span></span><br><span class="line">            Person</span><br><span class="line">        <span class="keyword">GROUP</span> <span class="keyword">BY</span> Email) <span class="keyword">AS</span> tmp);</span></span><br></pre></td></tr></table></figure>
+<p>接着我们分步看，第一步是找出需要保留的行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="keyword">MIN</span>(Id) <span class="keyword">AS</span> minId, Email</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Person</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Email</span></span><br></pre></td></tr></table></figure>
+<p>运行结果，其实这就是我们想要的 Person 表的最终样子嘛</p>
+<table>
+<thead>
+<tr>
+<th>min(Id)</th>
+<th>Email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>bob@example.com</td>
+</tr>
+<tr>
+<td>1</td>
+<td>john@example.com</td>
+</tr>
+</tbody>
+</table>
+<p>第二步删除表中不是我们要保留的行（NOT IN），也就是重复值。但由于语法限制需要多一层 SELECT 来构建临时表 tmp。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -205,7 +178,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://tsuinte.ru/2015/05/03/leetcode-database-180-consecutive-numbers/" data-title="Leetcode Database: #180 Consecutive Numbers | tsuinteru" data-tsina="null" class="share clearfix">
+	  <div data-url="http://tsuinte.ru/2015/05/06/leetcode-database-196-delete-duplicate-emails/" data-title="Leetcode Database: #196 Delete Duplicate Emails | tsuinteru" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -218,19 +191,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/05/04/leetcode-database-184-department-highest-salary/" title="Leetcode Database: #184 Department Highest Salary">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Leetcode Database: #184 Department Highest Salary</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/05/03/jacman-theme-customizations/"  title="对 Jacman 主题的一些个性化修改">
+<a href="/2015/05/04/how-to-filter-logcat-output/"  title="如何过滤 adb logcat 输出">
  <strong>下一篇：</strong><br/> 
- <span>对 Jacman 主题的一些个性化修改
+ <span>如何过滤 adb logcat 输出
 </span>
 </a>
 </div>
