@@ -89,7 +89,7 @@
     <div class="article-content">
         
         <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/delete-duplicate-emails/">#196 Delete Duplicate Emails</a></p>
-<h1 id="解题思路">解题思路</h1><p>奇怪的是这题标明难度是 EASY，但通过率却是倒数第三，看来不少人在这个坑离栽跟头。那我们换个思路不直接想如何 DELETE 重复值，而是<strong>先 SELECT 出我们需要的</strong>，非重复 Email 和其对应的最小 Id，然后把原表格中其他的数据删掉。</p>
+<h1 id="解题思路">解题思路</h1><p>奇怪的是这题标明难度是 EASY，但通过率却是倒数第三，看来不少人在这个坑栽跟头。那我们换个思路不直接想如何 DELETE 重复值，而是<strong>先 SELECT 出我们需要的</strong>，非重复 Email 和其对应的最小 Id，然后把原表格中其他的数据删掉。</p>
 <h1 id="注意事项">注意事项</h1><ul>
 <li><p>不能在一个语句中既更改表中数据（DELETE/UPDATE）又在子查询语句中 SELECT 该表。例如这样是不允许的 <code>DELETE FROM Person WHERE Id IN (SELECT Id FROM Person)</code>，会报错。</p>
 <blockquote>
