@@ -75,6 +75,81 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/05/09/leetcode-database-185-department-top3-salaries/" title="Leetcode Database: #185 Department Top Three Salaries" itemprop="url">Leetcode Database: #185 Department Top Three Salaries</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="双马尾魔法使" target="_blank" itemprop="author">双马尾魔法使</a>
+		
+  <p class="article-time">
+    <time datetime="2015-05-08T16:50:42.000Z" itemprop="datePublished"> 发表于 2015-05-09</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/department-top-three-salaries/">#185 Department Top Three Salaries</a></p>
+<h1 id="注意事项">注意事项</h1><ul>
+<li><p>Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 Salary 排名是 2</p>
+<blockquote>
+<p>所以计算排名的方法有三种情况</p>
+</blockquote>
+</li>
+<li><p>第一步中不能直接 <code>WHERE RowNumber &lt;= 3</code>，因为 SQL 计算顺序是 <code>FROM &gt; WHERE &gt; GROUP BY &gt; HAVING &gt; SELECT &gt; ORDER BY</code></p>
+<blockquote>
+<p>临时列 RowNumber 在<strong>计算 WHERE 时这个列尚未生成</strong>，所以需要再在外层 SELECT 一次</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="解题思路&amp;一种答案">解题思路&amp;一种答案</h1><h2 id="第一步">第一步</h2><p>这题和前面一题 Department Highest Salary 比较类似，我们慢慢分步解决，首先是找出各组前 3 大值。这里我们要老实的用自定义变量做 ROW_NUMBER。</p>
+<p>排名要考虑三种情况，当 grpId 变化时，RowNumber 重置为 1；当 Salary 值小于前值，RowNumber + 1；当 Salary 等于前值，RowNumber 不变。所以需要使用 <code>CASE WHEN</code>。</p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/05/09/leetcode-database-185-department-top3-salaries/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/05/06/leetcode-database-196-delete-duplicate-emails/" title="Leetcode Database: #196 Delete Duplicate Emails" itemprop="url">Leetcode Database: #196 Delete Duplicate Emails</a>
   </h1>
   <p class="article-author">By
@@ -538,7 +613,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>4</sup></a></li>
+			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>5</sup></a></li>
 		  
 		
 		</ul>
@@ -551,11 +626,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>4</sup></a></li>
+				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>5</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/database/" title="database">database<sup>4</sup></a></li>
+				<li><a href="/tags/database/" title="database">database<sup>5</sup></a></li>
 			
 		
 			
