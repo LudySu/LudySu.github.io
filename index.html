@@ -176,8 +176,6 @@
 </blockquote>
 </li>
 </ul>
-<h1 id="解题思路&amp;一种答案">解题思路&amp;一种答案</h1><h2 id="第一步">第一步</h2><p>这题和前面一题 Department Highest Salary 比较类似，我们慢慢分步解决，首先是找出各组前 3 大值。这里我们要老实的用自定义变量做 ROW_NUMBER。</p>
-<p>排名要考虑三种情况，当 grpId 变化时，RowNumber 重置为 1；当 Salary 值小于前值，RowNumber + 1；当 Salary 等于前值，RowNumber 不变。所以需要使用 <code>CASE WHEN</code>。</p>
         
         
         <p class="article-more-link">
@@ -670,6 +668,72 @@
 
 
 
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/07/leetcode-database-181-employees-earning-more/" title="Leetcode Database: #181 Employees Earning More Than Their Managers" itemprop="url">Leetcode Database: #181 Employees Earning More Than Their Managers</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="双马尾魔法使" target="_blank" itemprop="author">双马尾魔法使</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-07T05:17:07.000Z" itemprop="datePublished"> 发表于 2015-04-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/employees-earning-more-than-their-managers/">#181 Employees Earning More Than Their Managers</a></p>
+<h1 id="解题思路">解题思路</h1><p>这是成功率最高的一题。需要想办法查找出某人对应 Manager 的 Salary，并放在同一个表中，然后比较 Salary 就很方便了。可以利用 <code>INNER JOIN</code></p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/04/07/leetcode-database-181-employees-earning-more/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+  </nav>
 
 </div>
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
@@ -688,7 +752,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>6</sup></a></li>
+			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>9</sup></a></li>
 		  
 		
 		</ul>
@@ -701,11 +765,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>6</sup></a></li>
+				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>9</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/database/" title="database">database<sup>6</sup></a></li>
+				<li><a href="/tags/database/" title="database">database<sup>9</sup></a></li>
 			
 		
 			
