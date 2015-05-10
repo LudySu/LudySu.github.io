@@ -4,29 +4,43 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Leetcode Database: #175 Combine Two Tables | tsuinteru</title>
+    <title>Leetcode Database: 题目总结 | tsuinteru</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="双马尾魔法使">
     
 
     
-    <meta name="description" content="题目#175 Combine Two Tables
-解题思路这题比较简单，数据来源于两个表很自然就想到需要用某种 JOIN。题目中说到无论 Address 表有无那个人对应记录都应该列出来，说明应该用 LEFT JOIN
-The Code Project 有一张关于各种 JOIN 的可视化解释">
+    <meta name="description" content="一些注意事项
+Leetcode 不支持 T-SQL，也就是说答案只能在一个 SQL 语句中
+
+熟悉其他数据库例如 Oracle、MS SQL 的，注意 MySQL 某些特性（analytic function）可能缺失，也可能对标准 SQL 进行了扩展（GROUP BY）
+
+注意题目中得特殊要求和边界条件
+
+复杂的问题一般需要多个 subquery 语句，MySQL 中要求每个 subquery">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode Database: #175 Combine Two Tables">
-<meta property="og:url" content="http://tsuinte.ru/2015/04/04/leetcode-database-175-combine-2tables/index.html">
+<meta property="og:title" content="Leetcode Database: 题目总结">
+<meta property="og:url" content="http://tsuinte.ru/2015/05/10/leetcode-database-summary/index.html">
 <meta property="og:site_name" content="tsuinteru">
-<meta property="og:description" content="题目#175 Combine Two Tables
-解题思路这题比较简单，数据来源于两个表很自然就想到需要用某种 JOIN。题目中说到无论 Address 表有无那个人对应记录都应该列出来，说明应该用 LEFT JOIN
-The Code Project 有一张关于各种 JOIN 的可视化解释">
-<meta property="og:image" content="http://www.codeproject.com/KB/database/Visual_SQL_Joins/Visual_SQL_JOINS_V2.png">
+<meta property="og:description" content="一些注意事项
+Leetcode 不支持 T-SQL，也就是说答案只能在一个 SQL 语句中
+
+熟悉其他数据库例如 Oracle、MS SQL 的，注意 MySQL 某些特性（analytic function）可能缺失，也可能对标准 SQL 进行了扩展（GROUP BY）
+
+注意题目中得特殊要求和边界条件
+
+复杂的问题一般需要多个 subquery 语句，MySQL 中要求每个 subquery">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode Database: #175 Combine Two Tables">
-<meta name="twitter:description" content="题目#175 Combine Two Tables
-解题思路这题比较简单，数据来源于两个表很自然就想到需要用某种 JOIN。题目中说到无论 Address 表有无那个人对应记录都应该列出来，说明应该用 LEFT JOIN
-The Code Project 有一张关于各种 JOIN 的可视化解释">
+<meta name="twitter:title" content="Leetcode Database: 题目总结">
+<meta name="twitter:description" content="一些注意事项
+Leetcode 不支持 T-SQL，也就是说答案只能在一个 SQL 语句中
+
+熟悉其他数据库例如 Oracle、MS SQL 的，注意 MySQL 某些特性（analytic function）可能缺失，也可能对标准 SQL 进行了扩展（GROUP BY）
+
+注意题目中得特殊要求和边界条件
+
+复杂的问题一般需要多个 subquery 语句，MySQL 中要求每个 subquery">
 
     
     <link rel="alternative" href="/atom.xml" title="tsuinteru" type="application/atom+xml">
@@ -80,14 +94,14 @@ The Code Project 有一张关于各种 JOIN 的可视化解释">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/04/04/leetcode-database-175-combine-2tables/" title="Leetcode Database: #175 Combine Two Tables" itemprop="url">Leetcode Database: #175 Combine Two Tables</a>
+      <a href="/2015/05/10/leetcode-database-summary/" title="Leetcode Database: 题目总结" itemprop="url">Leetcode Database: 题目总结</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://tsuinte.ru/about" title="双马尾魔法使" target="_blank" itemprop="author">双马尾魔法使</a>
 		
   <p class="article-time">
-    <time datetime="2015-04-04T05:50:37.000Z" itemprop="datePublished"> 发表于 2015-04-04</time>
+    <time datetime="2015-05-10T12:18:24.000Z" itemprop="datePublished"> 发表于 2015-05-10</time>
     
   </p>
 </header>
@@ -96,17 +110,35 @@ The Code Project 有一张关于各种 JOIN 的可视化解释">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解题思路"><span class="toc-number">2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一种答案"><span class="toc-number">3.</span> <span class="toc-text">一种答案</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一些注意事项"><span class="toc-number">1.</span> <span class="toc-text">一些注意事项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题目分类"><span class="toc-number">2.</span> <span class="toc-text">题目分类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础语法"><span class="toc-number">2.1.</span> <span class="toc-text">基础语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JOIN"><span class="toc-number">2.2.</span> <span class="toc-text">JOIN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ranking"><span class="toc-number">2.3.</span> <span class="toc-text">Ranking</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/combine-two-tables/" target="_blank" rel="external">#175 Combine Two Tables</a></p>
-<h1 id="解题思路">解题思路</h1><p>这题比较简单，数据来源于两个表很自然就想到需要用某种 JOIN。题目中说到无论 Address 表有无那个人对应记录都应该列出来，说明应该用 <code>LEFT JOIN</code></p>
-<p><a href="http://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins" target="_blank" rel="external">The Code Project</a> 有一张关于各种 JOIN 的可视化解释</p>
-<p><img src="http://www.codeproject.com/KB/database/Visual_SQL_Joins/Visual_SQL_JOINS_V2.png" alt="Visual_SQL_Joins"></p>
+		<h1 id="一些注意事项">一些注意事项</h1><ul>
+<li><p>Leetcode 不支持 T-SQL，也就是说答案只能在一个 SQL 语句中</p>
+</li>
+<li><p>熟悉其他数据库例如 Oracle、MS SQL 的，注意 MySQL 某些特性（analytic function）可能缺失，也可能对标准 SQL 进行了扩展（GROUP BY）</p>
+</li>
+<li><p>注意题目中得特殊要求和边界条件</p>
+</li>
+<li><p>复杂的问题一般需要多个 subquery 语句，MySQL 中要求每个 subquery 都命名。</p>
+</li>
+</ul>
 <a id="more"></a>
-<h1 id="一种答案">一种答案</h1><p>完整答案</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Runtime: 1058 ms</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    FirstName, LastName, Address.City, Address.State</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Person</span><br><span class="line">        <span class="keyword">LEFT</span> <span class="keyword">JOIN</span></span><br><span class="line">    Address <span class="keyword">ON</span> Person.PersonId = Address.PersonId</span></span><br></pre></td></tr></table></figure>
+<h1 id="题目分类">题目分类</h1><p>很多题目有多种解法，这里是按照我自己的解法做的分类，肯定存在其他分类方法。</p>
+<h2 id="基础语法">基础语法</h2><p><a href="/2015/04/03/leetcode-database-182-duplicate-emails/">#182 Duplicate Emails</a></p>
+<p><a href="/2015/05/04/leetcode-database-184-department-highest-salary/">#184 Department Highest Salary</a></p>
+<p><a href="/2015/05/06/leetcode-database-196-delete-duplicate-emails/">#196 Delete Duplicate Emails</a></p>
+<h2 id="JOIN">JOIN</h2><p>了解各种 JOIN 的区别，#175 当中有一张可视图总结各种 JOIN 的区别。</p>
+<p><a href="/2015/04/04/leetcode-database-175-combine-2tables/">#175 Combine Two Tables</a></p>
+<p><a href="/2015/04/07/leetcode-database-181-employees-earning-more/">#181 Employees Earning More Than Their Managers</a></p>
+<p><a href="/2015/04/04/leetcode-database-183-customers-who-never-order/">#183 Customers Who Never Order</a></p>
+<h2 id="Ranking">Ranking</h2><p>懂得用自定义变量实现 Ranking，#177 中有这类问题的典型解法。</p>
+<p><a href="/2015/04/05/leetcode-database-176-second-highest-salary/">#176 Second Highest Salary</a></p>
+<p><a href="/2015/05/09/leetcode-database-177-nth-highest-salary/">#177 Nth Highest Salary</a></p>
+<p><a href="/2015/05/03/leetcode-database-180-consecutive-numbers/">#180 Consecutive Numbers</a></p>
+<p><a href="/2015/05/09/leetcode-database-185-department-top3-salaries/">#185 Department Top Three Salaries</a></p>
+<p><a href="/2015/04/28/leetcode-database-197-rising-temperature/">#197 Rising Temperature</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -129,7 +161,7 @@ The Code Project 有一张关于各种 JOIN 的可视化解释">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://tsuinte.ru/2015/04/04/leetcode-database-175-combine-2tables/" data-title="Leetcode Database: #175 Combine Two Tables | tsuinteru" data-tsina="null" class="share clearfix">
+	  <div data-url="http://tsuinte.ru/2015/05/10/leetcode-database-summary/" data-title="Leetcode Database: 题目总结 | tsuinteru" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -142,19 +174,11 @@ The Code Project 有一张关于各种 JOIN 的可视化解释">
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/04/04/leetcode-database-183-customers-who-never-order/" title="Leetcode Database: #183 Customers Who Never Order">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Leetcode Database: #183 Customers Who Never Order</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/04/03/leetcode-database-182-duplicate-emails/"  title="Leetcode Database: #182 Duplicate Emails">
+<a href="/2015/05/09/leetcode-database-177-nth-highest-salary/"  title="Leetcode Database: #177 Nth Highest Salary">
  <strong>下一篇：</strong><br/> 
- <span>Leetcode Database: #182 Duplicate Emails
+ <span>Leetcode Database: #177 Nth Highest Salary
 </span>
 </a>
 </div>
@@ -169,7 +193,7 @@ The Code Project 有一张关于各种 JOIN 的可视化解释">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解题思路"><span class="toc-number">2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一种答案"><span class="toc-number">3.</span> <span class="toc-text">一种答案</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一些注意事项"><span class="toc-number">1.</span> <span class="toc-text">一些注意事项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题目分类"><span class="toc-number">2.</span> <span class="toc-text">题目分类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础语法"><span class="toc-number">2.1.</span> <span class="toc-text">基础语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JOIN"><span class="toc-number">2.2.</span> <span class="toc-text">JOIN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ranking"><span class="toc-number">2.3.</span> <span class="toc-text">Ranking</span></a></li></ol></li></ol>
  
   </div>
 

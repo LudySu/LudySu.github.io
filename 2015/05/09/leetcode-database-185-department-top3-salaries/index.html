@@ -202,7 +202,7 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 </tr>
 </tbody>
 </table>
-<h2 id="第二步">第二步</h2><p>我们还需要对应的 Department.Name，那就再和 Department 表 INNER JOIN 一次；我们还需要对筛选第一步的结果，只要 RowNumber &lt;= 3。这两个操作可以在一个 SELECT 当中完成，就是最终结果：</p>
+<h2 id="第二步">第二步</h2><p>我们还需要对应的 Department.Name，那就再和 Department 表 INNER JOIN 一次；我们还需要对筛选第一步的结果，只要 RowNumber &lt;= 3。这两个操作可以在一个 SELECT 当中完成，就是最终结果。这个答案可以推广到 TOP N 或者 Nth，分别把条件改为 <code>RowNumber &lt;= N</code> 或 <code>RowNumber = N</code> 即可，所以也适合题目 <a href="https://leetcode.com/problems/department-top-three-salaries/" target="_blank" rel="external">#185 Department Top Three Salaries</a></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Runtime: 1206 ms</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    dep.Name <span class="keyword">AS</span> Department, tmp.Name <span class="keyword">AS</span> Employee, Salary</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Department dep</span><br><span class="line">        <span class="keyword">INNER</span> <span class="keyword">JOIN</span></span><br><span class="line">    (<span class="keyword">SELECT</span> </span><br><span class="line">        Id,</span><br><span class="line">            Salary,</span><br><span class="line">            Name,</span><br><span class="line">            DepartmentId,</span><br><span class="line">            <span class="keyword">CASE</span></span><br><span class="line">                <span class="keyword">WHEN</span></span><br><span class="line">                    @grpId = DepartmentId</span><br><span class="line">                        <span class="keyword">AND</span> Salary &lt; @prevVal</span><br><span class="line">                <span class="keyword">THEN</span></span><br><span class="line">                    @rowNumber:=@rowNumber + <span class="number">1</span></span><br><span class="line">                <span class="keyword">WHEN</span></span><br><span class="line">                    @grpId = DepartmentId</span><br><span class="line">                        <span class="keyword">AND</span> Salary &gt;= @prevVal</span><br><span class="line">                <span class="keyword">THEN</span></span><br><span class="line">                    @rowNumber:=@rowNumber</span><br><span class="line">                <span class="keyword">ELSE</span> @rowNumber:=<span class="number">1</span></span><br><span class="line">            <span class="keyword">END</span> RowNumber,</span><br><span class="line">            @grpId:=DepartmentId,</span><br><span class="line">            @prevVal:=Salary</span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        Employee, (<span class="keyword">SELECT</span> @rowNumber:=<span class="number">1</span>) x, (<span class="keyword">SELECT</span> @grpId:=<span class="literal">NULL</span>) y, (<span class="keyword">SELECT</span> @prevVal:=<span class="literal">NULL</span>) z</span><br><span class="line">    <span class="keyword">ORDER</span> <span class="keyword">BY</span> DepartmentId , Salary <span class="keyword">DESC</span>) tmp <span class="keyword">ON</span> tmp.DepartmentId = dep.Id</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    RowNumber &lt;= <span class="number">3</span></span></span><br></pre></td></tr></table></figure>
 <p>得到预期答案：</p>
 <table>
@@ -327,7 +327,7 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 		  
 		
 		  
-			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>9</sup></a></li>
+			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>13</sup></a></li>
 		  
 		
 		</ul>
@@ -340,11 +340,11 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>9</sup></a></li>
+				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>13</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/database/" title="database">database<sup>9</sup></a></li>
+				<li><a href="/tags/database/" title="database">database<sup>13</sup></a></li>
 			
 		
 			

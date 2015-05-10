@@ -4,29 +4,25 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Leetcode Database: #175 Combine Two Tables | tsuinteru</title>
+    <title>Leetcode Database: #183 Customers Who Never Order | tsuinteru</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="双马尾魔法使">
     
 
     
-    <meta name="description" content="题目#175 Combine Two Tables
-解题思路这题比较简单，数据来源于两个表很自然就想到需要用某种 JOIN。题目中说到无论 Address 表有无那个人对应记录都应该列出来，说明应该用 LEFT JOIN
-The Code Project 有一张关于各种 JOIN 的可视化解释">
+    <meta name="description" content="题目#183 Customers Who Never Order
+解题思路依然是 JOIN 类问题。需要找出 Customers 表中存在但 Orders 中不存在的行，那么应该用 LEFT JOIN，并且添加条件 WHERE Orders.CustomerId IS NULL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode Database: #175 Combine Two Tables">
-<meta property="og:url" content="http://tsuinte.ru/2015/04/04/leetcode-database-175-combine-2tables/index.html">
+<meta property="og:title" content="Leetcode Database: #183 Customers Who Never Order">
+<meta property="og:url" content="http://tsuinte.ru/2015/04/04/leetcode-database-183-customers-who-never-order/index.html">
 <meta property="og:site_name" content="tsuinteru">
-<meta property="og:description" content="题目#175 Combine Two Tables
-解题思路这题比较简单，数据来源于两个表很自然就想到需要用某种 JOIN。题目中说到无论 Address 表有无那个人对应记录都应该列出来，说明应该用 LEFT JOIN
-The Code Project 有一张关于各种 JOIN 的可视化解释">
-<meta property="og:image" content="http://www.codeproject.com/KB/database/Visual_SQL_Joins/Visual_SQL_JOINS_V2.png">
+<meta property="og:description" content="题目#183 Customers Who Never Order
+解题思路依然是 JOIN 类问题。需要找出 Customers 表中存在但 Orders 中不存在的行，那么应该用 LEFT JOIN，并且添加条件 WHERE Orders.CustomerId IS NULL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode Database: #175 Combine Two Tables">
-<meta name="twitter:description" content="题目#175 Combine Two Tables
-解题思路这题比较简单，数据来源于两个表很自然就想到需要用某种 JOIN。题目中说到无论 Address 表有无那个人对应记录都应该列出来，说明应该用 LEFT JOIN
-The Code Project 有一张关于各种 JOIN 的可视化解释">
+<meta name="twitter:title" content="Leetcode Database: #183 Customers Who Never Order">
+<meta name="twitter:description" content="题目#183 Customers Who Never Order
+解题思路依然是 JOIN 类问题。需要找出 Customers 表中存在但 Orders 中不存在的行，那么应该用 LEFT JOIN，并且添加条件 WHERE Orders.CustomerId IS NULL">
 
     
     <link rel="alternative" href="/atom.xml" title="tsuinteru" type="application/atom+xml">
@@ -80,14 +76,14 @@ The Code Project 有一张关于各种 JOIN 的可视化解释">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/04/04/leetcode-database-175-combine-2tables/" title="Leetcode Database: #175 Combine Two Tables" itemprop="url">Leetcode Database: #175 Combine Two Tables</a>
+      <a href="/2015/04/04/leetcode-database-183-customers-who-never-order/" title="Leetcode Database: #183 Customers Who Never Order" itemprop="url">Leetcode Database: #183 Customers Who Never Order</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://tsuinte.ru/about" title="双马尾魔法使" target="_blank" itemprop="author">双马尾魔法使</a>
 		
   <p class="article-time">
-    <time datetime="2015-04-04T05:50:37.000Z" itemprop="datePublished"> 发表于 2015-04-04</time>
+    <time datetime="2015-04-04T05:57:49.000Z" itemprop="datePublished"> 发表于 2015-04-04</time>
     
   </p>
 </header>
@@ -100,13 +96,11 @@ The Code Project 有一张关于各种 JOIN 的可视化解释">
 		
 		</div>
 		
-		<h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/combine-two-tables/" target="_blank" rel="external">#175 Combine Two Tables</a></p>
-<h1 id="解题思路">解题思路</h1><p>这题比较简单，数据来源于两个表很自然就想到需要用某种 JOIN。题目中说到无论 Address 表有无那个人对应记录都应该列出来，说明应该用 <code>LEFT JOIN</code></p>
-<p><a href="http://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins" target="_blank" rel="external">The Code Project</a> 有一张关于各种 JOIN 的可视化解释</p>
-<p><img src="http://www.codeproject.com/KB/database/Visual_SQL_Joins/Visual_SQL_JOINS_V2.png" alt="Visual_SQL_Joins"></p>
+		<h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/customers-who-never-order/" target="_blank" rel="external">#183 Customers Who Never Order</a></p>
+<h1 id="解题思路">解题思路</h1><p>依然是 JOIN 类问题。需要找出 Customers 表中存在但 Orders 中不存在的行，那么应该用 <code>LEFT JOIN</code>，并且添加条件 <code>WHERE Orders.CustomerId IS NULL</code></p>
 <a id="more"></a>
 <h1 id="一种答案">一种答案</h1><p>完整答案</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Runtime: 1058 ms</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    FirstName, LastName, Address.City, Address.State</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Person</span><br><span class="line">        <span class="keyword">LEFT</span> <span class="keyword">JOIN</span></span><br><span class="line">    Address <span class="keyword">ON</span> Person.PersonId = Address.PersonId</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Runtime: 819 ms</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    Name</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Customers</span><br><span class="line">        <span class="keyword">LEFT</span> <span class="keyword">JOIN</span></span><br><span class="line">    Orders <span class="keyword">ON</span> Customers.Id = Orders.CustomerId</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    Orders.CustomerId <span class="keyword">IS</span> <span class="literal">NULL</span></span></span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -129,7 +123,7 @@ The Code Project 有一张关于各种 JOIN 的可视化解释">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://tsuinte.ru/2015/04/04/leetcode-database-175-combine-2tables/" data-title="Leetcode Database: #175 Combine Two Tables | tsuinteru" data-tsina="null" class="share clearfix">
+	  <div data-url="http://tsuinte.ru/2015/04/04/leetcode-database-183-customers-who-never-order/" data-title="Leetcode Database: #183 Customers Who Never Order | tsuinteru" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -143,18 +137,18 @@ The Code Project 有一张关于各种 JOIN 的可视化解释">
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/04/04/leetcode-database-183-customers-who-never-order/" title="Leetcode Database: #183 Customers Who Never Order">
+ <a href="/2015/04/05/leetcode-database-176-second-highest-salary/" title="Leetcode Database: #176 Second Highest Salary">
   <strong>上一篇：</strong><br/>
   <span>
-  Leetcode Database: #183 Customers Who Never Order</span>
+  Leetcode Database: #176 Second Highest Salary</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/04/03/leetcode-database-182-duplicate-emails/"  title="Leetcode Database: #182 Duplicate Emails">
+<a href="/2015/04/04/leetcode-database-175-combine-2tables/"  title="Leetcode Database: #175 Combine Two Tables">
  <strong>下一篇：</strong><br/> 
- <span>Leetcode Database: #182 Duplicate Emails
+ <span>Leetcode Database: #175 Combine Two Tables
 </span>
 </a>
 </div>

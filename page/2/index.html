@@ -75,6 +75,254 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/04/10/leetcode-database-178-rank-score/" title="Leetcode Database: #178 Rank Scores" itemprop="url">Leetcode Database: #178 Rank Scores</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="双马尾魔法使" target="_blank" itemprop="author">双马尾魔法使</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-10T15:23:57.000Z" itemprop="datePublished"> 发表于 2015-04-10</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/rank-scores/">#178 Rank Scores</a></p>
+<h1 id="解题思路">解题思路</h1><p>典型的 Ranking 类问题，后面很多其他题目也会用到这个方法。就是构造用户自定义变量 <code>prev_value</code> 记录前值，<code>rank_count</code> 记录当前排名。</p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/04/10/leetcode-database-178-rank-score/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/07/leetcode-database-181-employees-earning-more/" title="Leetcode Database: #181 Employees Earning More Than Their Managers" itemprop="url">Leetcode Database: #181 Employees Earning More Than Their Managers</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="双马尾魔法使" target="_blank" itemprop="author">双马尾魔法使</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-07T05:17:07.000Z" itemprop="datePublished"> 发表于 2015-04-07</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/employees-earning-more-than-their-managers/">#181 Employees Earning More Than Their Managers</a></p>
+<h1 id="解题思路">解题思路</h1><p>这是成功率最高的一题。需要想办法查找出某人对应 Manager 的 Salary，并放在同一个表中，然后比较 Salary 就很方便了。可以利用 <code>INNER JOIN</code></p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/04/07/leetcode-database-181-employees-earning-more/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/05/leetcode-database-176-second-highest-salary/" title="Leetcode Database: #176 Second Highest Salary" itemprop="url">Leetcode Database: #176 Second Highest Salary</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="双马尾魔法使" target="_blank" itemprop="author">双马尾魔法使</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-05T15:04:04.000Z" itemprop="datePublished"> 发表于 2015-04-05</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/second-highest-salary/">#176 Second Highest Salary</a></p>
+<h1 id="解题思路">解题思路</h1><p>依然是 Ranking 类问题。可以想到这么一个方法，对 DISTINCT Salary 进行排序加上 LIMIT 即可得到排名第 2 的行。但是题目要求若没有第 2 名的行，需要返回 NULL，而这个答案是不返回任何行，所以还需要加工。</p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/04/05/leetcode-database-176-second-highest-salary/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/04/leetcode-database-183-customers-who-never-order/" title="Leetcode Database: #183 Customers Who Never Order" itemprop="url">Leetcode Database: #183 Customers Who Never Order</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="双马尾魔法使" target="_blank" itemprop="author">双马尾魔法使</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-04T05:57:49.000Z" itemprop="datePublished"> 发表于 2015-04-04</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/customers-who-never-order/">#183 Customers Who Never Order</a></p>
+<h1 id="解题思路">解题思路</h1><p>依然是 JOIN 类问题。需要找出 Customers 表中存在但 Orders 中不存在的行，那么应该用 <code>LEFT JOIN</code>，并且添加条件 <code>WHERE Orders.CustomerId IS NULL</code></p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/04/04/leetcode-database-183-customers-who-never-order/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/04/04/leetcode-database-175-combine-2tables/" title="Leetcode Database: #175 Combine Two Tables" itemprop="url">Leetcode Database: #175 Combine Two Tables</a>
   </h1>
   <p class="article-author">By
@@ -217,7 +465,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>9</sup></a></li>
+			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>13</sup></a></li>
 		  
 		
 		</ul>
@@ -230,11 +478,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>9</sup></a></li>
+				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>13</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/database/" title="database">database<sup>9</sup></a></li>
+				<li><a href="/tags/database/" title="database">database<sup>13</sup></a></li>
 			
 		
 			
