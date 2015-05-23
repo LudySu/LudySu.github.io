@@ -75,6 +75,140 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/05/04/leetcode-database-184-department-highest-salary/" title="Leetcode Database: #184 Department Highest Salary" itemprop="url">Leetcode Database: #184 Department Highest Salary</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="双马尾魔法使" target="_blank" itemprop="author">双马尾魔法使</a>
+		
+  <p class="article-time">
+    <time datetime="2015-05-03T16:03:19.000Z" itemprop="datePublished"> 发表于 2015-05-04</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/department-highest-salary/">#184 Department Highest Salary</a></p>
+<h1 id="解题思路&amp;一种答案">解题思路&amp;一种答案</h1><h2 id="第一步">第一步</h2><p>这题比较麻烦，我们慢慢分步解决，首先是找出各组最大的值，很容易想到下面的方法。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="keyword">MAX</span>(salary) <span class="keyword">AS</span> maxSalary, DepartmentId</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> DepartmentId</span></span><br></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/05/04/leetcode-database-184-department-highest-salary/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/05/04/leetcode-database-184-department-highest-salary/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/05/03/leetcode-database-180-consecutive-numbers/" title="Leetcode Database: #180 Consecutive Numbers" itemprop="url">Leetcode Database: #180 Consecutive Numbers</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="双马尾魔法使" target="_blank" itemprop="author">双马尾魔法使</a>
+		
+  <p class="article-time">
+    <time datetime="2015-05-03T12:43:50.000Z" itemprop="datePublished"> 发表于 2015-05-03</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/consecutive-numbers/">#180 Consecutive Numbers</a></p>
+<h1 id="解题思路">解题思路</h1><p>使用临时变量 <code>prevVal</code> 保存上一个 <code>Num</code> 值，然后使用临时变量 <code>count</code> 保存当前连续出现相同数字的次数。最外层 SELECT 再把 <code>Num</code> 这一列中 <strong>nowCount &gt;= 3</strong> 的值取出。</p>
+<p>连续数字计数可使用 <code>@count := IF(@prevVal = Num, @count + 1, 1)</code> 条件，<code>prevVal</code> 若为 <code>NULL</code>，等式不成立 <code>count</code> 初始化为 1；若 <code>prevVal</code> 是正常值则正常比较，现在值等于前值则加 1，否则初始化为 1。</p>
+<p>这里如果用 <code>CASE WHEN</code> 则代码会长一些：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CASE</span><br><span class="line">    WHEN @prevVal = Num THEN @count:=@count + 1</span><br><span class="line">    ELSE @count:=1</span><br><span class="line"><span class="operator"><span class="keyword">END</span> <span class="keyword">AS</span> nowCount</span></span><br></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/05/03/leetcode-database-180-consecutive-numbers/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/05/03/leetcode-database-180-consecutive-numbers/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/05/03/jacman-theme-customizations/" title="对 Jacman 主题的一些个性化修改" itemprop="url">对 Jacman 主题的一些个性化修改</a>
   </h1>
   <p class="article-author">By
@@ -595,74 +729,9 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/03/leetcode-database-182-duplicate-emails/" title="Leetcode Database: #182 Duplicate Emails" itemprop="url">Leetcode Database: #182 Duplicate Emails</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://tsuinte.ru/about" title="双马尾魔法使" target="_blank" itemprop="author">双马尾魔法使</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-03T05:32:15.000Z" itemprop="datePublished"> 发表于 2015-04-03</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/duplicate-emails/">#182 Duplicate Emails</a></p>
-<h1 id="解题思路">解题思路</h1><p>可以想到类似与 <code>WHERE count(Email) &gt; 1</code> 之类的条件，但实际上 count 是一个聚合函数需要和 <code>HAVING</code> 配合使用；此外还需要 <code>GROUP BY</code> 分组。</p>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/04/03/leetcode-database-182-duplicate-emails/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/04/03/leetcode-database-182-duplicate-emails/#disqus_thread" class="comments-count-link">Comments</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
   </nav>
 
 </div>
@@ -686,7 +755,7 @@
 		  
 		
 		  
-			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>1</sup></a></li>
+			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>3</sup></a></li>
 		  
 		
 		</ul>
@@ -707,6 +776,10 @@
 			
 		
 			
+				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>3</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Android/" title="Android">Android<sup>2</sup></a></li>
 			
 		
@@ -716,10 +789,6 @@
 		
 			
 				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>1</sup></a></li>
 			
 		
 		</ul>
