@@ -75,6 +75,74 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/05/04/how-to-filter-logcat-output/" title="如何过滤 adb logcat 输出" itemprop="url">如何过滤 adb logcat 输出</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="双马尾魔法使" target="_blank" itemprop="author">双马尾魔法使</a>
+		
+  <p class="article-time">
+    <time datetime="2015-05-04T08:59:24.000Z" itemprop="datePublished"> 发表于 2015-05-04</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>简介：</p>
+<p>本文介绍如何在 shell 命令行中过滤 adb logcat 输出的几个小技巧。</p>
+<p>开发当中经常看到别人的 log 如洪水般瞬间刷满了屏幕，对自己有用的信息都被淹没了，影响心情也影响效率。下面是几个我所知道的过滤方法。</p>
+<h1 id="只显示需要的输出，白名单">只显示需要的输出，白名单</h1><p>最方便的当然是通过管道使用 <code>grep</code> 过滤了，这样可以使用 grep 强大的正则表达式匹配。简单的匹配一行当中的某个字符串，例如 MyApp：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb logcat | grep MyApp&#10;adb logcat | grep -i myapp #&#24573;&#30053;&#22823;&#23567;&#20889;&#12290;&#10;adb logcat | grep --color=auto -i  myapp #&#35774;&#32622;&#21305;&#37197;&#23383;&#31526;&#20018;&#39068;&#33394;&#12290;&#26356;&#22810;&#35774;&#32622;&#35831;&#26597;&#30475; grep &#24110;&#21161;&#12290;</span><br></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/05/04/how-to-filter-logcat-output/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Android-Debug-and-Profiling/">Android_Debug_and_Profiling</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Android/">Android</a><a href="/tags/debug/">debug</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/05/04/how-to-filter-logcat-output/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/05/04/leetcode-database-184-department-highest-salary/" title="Leetcode Database: #184 Department Highest Salary" itemprop="url">Leetcode Database: #184 Department Highest Salary</a>
   </h1>
   <p class="article-author">By
@@ -662,73 +730,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/04/leetcode-database-175-combine-2tables/" title="Leetcode Database: #175 Combine Two Tables" itemprop="url">Leetcode Database: #175 Combine Two Tables</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://tsuinte.ru/about" title="双马尾魔法使" target="_blank" itemprop="author">双马尾魔法使</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-04T05:50:37.000Z" itemprop="datePublished"> 发表于 2015-04-04</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/combine-two-tables/">#175 Combine Two Tables</a></p>
-<h1 id="解题思路">解题思路</h1><p>这题比较简单，数据来源于两个表很自然就想到需要用某种 JOIN。题目中说到无论 Address 表有无那个人对应记录都应该列出来，说明应该用 <code>LEFT JOIN</code></p>
-<p><a href="http://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins">The Code Project</a> 有一张关于各种 JOIN 的可视化解释</p>
-<p><img src="http://www.codeproject.com/KB/database/Visual_SQL_Joins/Visual_SQL_JOINS_V2.png" alt="Visual_SQL_Joins"></p>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/04/04/leetcode-database-175-combine-2tables/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/04/04/leetcode-database-175-combine-2tables/#disqus_thread" class="comments-count-link">Comments</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
@@ -755,7 +756,7 @@
 		  
 		
 		  
-			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>3</sup></a></li>
+			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>4</sup></a></li>
 		  
 		
 		</ul>
@@ -776,7 +777,7 @@
 			
 		
 			
-				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>3</sup></a></li>
+				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>4</sup></a></li>
 			
 		
 			
