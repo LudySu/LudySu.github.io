@@ -77,6 +77,72 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/05/23/apply-for-nz-whv-log/" title="申请新西兰工作旅行签证：网申实录" itemprop="url">申请新西兰工作旅行签证：网申实录</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="双马尾魔法使" target="_blank" itemprop="author">双马尾魔法使</a>
+		
+  <p class="article-time">
+    <time datetime="2015-05-23T06:54:07.000Z" itemprop="datePublished"> 发表于 2015-05-23</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>以下是双马尾菌这两年来网申新西兰工作旅行签证（WHV）的实录回忆，文中的一些方法、推断可能并不准确。</p>
+<h1 id="2015_WHV_实录">2015 WHV 实录</h1><p>2015 年的网申是北京时间 5-19 06：00，双马尾菌是 5：40 左右起来的，然后打开电脑打开代理、打开多桌面、打开多个浏览器。这时没必要做任何事情，提前登陆是没有用的，要做好长期战的心理准备，有吃的准备一下吃一点。</p>
+<p>然后 6 点一到就打开登陆界面，打开多个浏览器往各个浏览器都输入登陆的网页，盼着页面出来。如果超时就刷新以下，或者关闭这个标签重新开一个。这段时间是比较煎熬的，也需要很大的耐心。今年感觉比去年花得时间要长，但是经过去年后一点都没有紧张了，虽然有些疑问但也没有任何动摇，相信自己肯定能拿到名额。</p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/05/23/apply-for-nz-whv-log/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/通往新西兰/">通往新西兰</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/新西兰/">新西兰</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/05/23/apply-for-nz-whv-log/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/05/17/apply-for-nz-whv-documents/" title="申请新西兰工作旅行签证：申请材料（2015版）" itemprop="url">申请新西兰工作旅行签证：申请材料（2015版）</a>
   </h1>
   <p class="article-author">By
@@ -744,74 +810,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/03/leetcode-database-180-consecutive-numbers/" title="Leetcode Database: #180 Consecutive Numbers" itemprop="url">Leetcode Database: #180 Consecutive Numbers</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://tsuinte.ru/about" title="双马尾魔法使" target="_blank" itemprop="author">双马尾魔法使</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-03T08:43:50.000Z" itemprop="datePublished"> 发表于 2015-05-03</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/consecutive-numbers/">#180 Consecutive Numbers</a></p>
-<h1 id="解题思路">解题思路</h1><p>使用临时变量 <code>prevVal</code> 保存上一个 <code>Num</code> 值，然后使用临时变量 <code>count</code> 保存当前连续出现相同数字的次数。最外层 SELECT 再把 <code>Num</code> 这一列中 <strong>nowCount &gt;= 3</strong> 的值取出。</p>
-<p>连续数字计数可使用 <code>@count := IF(@prevVal = Num, @count + 1, 1)</code> 条件，<code>prevVal</code> 若为 <code>NULL</code>，等式不成立 <code>count</code> 初始化为 1；若 <code>prevVal</code> 是正常值则正常比较，现在值等于前值则加 1，否则初始化为 1。</p>
-<p>这里如果用 <code>CASE WHEN</code> 则代码会长一些：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CASE</span><br><span class="line">    WHEN @prevVal = Num THEN @count:=@count + 1</span><br><span class="line">    ELSE @count:=1</span><br><span class="line"><span class="operator"><span class="keyword">END</span> <span class="keyword">AS</span> nowCount</span></span><br></pre></td></tr></table></figure>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/05/03/leetcode-database-180-consecutive-numbers/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/05/03/leetcode-database-180-consecutive-numbers/#disqus_thread" class="comments-count-link">Comments</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
@@ -846,7 +844,7 @@
 		  
 		
 		  
-			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>7</sup></a></li>
+			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>8</sup></a></li>
 		  
 		
 		</ul>
@@ -867,7 +865,7 @@
 			
 		
 			
-				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>7</sup></a></li>
+				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>8</sup></a></li>
 			
 		
 			
