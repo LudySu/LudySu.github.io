@@ -77,6 +77,65 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/twintail-dreamer/" title="ツインテール・ドリーマー! - 歌词翻译" itemprop="url">ツインテール・ドリーマー! - 歌词翻译</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
+		
+  <p class="article-time">
+    <time datetime="2015-05-11T11:47:39.000Z" itemprop="datePublished"> 发表于 2015-05-11</time>
+   
+    <p class="article-updated">
+    <time datetime="2015-10-23T11:00:00.000Z" itemprop="updated"> 更新日期 2015-10-24</time>
+    
+  </p>
+</header>
+
+    <div class="article-content">
+        
+        <p><img src="http://ecx.images-amazon.com/images/I/61kXAkkNAFL.jpg" class="img-topic" /></p>
+<p>本站主题曲《ツインテール・ドリーマー!》（Twintail Dreamer），出自 TV 动画<a href="http://baike.baidu.com/subview/10869640/12096184.htm">《我，要成为双马尾》</a>。本站站名取自双马尾的日文发音 <strong>ツインテール（tsuinteru）</strong>，而日文发音是英文 twintail 的音译。</p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/twintail-dreamer/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/twintail-dreamer/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/leetcode-database-foreword/" title="Leetcode Database: 前言" itemprop="url">Leetcode Database: 前言</a>
   </h1>
   <p class="article-author">By
@@ -740,82 +799,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/leetcode-database-197-rising-temperature/" title="Leetcode Database: #197 Rising Temperature" itemprop="url">Leetcode Database: #197 Rising Temperature</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-28T11:17:04.000Z" itemprop="datePublished"> 发表于 2015-04-28</time>
-   
-    <p class="article-updated">
-    <time datetime="2015-05-17T10:56:44.000Z" itemprop="updated"> 更新日期 2015-05-17</time>
-    
-  </p>
-</header>
-
-    <div class="article-content">
-        
-        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/rising-temperature/">#197 Rising Temperature</a></p>
-<h1 id="解题思路">解题思路</h1><p>依然是 Ranking 类问题。首先构造一个临时表 <code>tmpTable</code>，里面构造一个临时变量 <code>prevVal</code> 储存上一个 <code>Temperature</code> 值，把比较结果储存在临时列 <code>isRising</code>；构造一个临时变量 <code>prevDate</code> 用于判断日期是否连续。然后 SELECT 所有临时表中 <strong>isRising = 1 AND isDateOk = 1</strong> 的行。最后最外层过滤其他列，只选出 <code>Id</code> 一列。</p>
-<p>日期比较方法有以下几种，第一第二种差不多，第三种当 @preDate = NULL 时 <code>DATE_ADD</code> 函数会出错不建议使用</p>
-<ul>
-<li>Date BETWEEN Date AND @prevDate + INTERVAL 1 DAY</li>
-<li>Date &gt; @prevDate AND Date &lt;= @prevDate + INTERVAL 1 DAY</li>
-<li>Date BETWEEN Date AND DATE_ADD(@prevDate, INTERVAL 1 DAY)</li>
-<li>DATEDIFF(Date, @prevDate) = 1</li>
-</ul>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/leetcode-database-197-rising-temperature/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/leetcode-database-197-rising-temperature/#disqus_thread" class="comments-count-link">Comments</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next<span></span></a>
@@ -862,7 +845,7 @@
 		  
 		
 		  
-			<li><a href="/categories/金融市场/" title="金融市场">金融市场<sup>3</sup></a></li>
+			<li><a href="/categories/金融市场/" title="金融市场">金融市场<sup>4</sup></a></li>
 		  
 		
 		</ul>
@@ -887,7 +870,7 @@
 			
 		
 			
-				<li><a href="/tags/08金融危机/" title="08金融危机">08金融危机<sup>3</sup></a></li>
+				<li><a href="/tags/08金融危机/" title="08金融危机">08金融危机<sup>4</sup></a></li>
 			
 		
 			
