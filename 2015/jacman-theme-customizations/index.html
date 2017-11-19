@@ -327,7 +327,7 @@ banner 图片上的文字加阴影本博客 banner 图片搭配白色字体很�
 	
 	<section class="info">
 		<p> このツインテールに、夢と願いを込めるんだ <br/>
-			Android | 多媒体开发 | Life | otaku</p>
+			Android Dev | 二次元 | New Zeland</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
@@ -517,6 +517,35 @@ ga('send', 'pageview');
 
 <!-- MathJax Begin -->
 <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <!-- MathJax End -->
