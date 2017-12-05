@@ -20,6 +20,7 @@
 <meta property="og:description" content="抵达后注意事项入境申报新西兰是农业大国，对入境的动植物检疫严格，因为发生生物入侵可能会严重影响农业生态。有些东西是一定不能带的，例如燕窝、新鲜水果；其他东西要如实申报，入境官员会检查并有可能询问，一般来说有包装的食品都可以的，就算检查后不行就地丢弃就行。千万不能隐瞒，不然可能会罚款，严重的可能会遣返。
 在飞机上就可以填写入境申报卡，这里有官方中文版入境卡。 重要的部分是这里：">
 <meta property="og:image" content="/img/201509/nz-arrival-card.png">
+<meta property="og:image" content="/img/201711/wechat_qr.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="抵达新西兰开门三件事：手机卡、银行卡、IRD税号">
 <meta name="twitter:description" content="抵达后注意事项入境申报新西兰是农业大国，对入境的动植物检疫严格，因为发生生物入侵可能会严重影响农业生态。有些东西是一定不能带的，例如燕窝、新鲜水果；其他东西要如实申报，入境官员会检查并有可能询问，一般来说有包装的食品都可以的，就算检查后不行就地丢弃就行。千万不能隐瞒，不然可能会罚款，严重的可能会遣返。
@@ -120,6 +121,8 @@
 <p>填写表格时有一个选项值得注意，叫 <a href="http://www.ird.govt.nz/income-tax-individual/temp-tax-empt-foreign-inc.html" target="_blank" rel="external">Temporary tax exemption on foreign income</a>，因为新西兰对其纳税公民（指一年内有半年在新西兰，第 183 天开始算做纳税公民）海外收入也征税，所以勾选这项之后可以有最长达 4 年的海外收入免征税期，代价是这期间不能申请 Working for Families Tax Credits 家庭税收减免。规定比较复杂，有常住及 PR 打算的可以到官网详细了解下，勾了没啥坏处且可以随时取消。</p>
 <p>去办理其实很简单，到前台拿到表格填写，工作人员检查没问题，看看你的银行开具的地址证明和护照就完成。一般 7 天左右可以收到 IRD 号的信，这个信也可以当做一个地址证明，可以用作办驾照、开其他银行户口等。</p>
 <p><strong>NOTE</strong>：从国内汇款过来的存款不会再征税。</p>
+<hr>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -429,6 +432,34 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 

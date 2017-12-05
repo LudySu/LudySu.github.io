@@ -21,6 +21,7 @@ banner 图片上的文字加阴影本博客 banner 图片搭配白色字体很�
 <meta property="og:description" content="本博客基于 Jacman 这个主题，这篇文章记录一下所做的一些修改。原理都是相同的，这些修改一般也可以用于其他主题。
 banner 图片上的文字加阴影本博客 banner 图片搭配白色字体很难看清，换其他颜色字体搭配起来也总觉得不好看，就想到了字体加阴影。
 字体阴影使用了 CSS 的 text-shadow，搜索框阴影是 box-shadow，修改的地方如下：">
+<meta property="og:image" content="/img/201711/wechat_qr.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对 Jacman 主题的一些个性化修改">
 <meta name="twitter:description" content="本博客基于 Jacman 这个主题，这篇文章记录一下所做的一些修改。原理都是相同的，这些修改一般也可以用于其他主题。
@@ -91,7 +92,7 @@ banner 图片上的文字加阴影本博客 banner 图片搭配白色字体很�
     <time datetime="2015-05-03T07:17:57.000Z" itemprop="datePublished"> 发表于 2015-05-03</time>
    
     <p class="article-updated">
-    <time datetime="2015-05-05T16:32:35.000Z" itemprop="updated"> 更新日期 2015-05-06</time>
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
 </header>
@@ -141,6 +142,8 @@ banner 图片上的文字加阴影本博客 banner 图片搭配白色字体很�
 </tr>
 </tbody>
 </table>
+<hr>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -445,6 +448,34 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 

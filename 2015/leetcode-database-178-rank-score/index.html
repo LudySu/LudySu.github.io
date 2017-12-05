@@ -19,6 +19,7 @@
 <meta property="og:site_name" content="tsuinteru">
 <meta property="og:description" content="题目#178 Rank Scores
 解题思路典型的 Ranking 类问题，后面很多其他题目也会用到这个方法。就是构造用户自定义变量 prev_value 记录前值，rank_count 记录当前排名。">
+<meta property="og:image" content="/img/201711/wechat_qr.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Database: #178 Rank Scores">
 <meta name="twitter:description" content="题目#178 Rank Scores
@@ -88,7 +89,7 @@
     <time datetime="2015-04-10T11:23:57.000Z" itemprop="datePublished"> 发表于 2015-04-10</time>
    
     <p class="article-updated">
-    <time datetime="2015-05-10T13:20:54.000Z" itemprop="updated"> 更新日期 2015-05-11</time>
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
 </header>
@@ -212,6 +213,8 @@
 <h1 id="另一种答案">另一种答案</h1><p>思想和前面一种一样的，用了比较 tricky 的 <code>CASE WHEN</code> 所以只用一层 SELECT。个人认为还是上面一种方法比较直观。</p>
 <p>特别需要注意的时其中的 <code>ELSE @rank_count:=@rank_count + 1</code>，对于大部分数据没有这行也是正确的。但是若 Score 是 0，例如输入数据是 <code>(1, 0.0)</code> 若没有这个 ELSE 则结果是 NULL。原理暂时还没搞明白</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Runtime: 878 ms</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    Score,</span><br><span class="line">    <span class="keyword">CASE</span></span><br><span class="line">        <span class="keyword">WHEN</span> @prev_value = Score <span class="keyword">THEN</span> @rank_count</span><br><span class="line">        <span class="keyword">WHEN</span> @prev_value:=Score <span class="keyword">THEN</span> @rank_count:=@rank_count + <span class="number">1</span></span><br><span class="line">        <span class="keyword">ELSE</span> @rank_count:=@rank_count + <span class="number">1</span></span><br><span class="line">    <span class="keyword">END</span> <span class="keyword">AS</span> Rank</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Scores,</span><br><span class="line">    (<span class="keyword">SELECT</span> @rank_count:=<span class="number">0</span>) r,</span><br><span class="line">    (<span class="keyword">SELECT</span> @prev_value:=<span class="literal">NULL</span>) p</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> Score <span class="keyword">DESC</span></span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -521,6 +524,34 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 

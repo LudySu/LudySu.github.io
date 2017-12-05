@@ -19,6 +19,7 @@
 <meta property="og:site_name" content="tsuinteru">
 <meta property="og:description" content="题目#183 Customers Who Never Order
 解题思路依然是 JOIN 类问题。需要找出 Customers 表中存在但 Orders 中不存在的行，那么应该用 LEFT JOIN，并且添加条件 WHERE Orders.CustomerId IS NULL">
+<meta property="og:image" content="/img/201711/wechat_qr.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Database: #183 Customers Who Never Order">
 <meta name="twitter:description" content="题目#183 Customers Who Never Order
@@ -88,7 +89,7 @@
     <time datetime="2015-04-04T00:57:49.000Z" itemprop="datePublished"> 发表于 2015-04-04</time>
    
     <p class="article-updated">
-    <time datetime="2015-05-10T05:47:27.000Z" itemprop="updated"> 更新日期 2015-05-10</time>
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
 </header>
@@ -107,6 +108,8 @@
 <a id="more"></a>
 <h1 id="一种答案">一种答案</h1><p>完整答案</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Runtime: 819 ms</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    Name</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Customers</span><br><span class="line">        <span class="keyword">LEFT</span> <span class="keyword">JOIN</span></span><br><span class="line">    Orders <span class="keyword">ON</span> Customers.Id = Orders.CustomerId</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    Orders.CustomerId <span class="keyword">IS</span> <span class="literal">NULL</span></span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -416,6 +419,34 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 

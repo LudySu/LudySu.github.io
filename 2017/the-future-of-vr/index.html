@@ -59,6 +59,7 @@ HTC Vive
 <meta property="og:image" content="/img/201711/two_viewports.png">
 <meta property="og:image" content="/img/201711/vr_theory.png">
 <meta property="og:image" content="/img/201711/gpu_roadmap.png">
+<meta property="og:image" content="/img/201711/wechat_qr.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VR设备前景展望">
 <meta name="twitter:description" content="VR设备现状
@@ -143,7 +144,7 @@ HTC Vive
     <time datetime="2017-11-27T11:00:00.000Z" itemprop="datePublished"> 发表于 2017-11-28</time>
    
     <p class="article-updated">
-    <time datetime="2017-12-03T09:40:32.000Z" itemprop="updated"> 更新日期 2017-12-03</time>
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
 </header>
@@ -260,6 +261,8 @@ HTC Vive
 <p>VR 是很好的技术，作为显示设备是对上一代 3D 头戴式显示器的进一步发展，不仅能看到立体画面，还能像现实世界一样改变视角；体感技术则直接继承 PS3 时代的遗产。VR 特别适合赛车类游戏，可惜索尼自己的金字招牌 GT Sports 里也仅仅对 VR 做了象征性的支持；Farpoint 及其配套的 Aim Controller 也展示在第一人称射击类游戏中的潜在可能性，但论游戏性只有二三流水平；首发的全程 VR 游戏生化危机 7 也证明了 VR 在恐怖游戏中的优势。</p>
 <p>我们知道游戏开发商完全摸透新游戏模式需要数年，几个版本游戏迭代才行，如果给 VR 多一点时间游戏体验肯定能大大提升，至少可作为高端玩家的配件存在。这也是符合 PS 系列高性能主机的定位，提供明显优于手机游戏的差异化特点，问题是索尼有无耐心与精力去经营这个细分市场。到了第二代可以推出有线的廉价版和无线豪华版覆盖更广泛市场，达到 4k 分辨率后作为显示设备可替代电视及投影仪，毕竟大城市房价这么贵空间有限。从最近的 GT Sports 赛车游戏看到不好的苗条，这个索尼第一方游戏仅仅支持在 VR Arcade 模式下使用，试想如果亲妈都不爱 VR 这个孩子，还有谁会爱呢？扩展这个市场需要第一方先带头作出优秀的游戏，吸引更多玩家入坑；第三方开发商看到市场火爆迅速跟上，使得游戏更加丰富。不然的话就是索尼已经认定第一代 VR 前景不大，在集中资源做第二代吧。</p>
 <p>会到是否一样买这一代 VR 的问题，如果刚好有几个你喜欢的游戏，价钱又没有太多压力的话当然早买早享受，新技术也需要尝鲜者们的支持。毕竟现在看来市场前景不乐观，这样下去到不好第二代会被砍掉，就像 Kinect、PS Move 一样。普通用户可以在等两年看看，真的没第二代的话，到时二手捡的便宜的回来体验怀旧怀旧就够了。</p>
+<hr>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -561,6 +564,34 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 

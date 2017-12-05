@@ -23,6 +23,7 @@
 解题思路奇怪的是这题标明难度是 EASY，但通过率却是倒数第三，看来不少人在这个坑栽跟头。那我们换个思路不直接想如何 DELETE 重复值，而是先 SELECT 出我们需要的，非重复 Email 和其对应的最小 Id，然后把原表格中其他的数据删掉。
 注意事项
 不能在一个语句中既更改表中数据（DELETE/UPDATE）又在子查询语句中">
+<meta property="og:image" content="/img/201711/wechat_qr.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Database: #196 Delete Duplicate Emails">
 <meta name="twitter:description" content="题目#196 Delete Duplicate Emails
@@ -94,7 +95,7 @@
     <time datetime="2015-05-06T01:33:30.000Z" itemprop="datePublished"> 发表于 2015-05-06</time>
    
     <p class="article-updated">
-    <time datetime="2015-05-09T05:02:57.000Z" itemprop="updated"> 更新日期 2015-05-09</time>
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
 </header>
@@ -162,6 +163,8 @@
 </tbody>
 </table>
 <p>第二步删除表中不是我们要保留的行（NOT IN），也就是重复值。但由于语法限制需要多一层 SELECT 来构建临时表 tmp。</p>
+<hr>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -471,6 +474,34 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 

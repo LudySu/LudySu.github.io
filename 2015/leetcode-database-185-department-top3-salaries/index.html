@@ -31,6 +31,7 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 
 
 第一步中不能直接 WHERE RowNumber &amp;lt;= 3，因为 SQL 计算顺序是 FROM &amp;gt; WHERE &amp;gt; GROUP BY &amp;gt; HAVING &amp;g">
+<meta property="og:image" content="/img/201711/wechat_qr.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Database: #185 Department Top Three Salaries">
 <meta name="twitter:description" content="题目#185 Department Top Three Salaries
@@ -106,7 +107,7 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
     <time datetime="2015-05-08T12:50:42.000Z" itemprop="datePublished"> 发表于 2015-05-09</time>
    
     <p class="article-updated">
-    <time datetime="2015-05-10T13:12:21.000Z" itemprop="updated"> 更新日期 2015-05-11</time>
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
 </header>
@@ -253,6 +254,8 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 </tbody>
 </table>
 <h1 id="构造测试数据">构造测试数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> Employee (</span><br><span class="line">    Id <span class="built_in">INT</span>,</span><br><span class="line">    Name <span class="built_in">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">    Salary <span class="built_in">INT</span>,</span><br><span class="line">    DepartmentId <span class="built_in">INT</span></span><br><span class="line">);</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> Department (</span><br><span class="line">    Id <span class="built_in">INT</span>,</span><br><span class="line">    Name <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line">);</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Employee;</span></span><br><span class="line"><span class="operator"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Department;</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Employee <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="string">'Joe'</span>  , <span class="number">70000</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="string">'Henry'</span>, <span class="number">80000</span>, <span class="number">2</span>),</span><br><span class="line">(<span class="number">3</span>, <span class="string">'Sam'</span>  , <span class="number">60000</span>, <span class="number">2</span>),</span><br><span class="line">(<span class="number">4</span>, <span class="string">'Max'</span>  , <span class="number">90000</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">5</span>, <span class="string">'Janet'</span>  , <span class="number">69000</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">6</span>, <span class="string">'Randy'</span>  , <span class="number">85000</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">7</span>, <span class="string">'Tom'</span>  , <span class="number">70000</span>, <span class="number">1</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Department <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="string">'IT '</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="string">'Sales'</span>);</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -562,6 +565,34 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 

@@ -21,6 +21,7 @@
 <meta property="og:description" content="以下是双马尾菌这两年来网申新西兰工作旅行签证（WHV）所使用的技术方案，这两年来都成功帮自己和别人拿到名额。声明：文中的一些方法、推断均基于经验，可能并不 100% 准确。
 以下是具体的方法，以及有用程度评分，5 星满分。本文仅提供方法与思路，没有教具体如何填表，涉及到得部分技术也没有详细教程，须读者自行搜索具体做法。
 事先练习填表：★★★★★事先注册个马甲账号练习下填表，熟悉其内容，做到不用多想">
+<meta property="og:image" content="/img/201711/wechat_qr.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="申请新西兰工作旅行签证：技术准备">
 <meta name="twitter:description" content="以下是双马尾菌这两年来网申新西兰工作旅行签证（WHV）所使用的技术方案，这两年来都成功帮自己和别人拿到名额。声明：文中的一些方法、推断均基于经验，可能并不 100% 准确。
@@ -131,6 +132,8 @@
 <li><p><a href="http://www.douban.com/group/topic/50064986/" target="_blank" rel="external">Health一栏如何规避8次刷新必读</a></p>
 </li>
 </ul>
+<hr>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -440,6 +443,34 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 

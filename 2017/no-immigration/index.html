@@ -19,6 +19,7 @@
 <meta property="og:site_name" content="tsuinteru">
 <meta property="og:description" content="最近有篇文章比较有意思《移民卖掉北京的房子后，他从中产阶级跌落》，文中主角辞掉月薪四万的工作、卖掉北京的两套房子移民了加拿大。可是无法在外国找到理想的工作，又放不下身段去做“低等”的体力活，强烈的自尊心忍受不了妻子比他工资高，最后主动要求离婚。现在北京的房子没了，家庭破裂，在加拿大生活的很辛苦。
 近年来移民越来越热，当然对最底层的人来说外国可能是天堂，可惜贫贱不能移；对于成功人士来说，只要愿意放下">
+<meta property="og:image" content="/img/201711/wechat_qr.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="不够强大就别学人移民">
 <meta name="twitter:description" content="最近有篇文章比较有意思《移民卖掉北京的房子后，他从中产阶级跌落》，文中主角辞掉月薪四万的工作、卖掉北京的两套房子移民了加拿大。可是无法在外国找到理想的工作，又放不下身段去做“低等”的体力活，强烈的自尊心忍受不了妻子比他工资高，最后主动要求离婚。现在北京的房子没了，家庭破裂，在加拿大生活的很辛苦。
@@ -88,7 +89,7 @@
     <time datetime="2017-08-03T03:28:38.000Z" itemprop="datePublished"> 发表于 2017-08-03</time>
    
     <p class="article-updated">
-    <time datetime="2017-12-03T09:57:34.000Z" itemprop="updated"> 更新日期 2017-12-03</time>
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
 </header>
@@ -111,6 +112,8 @@
 <p>文中还多次提到了后悔，后悔把现在值 5.5 万一平的北京房子在当年以 1.8 万卖掉。聪明人都知道后悔是没用的，首先未来是不可预测的，当时卖掉肯定觉得房价那么高涨不下去才卖的，只能说缺少眼光和运气。其次，后悔的人情绪依赖于外部环境，涨了高兴跌了痛不欲生，心太累了。最后<strong>这种人本质上对未来是悲观的，觉得将来自己肯定过得不如以前好，以前的机会错过了再也不会回来</strong>，要是一直自怨自艾就真的完了。如果你觉得未来会涨到10万，现在买回来就行，如果觉得肯定要跌，攒好钱等以后抄底嘛。或者更洒脱一点，觉得在一处买了房子世界就变小了，老子干脆不买今朝有酒今朝醉，不也痛快。关键是愿赌服输，赌错了是自己之前能力不够，以后看准了再赌一把呗。</p>
 <p>既然移民就努力适应，厉害的人在哪里过得都不会太差。<strong>要还是活的不痛快，果断止损回国发展，起码搞明白出国并不适合自己</strong>，更加珍惜国内的发展机会。</p>
 <p>最后一句大家共勉，<strong>努力过的日子总不会白费的</strong>。</p>
+<hr>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -415,6 +418,34 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 

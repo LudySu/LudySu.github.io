@@ -27,6 +27,7 @@
 <meta property="og:image" content="/img/201709/greene_abx_structure.png">
 <meta property="og:image" content="/img/201709/greene_cdo_structure.png">
 <meta property="og:image" content="/img/201709/greene_abx_200601.png">
+<meta property="og:image" content="/img/201711/wechat_qr.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="泡沫浮世绘（一）：史上最赚钱个人投资者">
 <meta name="twitter:description" content="前言：2008 金融危机之前，Jeffrey Greene 通过激进地购进房产已经是一个拥有包括数百间公寓总值超过 8 亿美元资产的房地产大亨，在危机到来之前又通过 CDS 做空房地产获利 5 亿美元。这使得他的财富在市场哀鸿遍野中得到巨额增值，这也是史上个人投资者最赚钱的一笔交易（之一）。
@@ -96,7 +97,7 @@
     <time datetime="2017-10-10T11:00:00.000Z" itemprop="datePublished"> 发表于 2017-10-11</time>
    
     <p class="article-updated">
-    <time datetime="2017-11-28T07:17:38.000Z" itemprop="updated"> 更新日期 2017-11-28</time>
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
 </header>
@@ -170,6 +171,8 @@
 <li>200601期ABX走势：<a href="http://ssrn.com/abstract_id=1406533" target="_blank" rel="external">http://ssrn.com/abstract_id=1406533</a></li>
 <li>本文主要内容编译自《The Greatest Trade Ever》一书</li>
 </ol>
+<hr>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -479,6 +482,34 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 

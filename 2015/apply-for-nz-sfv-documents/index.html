@@ -17,6 +17,7 @@
 <meta property="og:url" content="http://tsuinte.ru/2015/apply-for-nz-sfv-documents/index.html">
 <meta property="og:site_name" content="tsuinteru">
 <meta property="og:description" content="基本清单收到移民局的标题为 Immigration New Zealand: Silver Fern Job Search visa application 的确认邮件就算是拿到新西兰银蕨签证（Silver Fern Job Search Visa）名额了，下一步就要在规定时间内邮寄提交申请材料了。经过双马尾菌自己申请以及参考 WHV 的申请材料，基本找到了准备材料的最简单办法。所需材料清单如下">
+<meta property="og:image" content="/img/201711/wechat_qr.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="申请新西兰银蕨签证：申请材料（2015版）">
 <meta name="twitter:description" content="基本清单收到移民局的标题为 Immigration New Zealand: Silver Fern Job Search visa application 的确认邮件就算是拿到新西兰银蕨签证（Silver Fern Job Search Visa）名额了，下一步就要在规定时间内邮寄提交申请材料了。经过双马尾菌自己申请以及参考 WHV 的申请材料，基本找到了准备材料的最简单办法。所需材料清单如下">
@@ -197,6 +198,8 @@
 <h2 id="发邮件给中国签证中心">发邮件给中国签证中心</h2><p>邮寄材料之后，最好给签证中心发个邮件，方便跟踪。邮件写上你的申请 ID，地址及联系方式，还要汇款凭证截图。签证中心收到你的快递后一定会电话及邮件联系你，告诉你申请编号以及让你核对回邮快递单；如果汇款出问题也会告诉你补交，感觉还是比较负责任的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#24191;&#24030;&#31614;&#35777;&#20013;&#24515;&#10;&#30005;&#23376;&#37038;&#20214;: infocan.nzcn@vfshelpline.com</span><br></pre></td></tr></table></figure>
 <p>剩下就是等待了，快的几天慢的两个月，有空就上移民局网站刷新一下；确认审核成功通过了就查快递单号。双马尾菌这次从寄出快递到收到签证用了两个月多一点，中途发了两个邮件询问也经常没有回复，所以慢慢等就是了急没有任何用。</p>
+<hr>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -506,6 +509,34 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 

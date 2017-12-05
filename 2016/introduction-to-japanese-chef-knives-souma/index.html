@@ -53,6 +53,7 @@
 <meta property="og:image" content="/img/2016/souma_mezzaluna.gif">
 <meta property="og:image" content="/img/2016/souma_sharpening.gif">
 <meta property="og:image" content="/img/2016/souma_dry_knife.png">
+<meta property="og:image" content="/img/201711/wechat_qr.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日式厨刀简介（三）：食戟之灵">
 <meta name="twitter:description" content="食戟之灵是一部原作附田祐斗、作画佐伯俊、料理顾问森崎友纪的青春料理漫画，并在 2015 年改编成动画并播出了两季。动画画质还算不错，厨刀方面也没有大的错误，只是个别画面刻画有点简陋，本文中我们通过其动画来复习厨刀知识顺便学习一些刀工。多图杀猫容量超过 10 MB，4G 党速速退散。
@@ -204,6 +205,8 @@
 <p>高碳钢硬度高，专业厨师可是要天天磨刀保持锋利，没有铬等成分非常好磨。</p>
 <p><img src="/img/2016/souma_dry_knife.png" alt=""></p>
 <p>然后记得擦干，不然过一会儿就会生锈。背面磨成镜面了，这把是单面开刃的黑打出刃。</p>
+<hr>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -513,6 +516,34 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 

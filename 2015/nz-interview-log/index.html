@@ -35,6 +35,7 @@
 成功：1（从简历开始算 23 天，无笔试共三面）
 其他：石沉大海
 从开始投简">
+<meta property="og:image" content="/img/201711/wechat_qr.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="新西兰求职日记">
 <meta name="twitter:description" content="前言除非运气非常好或者非常牛，一般来说在新西兰求职需要几个月才能找到一个 offer，一来这边市场小机会小，二来这里和国内语言环境差别大。等待的日子里都是煎熬的，这里记录下那些焦虑的日日夜夜。
@@ -162,6 +163,8 @@
 <p>最后好聚好散吧，给最近几天还有联系的三个中介和公司发邮件说明情况，终止就职活动。</p>
 <p>后记：最近看到篇求职文章说的比较有道理，上面描述的抖机灵其实用处不大，其实公司最看中的是求职者的专业技能是否扎实、专业知识是否对口，其次是看看求职者的工作态度（但没实际工作前很难看出来）。其他的是否有礼貌、是否穿正装、稍微迟到一点等等所谓细节，都是次要的，刚好想到的抖机灵不妨试试但侧重点还是提高英语吹牛能力、技术能力。</p>
 <h2 id="公司_G">公司 G</h2><p>招聘广告上没写，但电话联系时问是否是 PR，他们只招 PR。委婉回复说咱有工作后马上去申请，很快会下来的，还是说不行。遇到这种就别浪费口水了。</p>
+<hr>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -471,6 +474,34 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 

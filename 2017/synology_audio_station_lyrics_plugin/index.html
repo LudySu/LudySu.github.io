@@ -35,6 +35,7 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 <meta property="og:image" content="/img/201710/synology_2233.jpg">
 <meta property="og:image" content="/img/201710/synology_mp3tag2.png">
 <meta property="og:image" content="/img/201710/synology_mp3tag.png">
+<meta property="og:image" content="/img/201711/wechat_qr.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="群晖NAS进阶使用教程（一）：Audio Station网易歌词插件">
 <meta name="twitter:description" content="TL;DR
@@ -160,6 +161,8 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 <p><img src="/img/201710/synology_mp3tag2.png" alt="批量修改"></p>
 <p>现在中档以上手机屏幕分辨率都是 1080p 起步，旗舰机都是 2k 以上，所以专辑封面也是时候升级了。很多下载的歌曲还是史前的 500px 规格，建议找更高分辨率的，至少 1500px 吧。</p>
 <p><img src="/img/201710/synology_mp3tag.png" alt="修改专辑封面"></p>
+<hr>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -469,6 +472,34 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 

@@ -19,6 +19,7 @@
 <meta property="og:site_name" content="tsuinteru">
 <meta property="og:description" content="题目#181 Employees Earning More Than Their Managers
 解题思路这是成功率最高的一题。需要想办法查找出某人对应 Manager 的 Salary，并放在同一个表中，然后比较 Salary 就很方便了。可以利用 INNER JOIN">
+<meta property="og:image" content="/img/201711/wechat_qr.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Database: #181 Employees Earning More Than Their Managers">
 <meta name="twitter:description" content="题目#181 Employees Earning More Than Their Managers
@@ -88,7 +89,7 @@
     <time datetime="2015-04-07T01:17:07.000Z" itemprop="datePublished"> 发表于 2015-04-07</time>
    
     <p class="article-updated">
-    <time datetime="2015-05-10T04:03:09.000Z" itemprop="updated"> 更新日期 2015-05-10</time>
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
 </header>
@@ -142,7 +143,10 @@
 </table>
 <p>第二步就简单了，加上 <code>WHERE a.Salary &gt; b.Salary</code> 即可，并删除第一步多余的列。</p>
 <h1 id="另一种答案">另一种答案</h1><p>和上面答案其实一样的，只是不显式写出 <code>INNER JOIN</code> 而是 <code>FROM</code> 中又两个表，效率应该是一致的。个人觉得还是显式写出 <code>INNER JOIN</code> 比较好，语法清晰。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    A.Name</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee A,</span><br><span class="line">    Employee B</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    A.ManagerId = B.Id</span><br><span class="line">        <span class="keyword">AND</span> A.Salary &gt; B.Salary</span></span><br></pre></td></tr></table></figure>  
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    A.Name</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee A,</span><br><span class="line">    Employee B</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    A.ManagerId = B.Id</span><br><span class="line">        <span class="keyword">AND</span> A.Salary &gt; B.Salary</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -451,6 +455,34 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 

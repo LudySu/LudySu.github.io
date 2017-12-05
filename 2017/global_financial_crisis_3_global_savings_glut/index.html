@@ -37,6 +37,7 @@
 <meta property="og:image" content="/img/201709/gfc_housing_boom.png">
 <meta property="og:image" content="/img/201710/gsg_mbs_issuance.png">
 <meta property="og:image" content="/img/201710/gsg_abs_issuance.png">
+<meta property="og:image" content="/img/201711/wechat_qr.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="08金融危机（三）：安全资产与资金过剩">
 <meta name="twitter:description" content="这一节我们将了解到这几个道理：
@@ -191,9 +192,11 @@
 <li>银行为了规避监管、增加资金周转率，机构投资者为了安置大量资产，共同催生出影子银行</li>
 <li>影子银行为交易提供了抵押品，甚至通过资产证券化创造抵押品</li>
 <li>亚洲新兴国家、海湾石油富国、欧洲银行、大型机构投资者对安全资产有极大需求</li>
-<li>真正安全的发达国家政府债券供给不足已满足需求，华尔街介入，通过资产证券化“制造”安全资产</li>
+<li>真正安全的发达国家政府债券供给不足以满足需求，华尔街介入，通过资产证券化“制造”安全资产</li>
 <li>这些“制造”的安全资产要么直接卖给投资者，要么作为向投资者借款的抵押品</li>
 </ol>
+<hr>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -503,6 +506,34 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 

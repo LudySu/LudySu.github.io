@@ -25,6 +25,7 @@ IT 行业专业性强，这边的小公司 HR 不能胜任招聘工作，所以�
 IT 行业专业性强，这边的小公司 HR 不能胜任招聘工作，所以只有少量大公司如 Datacom、EROAD、Orion Health、Spark 之类会全程自行招聘。一般的是会通过中介，">
 <meta property="og:image" content="/img/201509/nz-it-salary-median.png">
 <meta property="og:image" content="/img/201509/nz-it-salary-median-vs-year.png">
+<meta property="og:image" content="/img/201711/wechat_qr.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="新西兰 IT 面试攻略">
 <meta name="twitter:description" content="前言宇宙是概率的，就算是正确的建议也只能提高成功率（这篇文章也不保证正确），和成功没有必然联系。特别是这边市场小，工作机会比国内少很多，比如说只打一枪的话神枪手也可能输给菜鸟。
@@ -191,6 +192,8 @@ IT 行业专业性强，这边的小公司 HR 不能胜任招聘工作，所以�
 <h1 id="小技巧">小技巧</h1><h2 id="找到联系方式">找到联系方式</h2><p>有时候在 SEEK 职位介绍上只有负责人名字却没有联系电话或者联系邮件，可以到那个中介公司的官网查看这个负责人的联系方式，或者直接 Google、LinkedIn 搜索，一般都可以找到详细联系方式。</p>
 <h2 id="如何确定是谁打电话过来">如何确定是谁打电话过来</h2><p>有时候比较尴尬的是一个中介打电话过来，你没有听清楚对方的姓名或者对方的公司，如果听到其中一个就可以根据自己的申请记录或者上 SEEK 上搜，跟平常搜索职位那样搜就行。</p>
 <p>如果不是 Skype 打过来的会有电话号码，就可以上 SEEK 上面搜这个号码，一般搜后面四位，例如这边的号码都是这样分割的 <code>09 336 0387</code>，应该搜 <code>0387</code>。</p>
+<hr>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -500,6 +503,34 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 

@@ -31,6 +31,7 @@ Leetcode 不支持 T-SQL，也就是说答案只能在一个 SQL 语句中
 注意题目中的特殊要求和边界条件
 
 复杂的问题一般需要多个 subquery 语句，MySQL 中要求每个 subquer">
+<meta property="og:image" content="/img/201711/wechat_qr.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Database: 题目总结">
 <meta name="twitter:description" content="一些注意事项
@@ -106,7 +107,7 @@ Leetcode 不支持 T-SQL，也就是说答案只能在一个 SQL 语句中
     <time datetime="2015-05-10T08:18:24.000Z" itemprop="datePublished"> 发表于 2015-05-10</time>
    
     <p class="article-updated">
-    <time datetime="2015-10-02T00:29:17.000Z" itemprop="updated"> 更新日期 2015-10-02</time>
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
 </header>
@@ -147,6 +148,8 @@ Leetcode 不支持 T-SQL，也就是说答案只能在一个 SQL 语句中
 <p><a href="/2015/04/28/leetcode-database-197-rising-temperature/">#197 Rising Temperature</a></p>
 <h1 id="运行环境">运行环境</h1><p>除非非常有信心答案正确，不然还是先在电脑上运行测试一下，而且就算模拟运行通过了可能对于某些 test case 还是会失败，要回头修改。</p>
 <p>双马尾菌使用的时 MySQL Workbench CE，有 Windows、Mac 版本，有 GUI 界面，运行起来也差不多。</p>
+<hr>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -456,6 +459,34 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 

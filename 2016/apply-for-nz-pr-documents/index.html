@@ -22,6 +22,7 @@
 <meta property="og:image" content="/img/201605/silverfern.png">
 <meta property="og:image" content="/img/201605/bubble_bag.jpg">
 <meta property="og:image" content="/img/201605/akl_city_branch.JPG">
+<meta property="og:image" content="/img/201711/wechat_qr.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="申请新西兰技术移民：申请材料（2016版）">
 <meta name="twitter:description" content="基本介绍
@@ -421,6 +422,8 @@
 <li>京东发货单、淘宝订单截图：签证官要求补充两人居住在一起两年的证明，想来想去最后找到了网上购物订单。纸质订单都丢了也没带过来，网购的大部分都是邮寄到公司，翻遍了这几年订单才找到几个京东和淘宝订单，打印出来然后翻译。提交的是扫描件，通过电子邮件发送。</li>
 </ul>
 <h2 id="Day_131_原件复核">Day 131 原件复核</h2><p>最后提交护照贴签，还要求提交毕业证学位证原件、公司离职信原件、劳动合同原件、带银行盖章的联名账户交易记录、京东淘宝发货单翻译件。有些人可能不需要复核，不过到了这一步都没太大问题了。</p>
+<hr>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -730,6 +733,34 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 
