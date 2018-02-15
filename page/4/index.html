@@ -77,6 +77,82 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/leetcode-database-196-delete-duplicate-emails/" title="Leetcode Database: #196 Delete Duplicate Emails" itemprop="url">Leetcode Database: #196 Delete Duplicate Emails</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
+		
+  <p class="article-time">
+    <time datetime="2015-05-06T01:33:30.000Z" itemprop="datePublished"> 发表于 2015-05-06</time>
+   
+    <p class="article-updated">
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
+    
+  </p>
+</header>
+
+    <div class="article-content">
+        
+        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/delete-duplicate-emails/">#196 Delete Duplicate Emails</a></p>
+<h1 id="解题思路">解题思路</h1><p>奇怪的是这题标明难度是 EASY，但通过率却是倒数第三，看来不少人在这个坑栽跟头。那我们换个思路不直接想如何 DELETE 重复值，而是<strong>先 SELECT 出我们需要的</strong>，非重复 Email 和其对应的最小 Id，然后把原表格中其他的数据删掉。</p>
+<h1 id="注意事项">注意事项</h1><ul>
+<li><p>不能在一个语句中既更改表中数据（DELETE/UPDATE）又在子查询语句中 SELECT 该表。例如这样是不允许的 <code>DELETE FROM Person WHERE Id IN (SELECT Id FROM Person)</code>，会报错。</p>
+<blockquote>
+<p>有一个 trick，可以再加一层 SELECT 把这个结果变成一个临时表。那么 MySQL 就会先运行子查询语句生成临时表，这样就和你真正要 DELETE 的表不算同一个表了。</p>
+</blockquote>
+</li>
+</ul>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/leetcode-database-196-delete-duplicate-emails/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/leetcode-database-196-delete-duplicate-emails/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/how-to-filter-logcat-output/" title="如何过滤 adb logcat 输出" itemprop="url">如何过滤 adb logcat 输出</a>
   </h1>
   <p class="article-author">By
@@ -703,75 +779,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/leetcode-database-183-customers-who-never-order/" title="Leetcode Database: #183 Customers Who Never Order" itemprop="url">Leetcode Database: #183 Customers Who Never Order</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-04T00:57:49.000Z" itemprop="datePublished"> 发表于 2015-04-04</time>
-   
-    <p class="article-updated">
-    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
-    
-  </p>
-</header>
-
-    <div class="article-content">
-        
-        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/customers-who-never-order/">#183 Customers Who Never Order</a></p>
-<h1 id="解题思路">解题思路</h1><p>依然是 JOIN 类问题。需要找出 Customers 表中存在但 Orders 中不存在的行，那么应该用 <code>LEFT JOIN</code>，并且添加条件 <code>WHERE Orders.CustomerId IS NULL</code></p>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/leetcode-database-183-customers-who-never-order/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/leetcode-database-183-customers-who-never-order/#disqus_thread" class="comments-count-link">Comments</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/3/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next<span></span></a>
@@ -802,7 +809,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Life-Style/" title="Life_Style">Life_Style<sup>6</sup></a></li>
+			<li><a href="/categories/Life-Style/" title="Life_Style">Life_Style<sup>7</sup></a></li>
 		  
 		
 		  
@@ -855,11 +862,11 @@
 			
 		
 			
-				<li><a href="/tags/Android/" title="Android">Android<sup>2</sup></a></li>
+				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
+				<li><a href="/tags/Android/" title="Android">Android<sup>2</sup></a></li>
 			
 		
 			
@@ -867,7 +874,7 @@
 			
 		
 			
-				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>2</sup></a></li>
+				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
 			
 		
 			
