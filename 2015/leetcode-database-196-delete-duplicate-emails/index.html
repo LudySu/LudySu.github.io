@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
     <title>Leetcode Database: #196 Delete Duplicate Emails | tsuinteru</title>
@@ -11,25 +11,20 @@
     
 
     
-    <meta name="description" content="题目#196 Delete Duplicate Emails
-解题思路奇怪的是这题标明难度是 EASY，但通过率却是倒数第三，看来不少人在这个坑栽跟头。那我们换个思路不直接想如何 DELETE 重复值，而是先 SELECT 出我们需要的，非重复 Email 和其对应的最小 Id，然后把原表格中其他的数据删掉。
-注意事项
-不能在一个语句中既更改表中数据（DELETE/UPDATE）又在子查询语句中">
+    <meta name="description" content="题目#196 Delete Duplicate Emails 解题思路奇怪的是这题标明难度是 EASY，但通过率却是倒数第三，看来不少人在这个坑栽跟头。那我们换个思路不直接想如何 DELETE 重复值，而是先 SELECT 出我们需要的，非重复 Email 和其对应的最小 Id，然后把原表格中其他的数据删掉。 注意事项 不能在一个语句中既更改表中数据（DELETE/UPDATE）又在子查询语句中">
+<meta name="keywords" content="leetcode,database">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode Database: #196 Delete Duplicate Emails">
 <meta property="og:url" content="http://tsuinte.ru/2015/leetcode-database-196-delete-duplicate-emails/index.html">
 <meta property="og:site_name" content="tsuinteru">
-<meta property="og:description" content="题目#196 Delete Duplicate Emails
-解题思路奇怪的是这题标明难度是 EASY，但通过率却是倒数第三，看来不少人在这个坑栽跟头。那我们换个思路不直接想如何 DELETE 重复值，而是先 SELECT 出我们需要的，非重复 Email 和其对应的最小 Id，然后把原表格中其他的数据删掉。
-注意事项
-不能在一个语句中既更改表中数据（DELETE/UPDATE）又在子查询语句中">
-<meta property="og:image" content="/img/201711/wechat_qr.jpg">
+<meta property="og:description" content="题目#196 Delete Duplicate Emails 解题思路奇怪的是这题标明难度是 EASY，但通过率却是倒数第三，看来不少人在这个坑栽跟头。那我们换个思路不直接想如何 DELETE 重复值，而是先 SELECT 出我们需要的，非重复 Email 和其对应的最小 Id，然后把原表格中其他的数据删掉。 注意事项 不能在一个语句中既更改表中数据（DELETE/UPDATE）又在子查询语句中">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://tsuinte.ru/img/201711/wechat_qr.jpg">
+<meta property="og:updated_time" content="2017-12-05T10:03:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Database: #196 Delete Duplicate Emails">
-<meta name="twitter:description" content="题目#196 Delete Duplicate Emails
-解题思路奇怪的是这题标明难度是 EASY，但通过率却是倒数第三，看来不少人在这个坑栽跟头。那我们换个思路不直接想如何 DELETE 重复值，而是先 SELECT 出我们需要的，非重复 Email 和其对应的最小 Id，然后把原表格中其他的数据删掉。
-注意事项
-不能在一个语句中既更改表中数据（DELETE/UPDATE）又在子查询语句中">
+<meta name="twitter:description" content="题目#196 Delete Duplicate Emails 解题思路奇怪的是这题标明难度是 EASY，但通过率却是倒数第三，看来不少人在这个坑栽跟头。那我们换个思路不直接想如何 DELETE 重复值，而是先 SELECT 出我们需要的，非重复 Email 和其对应的最小 Id，然后把原表格中其他的数据删掉。 注意事项 不能在一个语句中既更改表中数据（DELETE/UPDATE）又在子查询语句中">
+<meta name="twitter:image" content="http://tsuinte.ru/img/201711/wechat_qr.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="tsuinteru" type="application/atom+xml">
@@ -41,9 +36,9 @@
     <link rel="apple-touch-icon" href="/img/logo.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/logo.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
   <body>
     <header>
       
@@ -69,13 +64,13 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索">
 						<input type="hidden" name="q" value="site:tsuinte.ru">
 					</form>
 					
 					</li>
 				</ul>
-			</nav>			
+			</ul></nav>			
 </div>
     </header>
     <div id="container">
@@ -91,10 +86,10 @@
        
 		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
 		
-  <p class="article-time">
+  </p><p class="article-time">
     <time datetime="2015-05-06T01:33:30.000Z" itemprop="datePublished"> 发表于 2015-05-06</time>
    
-    <p class="article-updated">
+    </p><p class="article-updated">
     <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
@@ -109,9 +104,9 @@
 		
 		</div>
 		
-		<h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/delete-duplicate-emails/" target="_blank" rel="external">#196 Delete Duplicate Emails</a></p>
-<h1 id="解题思路">解题思路</h1><p>奇怪的是这题标明难度是 EASY，但通过率却是倒数第三，看来不少人在这个坑栽跟头。那我们换个思路不直接想如何 DELETE 重复值，而是<strong>先 SELECT 出我们需要的</strong>，非重复 Email 和其对应的最小 Id，然后把原表格中其他的数据删掉。</p>
-<h1 id="注意事项">注意事项</h1><ul>
+		<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.com/problems/delete-duplicate-emails/" target="_blank" rel="noopener">#196 Delete Duplicate Emails</a></p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>奇怪的是这题标明难度是 EASY，但通过率却是倒数第三，看来不少人在这个坑栽跟头。那我们换个思路不直接想如何 DELETE 重复值，而是<strong>先 SELECT 出我们需要的</strong>，非重复 Email 和其对应的最小 Id，然后把原表格中其他的数据删掉。</p>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
 <li><p>不能在一个语句中既更改表中数据（DELETE/UPDATE）又在子查询语句中 SELECT 该表。例如这样是不允许的 <code>DELETE FROM Person WHERE Id IN (SELECT Id FROM Person)</code>，会报错。</p>
 <blockquote>
 <p>有一个 trick，可以再加一层 SELECT 把这个结果变成一个临时表。那么 MySQL 就会先运行子查询语句生成临时表，这样就和你真正要 DELETE 的表不算同一个表了。</p>
@@ -119,7 +114,7 @@
 </li>
 </ul>
 <a id="more"></a>
-<h1 id="构造测试数据">构造测试数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Person (</span><br><span class="line">    Id <span class="built_in">INT</span>,</span><br><span class="line">    Email <span class="built_in">VARCHAR</span>(<span class="number">100</span>)</span><br><span class="line">);</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Person;</span></span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Person <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="string">'john@example.com'</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="string">'bob@example.com'</span>),</span><br><span class="line">(<span class="number">3</span>, <span class="string">'john@example.com'</span>);</span></span><br></pre></td></tr></table></figure>
+<h1 id="构造测试数据"><a href="#构造测试数据" class="headerlink" title="构造测试数据"></a>构造测试数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Person (</span><br><span class="line">    <span class="keyword">Id</span> <span class="built_in">INT</span>,</span><br><span class="line">    Email <span class="built_in">VARCHAR</span>(<span class="number">100</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Person;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Person <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="string">'john@example.com'</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="string">'bob@example.com'</span>),</span><br><span class="line">(<span class="number">3</span>, <span class="string">'john@example.com'</span>);</span><br></pre></td></tr></table></figure>
 <p>预期运行后 Person 表数据：</p>
 <table>
 <thead>
@@ -131,18 +126,18 @@
 <tbody>
 <tr>
 <td>2</td>
-<td>bob@example.com</td>
+<td><a href="mailto:bob@example.com" target="_blank" rel="noopener">bob@example.com</a></td>
 </tr>
 <tr>
 <td>1</td>
-<td>john@example.com</td>
+<td><a href="mailto:john@example.com" target="_blank" rel="noopener">john@example.com</a></td>
 </tr>
 </tbody>
 </table>
-<h1 id="一种答案">一种答案</h1><p>完整答案：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Runtime: 1070 ms</span></span><br><span class="line"><span class="operator"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Person </span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    Person.Id <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="keyword">SELECT</span> </span><br><span class="line">        minId</span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        (<span class="keyword">SELECT</span> </span><br><span class="line">            <span class="keyword">MIN</span>(Id) <span class="keyword">AS</span> minId, Email</span><br><span class="line">        <span class="keyword">FROM</span></span><br><span class="line">            Person</span><br><span class="line">        <span class="keyword">GROUP</span> <span class="keyword">BY</span> Email) <span class="keyword">AS</span> tmp);</span></span><br></pre></td></tr></table></figure>
+<h1 id="一种答案"><a href="#一种答案" class="headerlink" title="一种答案"></a>一种答案</h1><p>完整答案：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Runtime: 1070 ms</span></span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Person </span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    Person.Id <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="keyword">SELECT</span> </span><br><span class="line">        minId</span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        (<span class="keyword">SELECT</span> </span><br><span class="line">            <span class="keyword">MIN</span>(<span class="keyword">Id</span>) <span class="keyword">AS</span> minId, Email</span><br><span class="line">        <span class="keyword">FROM</span></span><br><span class="line">            Person</span><br><span class="line">        <span class="keyword">GROUP</span> <span class="keyword">BY</span> Email) <span class="keyword">AS</span> tmp);</span><br></pre></td></tr></table></figure>
 <p>接着我们分步看，第一步是找出需要保留的行：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="keyword">MIN</span>(Id) <span class="keyword">AS</span> minId, Email</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Person</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Email</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="keyword">MIN</span>(<span class="keyword">Id</span>) <span class="keyword">AS</span> minId, Email</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Person</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Email</span><br></pre></td></tr></table></figure>
 <p>运行结果，其实这就是我们想要的 Person 表的最终样子嘛</p>
 <table>
 <thead>
@@ -154,17 +149,17 @@
 <tbody>
 <tr>
 <td>2</td>
-<td>bob@example.com</td>
+<td><a href="mailto:bob@example.com" target="_blank" rel="noopener">bob@example.com</a></td>
 </tr>
 <tr>
 <td>1</td>
-<td>john@example.com</td>
+<td><a href="mailto:john@example.com" target="_blank" rel="noopener">john@example.com</a></td>
 </tr>
 </tbody>
 </table>
 <p>第二步删除表中不是我们要保留的行（NOT IN），也就是重复值。但由于语法限制需要多一层 SELECT 来构建临时表 tmp。</p>
 <hr>
-<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -178,7 +173,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
   </div>
 
 </div>
@@ -200,9 +195,9 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
+ <div class="prev">
  <a href="/2015/leetcode-database-185-department-top3-salaries/" title="Leetcode Database: #185 Department Top Three Salaries">
-  <strong>上一篇：</strong><br/>
+  <strong>上一篇：</strong><br>
   <span>
   Leetcode Database: #185 Department Top Three Salaries</span>
 </a>
@@ -210,8 +205,8 @@
 
 
 <div class="next">
-<a href="/2015/how-to-filter-logcat-output/"  title="如何过滤 adb logcat 输出">
- <strong>下一篇：</strong><br/> 
+<a href="/2015/how-to-filter-logcat-output/" title="如何过滤 adb logcat 输出">
+ <strong>下一篇：</strong><br> 
  <span>如何过滤 adb logcat 输出
 </span>
 </a>
@@ -263,11 +258,11 @@
 		  
 		
 		  
-			<li><a href="/categories/编程开发/" title="编程开发">编程开发<sup>1</sup></a></li>
+			<li><a href="/categories/编程开发/" title="编程开发">编程开发<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>8</sup></a></li>
+			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>9</sup></a></li>
 		  
 		
 		  
@@ -283,7 +278,7 @@
 		  
 		
 		  
-			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>1</sup></a></li>
+			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>2</sup></a></li>
 		  
 		
 		</ul>
@@ -304,7 +299,7 @@
 			
 		
 			
-				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>11</sup></a></li>
+				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>12</sup></a></li>
 			
 		
 			
@@ -312,7 +307,15 @@
 			
 		
 			
+				<li><a href="/tags/English/" title="English">English<sup>3</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
@@ -320,7 +323,7 @@
 			
 		
 			
-				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
+				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
 			
 		
 			
@@ -328,11 +331,11 @@
 			
 		
 			
-				<li><a href="/tags/Android/" title="Android">Android<sup>2</sup></a></li>
+				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
+				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
 			
 		
 			
@@ -344,7 +347,19 @@
 			
 		
 			
-				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
+				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日剧/" title="日剧">日剧<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/黑暗鸡汤料理协会/" title="黑暗鸡汤料理协会">黑暗鸡汤料理协会<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/油腻中年大叔也要炖鸡汤/" title="油腻中年大叔也要炖鸡汤">油腻中年大叔也要炖鸡汤<sup>1</sup></a></li>
 			
 		
 			
@@ -352,11 +367,7 @@
 			
 		
 			
-				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -370,7 +381,7 @@
 </aside>
 </div>
     </div>
-    <footer><div id="footer" >
+    <footer><div id="footer">
 	
 	<div class="line">
 		<span></span>
@@ -379,11 +390,11 @@
 	
 	
 	<section class="info">
-		<p> このツインテールに、夢と願いを込めるんだ <br/>
+		<p> このツインテールに、夢と願いを込めるんだ <br>
 			Android Dev | 二次元 | New Zeland</p>
 	</section>
 	 
-	<div class="social-font" class="clearfix">
+	<div class="social-font">
 		
 		
 		
@@ -399,13 +410,13 @@
 		
 				<div class="cc-license">
           <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
-            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons" />
+            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons">
           </a>
         </div>
     
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
 		
 		<a href="http://tsuinte.ru/about" target="_blank" title="胖的Panda">胖的Panda</a>
 		
@@ -590,7 +601,7 @@ ga('send', 'pageview');
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

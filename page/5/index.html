@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
     <title>tsuinteru</title>
@@ -17,6 +17,7 @@
 <meta property="og:url" content="http://tsuinte.ru/page/5/index.html">
 <meta property="og:site_name" content="tsuinteru">
 <meta property="og:description" content="Android Dev | Otaku | New Zealand">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tsuinteru">
 <meta name="twitter:description" content="Android Dev | Otaku | New Zealand">
@@ -31,9 +32,9 @@
     <link rel="apple-touch-icon" href="/img/logo.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/logo.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
   <body>
     <header>
       
@@ -59,17 +60,307 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索">
 						<input type="hidden" name="q" value="site:tsuinte.ru">
 					</form>
 					
 					</li>
 				</ul>
-			</nav>			
+			</ul></nav>			
 </div>
     </header>
     <div id="container">
       <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/leetcode-database-196-delete-duplicate-emails/" title="Leetcode Database: #196 Delete Duplicate Emails" itemprop="url">Leetcode Database: #196 Delete Duplicate Emails</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
+		
+  </p><p class="article-time">
+    <time datetime="2015-05-06T01:33:30.000Z" itemprop="datePublished"> 发表于 2015-05-06</time>
+   
+    </p><p class="article-updated">
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
+    
+  </p>
+</header>
+
+    <div class="article-content">
+        
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.com/problems/delete-duplicate-emails/" target="_blank" rel="noopener">#196 Delete Duplicate Emails</a></p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>奇怪的是这题标明难度是 EASY，但通过率却是倒数第三，看来不少人在这个坑栽跟头。那我们换个思路不直接想如何 DELETE 重复值，而是<strong>先 SELECT 出我们需要的</strong>，非重复 Email 和其对应的最小 Id，然后把原表格中其他的数据删掉。</p>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
+<li><p>不能在一个语句中既更改表中数据（DELETE/UPDATE）又在子查询语句中 SELECT 该表。例如这样是不允许的 <code>DELETE FROM Person WHERE Id IN (SELECT Id FROM Person)</code>，会报错。</p>
+<blockquote>
+<p>有一个 trick，可以再加一层 SELECT 把这个结果变成一个临时表。那么 MySQL 就会先运行子查询语句生成临时表，这样就和你真正要 DELETE 的表不算同一个表了。</p>
+</blockquote>
+</li>
+</ul>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/leetcode-database-196-delete-duplicate-emails/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/leetcode-database-196-delete-duplicate-emails/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/how-to-filter-logcat-output/" title="如何过滤 adb logcat 输出" itemprop="url">如何过滤 adb logcat 输出</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
+		
+  </p><p class="article-time">
+    <time datetime="2015-05-04T04:59:24.000Z" itemprop="datePublished"> 发表于 2015-05-04</time>
+   
+    </p><p class="article-updated">
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
+    
+  </p>
+</header>
+
+    <div class="article-content">
+        
+        <p>简介：</p>
+<p>本文介绍如何在 shell 命令行中过滤 adb logcat 输出的几个小技巧。</p>
+<p>开发当中经常看到别人的 log 如洪水般瞬间刷满了屏幕，对自己有用的信息都被淹没了，影响心情也影响效率。下面是几个我所知道的过滤方法。</p>
+<h1 id="只显示需要的输出，白名单"><a href="#只显示需要的输出，白名单" class="headerlink" title="只显示需要的输出，白名单"></a>只显示需要的输出，白名单</h1><p>最方便的当然是通过管道使用 <code>grep</code> 过滤了，这样可以使用 grep 强大的正则表达式匹配。简单的匹配一行当中的某个字符串，例如 MyApp：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb logcat | grep MyApp</span><br><span class="line">adb logcat | grep -i myapp #忽略大小写。</span><br><span class="line">adb logcat | grep --color=auto -i  myapp #设置匹配字符串颜色。更多设置请查看 grep 帮助。</span><br></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/how-to-filter-logcat-output/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Android-Debug-and-Profiling/">Android_Debug_and_Profiling</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Android/">Android</a><a href="/tags/debug/">debug</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/how-to-filter-logcat-output/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/leetcode-database-184-department-highest-salary/" title="Leetcode Database: #184 Department Highest Salary" itemprop="url">Leetcode Database: #184 Department Highest Salary</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
+		
+  </p><p class="article-time">
+    <time datetime="2015-05-03T12:03:19.000Z" itemprop="datePublished"> 发表于 2015-05-04</time>
+   
+    </p><p class="article-updated">
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
+    
+  </p>
+</header>
+
+    <div class="article-content">
+        
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.com/problems/department-highest-salary/" target="_blank" rel="noopener">#184 Department Highest Salary</a></p>
+<h1 id="解题思路-amp-一种答案"><a href="#解题思路-amp-一种答案" class="headerlink" title="解题思路&amp;一种答案"></a>解题思路&amp;一种答案</h1><h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>这题比较麻烦，我们慢慢分步解决，首先是找出各组最大的值，很容易想到下面的方法。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="keyword">MAX</span>(salary) <span class="keyword">AS</span> maxSalary, DepartmentId</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> DepartmentId</span><br></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/leetcode-database-184-department-highest-salary/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/leetcode-database-184-department-highest-salary/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/leetcode-database-180-consecutive-numbers/" title="Leetcode Database: #180 Consecutive Numbers" itemprop="url">Leetcode Database: #180 Consecutive Numbers</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
+		
+  </p><p class="article-time">
+    <time datetime="2015-05-03T08:43:50.000Z" itemprop="datePublished"> 发表于 2015-05-03</time>
+   
+    </p><p class="article-updated">
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
+    
+  </p>
+</header>
+
+    <div class="article-content">
+        
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.com/problems/consecutive-numbers/" target="_blank" rel="noopener">#180 Consecutive Numbers</a></p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>使用临时变量 <code>prevVal</code> 保存上一个 <code>Num</code> 值，然后使用临时变量 <code>count</code> 保存当前连续出现相同数字的次数。最外层 SELECT 再把 <code>Num</code> 这一列中 <strong>nowCount &gt;= 3</strong> 的值取出。</p>
+<p>连续数字计数可使用 <code>@count := IF(@prevVal = Num, @count + 1, 1)</code> 条件，<code>prevVal</code> 若为 <code>NULL</code>，等式不成立 <code>count</code> 初始化为 1；若 <code>prevVal</code> 是正常值则正常比较，现在值等于前值则加 1，否则初始化为 1。</p>
+<p>这里如果用 <code>CASE WHEN</code> 则代码会长一些：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CASE</span><br><span class="line">    WHEN @prevVal = Num THEN @count:=@count + 1</span><br><span class="line">    ELSE @count:=1</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">AS</span> nowCount</span><br></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/leetcode-database-180-consecutive-numbers/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/leetcode-database-180-consecutive-numbers/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
 
    
     
@@ -83,10 +374,10 @@
        
 		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
 		
-  <p class="article-time">
+  </p><p class="article-time">
     <time datetime="2015-05-03T07:17:57.000Z" itemprop="datePublished"> 发表于 2015-05-03</time>
    
-    <p class="article-updated">
+    </p><p class="article-updated">
     <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
@@ -94,8 +385,8 @@
 
     <div class="article-content">
         
-        <p>本博客基于 <a href="https://github.com/wuchong/jacman">Jacman</a> 这个主题，这篇文章记录一下所做的一些修改。原理都是相同的，这些修改一般也可以用于其他主题。</p>
-<h1 id="banner_图片上的文字加阴影">banner 图片上的文字加阴影</h1><p>本博客 banner 图片搭配白色字体很难看清，换其他颜色字体搭配起来也总觉得不好看，就想到了字体加阴影。</p>
+        <p>本博客基于 <a href="https://github.com/wuchong/jacman" target="_blank" rel="noopener">Jacman</a> 这个主题，这篇文章记录一下所做的一些修改。原理都是相同的，这些修改一般也可以用于其他主题。</p>
+<h1 id="banner-图片上的文字加阴影"><a href="#banner-图片上的文字加阴影" class="headerlink" title="banner 图片上的文字加阴影"></a>banner 图片上的文字加阴影</h1><p>本博客 banner 图片搭配白色字体很难看清，换其他颜色字体搭配起来也总觉得不好看，就想到了字体加阴影。</p>
 <p>字体阴影使用了 CSS 的 <code>text-shadow</code>，搜索框阴影是 <code>box-shadow</code>，修改的地方如下：</p>
         
         
@@ -148,10 +439,10 @@
        
 		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
 		
-  <p class="article-time">
+  </p><p class="article-time">
     <time datetime="2015-04-28T11:17:04.000Z" itemprop="datePublished"> 发表于 2015-04-28</time>
    
-    <p class="article-updated">
+    </p><p class="article-updated">
     <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
@@ -159,8 +450,8 @@
 
     <div class="article-content">
         
-        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/rising-temperature/">#197 Rising Temperature</a></p>
-<h1 id="解题思路">解题思路</h1><p>依然是 Ranking 类问题。首先构造一个临时表 <code>tmpTable</code>，里面构造一个临时变量 <code>prevVal</code> 储存上一个 <code>Temperature</code> 值，把比较结果储存在临时列 <code>isRising</code>；构造一个临时变量 <code>prevDate</code> 用于判断日期是否连续。然后 SELECT 所有临时表中 <strong>isRising = 1 AND isDateOk = 1</strong> 的行。最后最外层过滤其他列，只选出 <code>Id</code> 一列。</p>
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.com/problems/rising-temperature/" target="_blank" rel="noopener">#197 Rising Temperature</a></p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>依然是 Ranking 类问题。首先构造一个临时表 <code>tmpTable</code>，里面构造一个临时变量 <code>prevVal</code> 储存上一个 <code>Temperature</code> 值，把比较结果储存在临时列 <code>isRising</code>；构造一个临时变量 <code>prevDate</code> 用于判断日期是否连续。然后 SELECT 所有临时表中 <strong>isRising = 1 AND isDateOk = 1</strong> 的行。最后最外层过滤其他列，只选出 <code>Id</code> 一列。</p>
 <p>日期比较方法有以下几种，第一第二种差不多，第三种当 @preDate = NULL 时 <code>DATE_ADD</code> 函数会出错不建议使用</p>
 <ul>
 <li>Date BETWEEN Date AND @prevDate + INTERVAL 1 DAY</li>
@@ -187,7 +478,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
   </div>
 
 </div>
@@ -224,10 +515,10 @@
        
 		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
 		
-  <p class="article-time">
+  </p><p class="article-time">
     <time datetime="2015-04-17T12:32:17.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
    
-    <p class="article-updated">
+    </p><p class="article-updated">
     <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
@@ -235,9 +526,9 @@
 
     <div class="article-content">
         
-        <h1 id="Java">Java</h1><p>非常简单，创建一个 Throwable 对象，就可以得到当前的 stack trace。下面例子是打出调用 foobar() 函数的 trace：</p>
+        <h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><p>非常简单，创建一个 Throwable 对象，就可以得到当前的 stack trace。下面例子是打出调用 foobar() 函数的 trace：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">foobar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Throwable t = <span class="keyword">new</span> Throwable();</span><br><span class="line">    Log.d(TAG, <span class="string">"stack trace is "</span>, t);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="C++">C++</h1><h2 id="Android_4-4_及之前版本">Android 4.4 及之前版本</h2><p>也比较简单，使用 utils/Callstack 类即可。头文件位于 frameworks/native/include/utils/CallStack.h，一般无需修改 Android.mk 可直接使用。</p>
+<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><h2 id="Android-4-4-及之前版本"><a href="#Android-4-4-及之前版本" class="headerlink" title="Android 4.4 及之前版本"></a>Android 4.4 及之前版本</h2><p>也比较简单，使用 utils/Callstack 类即可。头文件位于 frameworks/native/include/utils/CallStack.h，一般无需修改 Android.mk 可直接使用。</p>
         
         
         <p class="article-more-link">
@@ -294,10 +585,10 @@
        
 		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
 		
-  <p class="article-time">
+  </p><p class="article-time">
     <time datetime="2015-04-10T11:23:57.000Z" itemprop="datePublished"> 发表于 2015-04-10</time>
    
-    <p class="article-updated">
+    </p><p class="article-updated">
     <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
@@ -305,8 +596,8 @@
 
     <div class="article-content">
         
-        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/rank-scores/">#178 Rank Scores</a></p>
-<h1 id="解题思路">解题思路</h1><p>典型的 Ranking 类问题，后面很多其他题目也会用到这个方法。就是构造用户自定义变量 <code>prev_value</code> 记录前值，<code>rank_count</code> 记录当前排名。</p>
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.com/problems/rank-scores/" target="_blank" rel="noopener">#178 Rank Scores</a></p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>典型的 Ranking 类问题，后面很多其他题目也会用到这个方法。就是构造用户自定义变量 <code>prev_value</code> 记录前值，<code>rank_count</code> 记录当前排名。</p>
         
         
         <p class="article-more-link">
@@ -326,7 +617,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
   </div>
 
 </div>
@@ -363,10 +654,10 @@
        
 		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
 		
-  <p class="article-time">
+  </p><p class="article-time">
     <time datetime="2015-04-07T01:17:07.000Z" itemprop="datePublished"> 发表于 2015-04-07</time>
    
-    <p class="article-updated">
+    </p><p class="article-updated">
     <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
@@ -374,8 +665,8 @@
 
     <div class="article-content">
         
-        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/employees-earning-more-than-their-managers/">#181 Employees Earning More Than Their Managers</a></p>
-<h1 id="解题思路">解题思路</h1><p>这是成功率最高的一题。需要想办法查找出某人对应 Manager 的 Salary，并放在同一个表中，然后比较 Salary 就很方便了。可以利用 <code>INNER JOIN</code></p>
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.com/problems/employees-earning-more-than-their-managers/" target="_blank" rel="noopener">#181 Employees Earning More Than Their Managers</a></p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>这是成功率最高的一题。需要想办法查找出某人对应 Manager 的 Salary，并放在同一个表中，然后比较 Salary 就很方便了。可以利用 <code>INNER JOIN</code></p>
         
         
         <p class="article-more-link">
@@ -395,7 +686,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
   </div>
 
 </div>
@@ -432,10 +723,10 @@
        
 		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
 		
-  <p class="article-time">
+  </p><p class="article-time">
     <time datetime="2015-04-05T11:04:04.000Z" itemprop="datePublished"> 发表于 2015-04-05</time>
    
-    <p class="article-updated">
+    </p><p class="article-updated">
     <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
@@ -443,8 +734,8 @@
 
     <div class="article-content">
         
-        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/second-highest-salary/">#176 Second Highest Salary</a></p>
-<h1 id="解题思路">解题思路</h1><p>依然是 Ranking 类问题。可以想到这么一个方法，对 DISTINCT Salary 进行排序加上 LIMIT 即可得到排名第 2 的行。但是题目要求若没有第 2 名的行，需要返回 NULL，而这个答案是不返回任何行，所以还需要加工。</p>
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.com/problems/second-highest-salary/" target="_blank" rel="noopener">#176 Second Highest Salary</a></p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>依然是 Ranking 类问题。可以想到这么一个方法，对 DISTINCT Salary 进行排序加上 LIMIT 即可得到排名第 2 的行。但是题目要求若没有第 2 名的行，需要返回 NULL，而这个答案是不返回任何行，所以还需要加工。</p>
         
         
         <p class="article-more-link">
@@ -464,7 +755,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
   </div>
 
 </div>
@@ -489,218 +780,9 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/leetcode-database-183-customers-who-never-order/" title="Leetcode Database: #183 Customers Who Never Order" itemprop="url">Leetcode Database: #183 Customers Who Never Order</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-04T00:57:49.000Z" itemprop="datePublished"> 发表于 2015-04-04</time>
-   
-    <p class="article-updated">
-    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
-    
-  </p>
-</header>
-
-    <div class="article-content">
-        
-        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/customers-who-never-order/">#183 Customers Who Never Order</a></p>
-<h1 id="解题思路">解题思路</h1><p>依然是 JOIN 类问题。需要找出 Customers 表中存在但 Orders 中不存在的行，那么应该用 <code>LEFT JOIN</code>，并且添加条件 <code>WHERE Orders.CustomerId IS NULL</code></p>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/leetcode-database-183-customers-who-never-order/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/leetcode-database-183-customers-who-never-order/#disqus_thread" class="comments-count-link">Comments</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/leetcode-database-175-combine-2tables/" title="Leetcode Database: #175 Combine Two Tables" itemprop="url">Leetcode Database: #175 Combine Two Tables</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-04T00:50:37.000Z" itemprop="datePublished"> 发表于 2015-04-04</time>
-   
-    <p class="article-updated">
-    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
-    
-  </p>
-</header>
-
-    <div class="article-content">
-        
-        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/combine-two-tables/">#175 Combine Two Tables</a></p>
-<h1 id="解题思路">解题思路</h1><p>这题比较简单，数据来源于两个表很自然就想到需要用某种 JOIN。题目中说到无论 Address 表有无那个人对应记录都应该列出来，说明应该用 <code>LEFT JOIN</code></p>
-<p><a href="http://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins">The Code Project</a> 有一张关于各种 JOIN 的可视化解释</p>
-<p><img src="http://www.codeproject.com/KB/database/Visual_SQL_Joins/Visual_SQL_JOINS_V2.png" alt="Visual_SQL_Joins"></p>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/leetcode-database-175-combine-2tables/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/leetcode-database-175-combine-2tables/#disqus_thread" class="comments-count-link">Comments</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/leetcode-database-182-duplicate-emails/" title="Leetcode Database: #182 Duplicate Emails" itemprop="url">Leetcode Database: #182 Duplicate Emails</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-03T00:32:15.000Z" itemprop="datePublished"> 发表于 2015-04-03</time>
-   
-    <p class="article-updated">
-    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
-    
-  </p>
-</header>
-
-    <div class="article-content">
-        
-        <h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/duplicate-emails/">#182 Duplicate Emails</a></p>
-<h1 id="解题思路">解题思路</h1><p>可以想到类似与 <code>WHERE count(Email) &gt; 1</code> 之类的条件，但实际上 count 是一个聚合函数需要和 <code>HAVING</code> 配合使用；此外还需要 <code>GROUP BY</code> 分组。</p>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/leetcode-database-182-duplicate-emails/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/leetcode-database-182-duplicate-emails/#disqus_thread" class="comments-count-link">Comments</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/4/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    <a class="extend prev" rel="prev" href="/page/4/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next<span></span></a>
   </nav>
 
 </div>
@@ -732,11 +814,11 @@
 		  
 		
 		  
-			<li><a href="/categories/编程开发/" title="编程开发">编程开发<sup>1</sup></a></li>
+			<li><a href="/categories/编程开发/" title="编程开发">编程开发<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>8</sup></a></li>
+			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>9</sup></a></li>
 		  
 		
 		  
@@ -752,7 +834,7 @@
 		  
 		
 		  
-			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>1</sup></a></li>
+			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>2</sup></a></li>
 		  
 		
 		</ul>
@@ -773,7 +855,7 @@
 			
 		
 			
-				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>11</sup></a></li>
+				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>12</sup></a></li>
 			
 		
 			
@@ -781,7 +863,15 @@
 			
 		
 			
+				<li><a href="/tags/English/" title="English">English<sup>3</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
@@ -789,7 +879,7 @@
 			
 		
 			
-				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
+				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
 			
 		
 			
@@ -797,11 +887,11 @@
 			
 		
 			
-				<li><a href="/tags/Android/" title="Android">Android<sup>2</sup></a></li>
+				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
+				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
 			
 		
 			
@@ -813,7 +903,19 @@
 			
 		
 			
-				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
+				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日剧/" title="日剧">日剧<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/黑暗鸡汤料理协会/" title="黑暗鸡汤料理协会">黑暗鸡汤料理协会<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/油腻中年大叔也要炖鸡汤/" title="油腻中年大叔也要炖鸡汤">油腻中年大叔也要炖鸡汤<sup>1</sup></a></li>
 			
 		
 			
@@ -821,11 +923,7 @@
 			
 		
 			
-				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -839,7 +937,7 @@
 </aside>
 </div>
     </div>
-    <footer><div id="footer" >
+    <footer><div id="footer">
 	
 	<div class="line">
 		<span></span>
@@ -848,11 +946,11 @@
 	
 	
 	<section class="info">
-		<p> このツインテールに、夢と願いを込めるんだ <br/>
+		<p> このツインテールに、夢と願いを込めるんだ <br>
 			Android Dev | 二次元 | New Zeland</p>
 	</section>
 	 
-	<div class="social-font" class="clearfix">
+	<div class="social-font">
 		
 		
 		
@@ -868,13 +966,13 @@
 		
 				<div class="cc-license">
           <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
-            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons" />
+            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons">
           </a>
         </div>
     
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
 		
 		<a href="http://tsuinte.ru/about" target="_blank" title="胖的Panda">胖的Panda</a>
 		
@@ -1003,7 +1101,7 @@ ga('send', 'pageview');
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

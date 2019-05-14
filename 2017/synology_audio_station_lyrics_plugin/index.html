@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
     <title>群晖NAS进阶使用教程（一）：Audio Station网易歌词插件 | tsuinteru</title>
@@ -11,36 +11,34 @@
     
 
     
-    <meta name="description" content="TL;DR
-从 GitHub release 下载。有两种口味：netease_org.aum 是清真原味，仅显示歌词原文，适合学霸；netease_trans.aum 是带中文翻译的口味，大众首选。打不开 GitHub 的这里也有度娘盘。
-Audio Station网易歌词插件由于国内版权保护越来越严格，加上各大版权联盟之间互相竞争，导致很多歌曲下架或者只能在一个网站独家播放。虽然这是好事，但在">
+    <meta name="description" content="TL;DR 从 GitHub release 下载。有两种口味：netease_org.aum 是清真原味，仅显示歌词原文，适合学霸；netease_trans.aum 是带中文翻译的口味，大众首选。打不开 GitHub 的这里也有度娘盘。 Audio Station网易歌词插件由于国内版权保护越来越严格，加上各大版权联盟之间互相竞争，导致很多歌曲下架或者只能在一个网站独家播放。虽然这是好事，但">
+<meta name="keywords" content="群晖,PHP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="群晖NAS进阶使用教程（一）：Audio Station网易歌词插件">
 <meta property="og:url" content="http://tsuinte.ru/2017/synology_audio_station_lyrics_plugin/index.html">
 <meta property="og:site_name" content="tsuinteru">
-<meta property="og:description" content="TL;DR
-从 GitHub release 下载。有两种口味：netease_org.aum 是清真原味，仅显示歌词原文，适合学霸；netease_trans.aum 是带中文翻译的口味，大众首选。打不开 GitHub 的这里也有度娘盘。
-Audio Station网易歌词插件由于国内版权保护越来越严格，加上各大版权联盟之间互相竞争，导致很多歌曲下架或者只能在一个网站独家播放。虽然这是好事，但在">
-<meta property="og:image" content="/img/201710/synology_head.jpg">
-<meta property="og:image" content="/img/201710/synology_mora.png">
-<meta property="og:image" content="/img/201710/synology_add_plugin.png">
-<meta property="og:image" content="/img/201710/synology_add_plugin2.png">
-<meta property="og:image" content="/img/201710/synology_show_lrc.png">
-<meta property="og:image" content="/img/201710/synology_show_lrc2.jpg">
-<meta property="og:image" content="/img/201710/synology_search_lrc.png">
-<meta property="og:image" content="/img/201710/synology_download_lrc.png">
-<meta property="og:image" content="/img/201710/synology_new_playlist.png">
-<meta property="og:image" content="/img/201710/synology_new_playlist2.png">
-<meta property="og:image" content="/img/201710/synology_new_playlist3.png">
-<meta property="og:image" content="/img/201710/synology_2233.jpg">
-<meta property="og:image" content="/img/201710/synology_mp3tag2.png">
-<meta property="og:image" content="/img/201710/synology_mp3tag.png">
-<meta property="og:image" content="/img/201711/wechat_qr.jpg">
+<meta property="og:description" content="TL;DR 从 GitHub release 下载。有两种口味：netease_org.aum 是清真原味，仅显示歌词原文，适合学霸；netease_trans.aum 是带中文翻译的口味，大众首选。打不开 GitHub 的这里也有度娘盘。 Audio Station网易歌词插件由于国内版权保护越来越严格，加上各大版权联盟之间互相竞争，导致很多歌曲下架或者只能在一个网站独家播放。虽然这是好事，但">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_head.jpg">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_mora.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_add_plugin.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_add_plugin2.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_show_lrc.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_show_lrc2.jpg">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_search_lrc.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_download_lrc.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_new_playlist.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_new_playlist2.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_new_playlist3.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_2233.jpg">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_mp3tag2.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_mp3tag.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201711/wechat_qr.jpg">
+<meta property="og:updated_time" content="2017-11-09T11:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="群晖NAS进阶使用教程（一）：Audio Station网易歌词插件">
-<meta name="twitter:description" content="TL;DR
-从 GitHub release 下载。有两种口味：netease_org.aum 是清真原味，仅显示歌词原文，适合学霸；netease_trans.aum 是带中文翻译的口味，大众首选。打不开 GitHub 的这里也有度娘盘。
-Audio Station网易歌词插件由于国内版权保护越来越严格，加上各大版权联盟之间互相竞争，导致很多歌曲下架或者只能在一个网站独家播放。虽然这是好事，但在">
+<meta name="twitter:description" content="TL;DR 从 GitHub release 下载。有两种口味：netease_org.aum 是清真原味，仅显示歌词原文，适合学霸；netease_trans.aum 是带中文翻译的口味，大众首选。打不开 GitHub 的这里也有度娘盘。 Audio Station网易歌词插件由于国内版权保护越来越严格，加上各大版权联盟之间互相竞争，导致很多歌曲下架或者只能在一个网站独家播放。虽然这是好事，但">
+<meta name="twitter:image" content="http://tsuinte.ru/img/201710/synology_head.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="tsuinteru" type="application/atom+xml">
@@ -52,9 +50,9 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
     <link rel="apple-touch-icon" href="/img/logo.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/logo.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
   <body>
     <header>
       
@@ -80,13 +78,13 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索">
 						<input type="hidden" name="q" value="site:tsuinte.ru">
 					</form>
 					
 					</li>
 				</ul>
-			</nav>			
+			</ul></nav>			
 </div>
     </header>
     <div id="container">
@@ -102,10 +100,10 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
        
 		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
 		
-  <p class="article-time">
+  </p><p class="article-time">
     <time datetime="2017-11-09T11:00:00.000Z" itemprop="datePublished"> 发表于 2017-11-10</time>
    
-    <p class="article-updated">
+    </p><p class="article-updated">
     <time datetime="2017-11-09T11:00:00.000Z" itemprop="updated"> 更新日期 2017-11-10</time>
     
   </p>
@@ -116,14 +114,14 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Audio_Station网易歌词插件"><span class="toc-number">1.</span> <span class="toc-text">Audio Station网易歌词插件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装与使用歌词插件"><span class="toc-number">1.1.</span> <span class="toc-text">安装与使用歌词插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#歌词插件特色"><span class="toc-number">1.2.</span> <span class="toc-text">歌词插件特色</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Audio_Station智能播放列表"><span class="toc-number">2.</span> <span class="toc-text">Audio Station智能播放列表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#说说_DS_Audio"><span class="toc-number">2.1.</span> <span class="toc-text">说说 DS Audio</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#歌曲信息编辑"><span class="toc-number">3.</span> <span class="toc-text">歌曲信息编辑</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Audio-Station网易歌词插件"><span class="toc-number">1.</span> <span class="toc-text">Audio Station网易歌词插件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装与使用歌词插件"><span class="toc-number">1.1.</span> <span class="toc-text">安装与使用歌词插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#歌词插件特色"><span class="toc-number">1.2.</span> <span class="toc-text">歌词插件特色</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Audio-Station智能播放列表"><span class="toc-number">2.</span> <span class="toc-text">Audio Station智能播放列表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#说说-DS-Audio"><span class="toc-number">2.1.</span> <span class="toc-text">说说 DS Audio</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#歌曲信息编辑"><span class="toc-number">3.</span> <span class="toc-text">歌曲信息编辑</span></a></li></ol>
 		
 		</div>
 		
 		<p><img src="/img/201710/synology_head.jpg" class="img-topic"></p>
 <p><strong>TL;DR</strong></p>
-<p>从 <a href="https://github.com/LudySu/Synology-LrcPlugin/releases" target="_blank" rel="external">GitHub release</a> 下载。有两种口味：<code>netease_org.aum</code> 是清真原味，仅显示歌词原文，适合学霸；<code>netease_trans.aum</code> 是带中文翻译的口味，大众首选。打不开 GitHub 的这里也有<a href="https://pan.baidu.com/s/1gfpgebx" target="_blank" rel="external">度娘盘</a>。</p>
-<h1 id="Audio_Station网易歌词插件">Audio Station网易歌词插件</h1><p>由于国内版权保护越来越严格，加上各大版权联盟之间互相竞争，导致很多歌曲下架或者只能在一个网站独家播放。虽然这是好事，但在大洗牌完成之前普通用户要听歌就麻烦了不少，要多下载几个 APP。另一方面 Hi-Res 音乐大规模发展，在 mora.jp 上能买到很多楼主喜欢的 ACG 音乐的 Hi-Res 版本，一般为 96kHz/24bit 的 FLAC 文件，普通录音源文件差不多就是这个规格，再压缩一下就是 CD。再加上人在国外很多歌曲都仅限中国大陆地区播放，所以楼主又回到了本地听歌的时代，把歌曲放在群晖 Audio Station 上。</p>
+<p>从 <a href="https://github.com/LudySu/Synology-LrcPlugin/releases" target="_blank" rel="noopener">GitHub release</a> 下载。有两种口味：<code>netease_org.aum</code> 是清真原味，仅显示歌词原文，适合学霸；<code>netease_trans.aum</code> 是带中文翻译的口味，大众首选。打不开 GitHub 的这里也有<a href="https://pan.baidu.com/s/1gfpgebx" target="_blank" rel="noopener">度娘盘</a>。</p>
+<h1 id="Audio-Station网易歌词插件"><a href="#Audio-Station网易歌词插件" class="headerlink" title="Audio Station网易歌词插件"></a>Audio Station网易歌词插件</h1><p>由于国内版权保护越来越严格，加上各大版权联盟之间互相竞争，导致很多歌曲下架或者只能在一个网站独家播放。虽然这是好事，但在大洗牌完成之前普通用户要听歌就麻烦了不少，要多下载几个 APP。另一方面 Hi-Res 音乐大规模发展，在 mora.jp 上能买到很多楼主喜欢的 ACG 音乐的 Hi-Res 版本，一般为 96kHz/24bit 的 FLAC 文件，普通录音源文件差不多就是这个规格，再压缩一下就是 CD。再加上人在国外很多歌曲都仅限中国大陆地区播放，所以楼主又回到了本地听歌的时代，把歌曲放在群晖 Audio Station 上。</p>
 <a id="more"></a>
 <p><img src="/img/201710/synology_mora.png" alt="mora.jp上的一首免费歌曲，索尼手机卖萌用"></p>
 <p>这样歌词就成了一个大问题，群晖 Audio Station 自带的歌词插件太弱，歌词都找不到。网络上有个千千静听的插件还不错，早年千千静听用户非常多，也贡献了很多歌词和歌词翻译。但现在早已被收购不再维护，而用户也转移到了腾讯、网易、虾米等等新的网络平台，所以需要有一款新的歌词插件才行。楼主非常喜欢网易云音乐 APP，就决定从这里入手弄一个歌词插件，第一次用 PHP 共花了一个多星期的业余时间才搞定。照惯例先放个声明：</p>
@@ -131,7 +129,7 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 <p>免责声明：本歌词插件仅用于研究机学习 PHP 编程、群晖 NAS 开发、计算机网络的目的，任何用户将其用于非法用途概与作者无关。歌词版权归网易及歌词贡献者、歌曲版权所有者等等所有。</p>
 </blockquote>
 <p>歌词都是网易的网友们上传的，很多都带有中文翻译，在此感谢歌词贡献者。</p>
-<h2 id="安装与使用歌词插件">安装与使用歌词插件</h2><p>从 <a href="https://github.com/LudySu/Synology-LrcPlugin/releases" target="_blank" rel="external">GitHub release</a> 下载。有两种口味：<code>netease_org.aum</code> 是清真原味，仅显示歌词原文，适合学霸；<code>netease_trans.aum</code> 是带中文翻译的口味，大众首选。打不开 GitHub 的这里也有<a href="https://pan.baidu.com/s/1gfpgebx" target="_blank" rel="external">度娘盘</a>。</p>
+<h2 id="安装与使用歌词插件"><a href="#安装与使用歌词插件" class="headerlink" title="安装与使用歌词插件"></a>安装与使用歌词插件</h2><p>从 <a href="https://github.com/LudySu/Synology-LrcPlugin/releases" target="_blank" rel="noopener">GitHub release</a> 下载。有两种口味：<code>netease_org.aum</code> 是清真原味，仅显示歌词原文，适合学霸；<code>netease_trans.aum</code> 是带中文翻译的口味，大众首选。打不开 GitHub 的这里也有<a href="https://pan.baidu.com/s/1gfpgebx" target="_blank" rel="noopener">度娘盘</a>。</p>
 <p>去 <code>Audio Station -&gt; 设置 -&gt; 歌词插件 -&gt; 添加</code> 来加入你喜欢口味的 <code>aum</code> 文件，然后记得打勾开启。</p>
 <p><img src="/img/201710/synology_add_plugin.png" alt="添加歌词插件"></p>
 <p><img src="/img/201710/synology_add_plugin2.png" alt="添加完成"></p>
@@ -143,9 +141,9 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 <p>下载来看看，觉得不够好的再换回去搜索结果列表，继续换一个。</p>
 <p><img src="/img/201710/synology_download_lrc.png" alt="下载到的歌词"></p>
 <p><strong>NOTE</strong>：下载完成后 lrc 歌词会缓存在 NAS 的歌曲所在文件夹，可以拷贝到其他地方使用。</p>
-<h2 id="歌词插件特色">歌词插件特色</h2><p>歌词搜索列表是根据艺术家、标题的相似程度，从高到低排序的，所以结果列表的第一项（Audio Station只自动下载第一项）一般来说是最佳结果。所以如果你的歌曲文件信息是准确的，匹配成功率会非常高。</p>
+<h2 id="歌词插件特色"><a href="#歌词插件特色" class="headerlink" title="歌词插件特色"></a>歌词插件特色</h2><p>歌词搜索列表是根据艺术家、标题的相似程度，从高到低排序的，所以结果列表的第一项（Audio Station只自动下载第一项）一般来说是最佳结果。所以如果你的歌曲文件信息是准确的，匹配成功率会非常高。</p>
 <p>第二个特色如果安装的是 <code>netease_trans.aum</code> 版本会自动添加中文翻译到行末并用<code>【】</code>标注。网易的歌词原文和翻译是两个独立的 lrc 歌词文件，所以本插件就像网易云音乐 APP 一样把它们拼接起来。</p>
-<h1 id="Audio_Station智能播放列表">Audio Station智能播放列表</h1><p>主要讲歌词插件的，顺便加点其他内容吧。播放列表是个麻烦的东西，在一个地方建好了可能过不久又要转移听歌阵地，加上一般喜新厌旧，喜欢新歌单曲循环，所以楼主最常用的列表是<code>最近添加的</code>和 <code>Random100</code>。Audio Station 可以根据你设定的一些条件建立智能播放列表，这样新添加的歌曲只要符合条件就会自动添加进去，方便免维护，需要做的只是确保歌曲信息准确。</p>
+<h1 id="Audio-Station智能播放列表"><a href="#Audio-Station智能播放列表" class="headerlink" title="Audio Station智能播放列表"></a>Audio Station智能播放列表</h1><p>主要讲歌词插件的，顺便加点其他内容吧。播放列表是个麻烦的东西，在一个地方建好了可能过不久又要转移听歌阵地，加上一般喜新厌旧，喜欢新歌单曲循环，所以楼主最常用的列表是<code>最近添加的</code>和 <code>Random100</code>。Audio Station 可以根据你设定的一些条件建立智能播放列表，这样新添加的歌曲只要符合条件就会自动添加进去，方便免维护，需要做的只是确保歌曲信息准确。</p>
 <p>例子一《最新一季歌曲》：建立最近 90 天内添加的新歌曲，就是一个动画季度的时间。Audio Station 虽然自带一个<code>最近添加的</code>播放列表，但只能逐个专辑查看、播放，并不好用。</p>
 <p><img src="/img/201710/synology_new_playlist.png" alt="最新一季歌曲"></p>
 <p>例子二《我的女神们》：包含所有初音未来的歌曲。由于是虚拟歌姬，演出者（艺术家）经常是这样的格式<code>黒うさP feat.初音ミク</code>，所以演出者这项只要包含<code>初音ミク</code>就行，不能精确匹配。后面两项类型（genre）是补充用的。</p>
@@ -153,16 +151,16 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 <p>例子三《梶浦大神》：梶浦由记是幕后大神，仅负责作曲，用智能播放列表就可以把这些歌曲全挑出来。</p>
 <p><img src="/img/201710/synology_new_playlist3.png" alt="梶浦大神"></p>
 <p>还有其他条件可以慢慢探索，可以创建你喜欢的智能播放列表。</p>
-<h2 id="说说_DS_Audio">说说 DS Audio</h2><p>APP 整体上非常不错，还支持推送到支持 WiFi 音箱播放。也比仅仅通过<code>媒体播放器</code> DLNA/UPnP 协议播放的功能要好很多，特别 iOS 上那些 DLNA 播放器 APP 要收费而且 UI 巨丑。最难的的是 Windows 平台也有对应 APP。</p>
+<h2 id="说说-DS-Audio"><a href="#说说-DS-Audio" class="headerlink" title="说说 DS Audio"></a>说说 DS Audio</h2><p>APP 整体上非常不错，还支持推送到支持 WiFi 音箱播放。也比仅仅通过<code>媒体播放器</code> DLNA/UPnP 协议播放的功能要好很多，特别 iOS 上那些 DLNA 播放器 APP 要收费而且 UI 巨丑。最难的的是 Windows 平台也有对应 APP。</p>
 <p>歌词问题解决后，还有个很讨厌的问题是个别音乐的专辑封面死活读取不出来，尝试更换封面等等，完全没发现规律。后来放弃了自制了个 2233 娘做完默认封面，总比白板好。</p>
 <p><img src="/img/201710/synology_2233.jpg" alt="2233专辑封面"></p>
-<h1 id="歌曲信息编辑">歌曲信息编辑</h1><p>有人可能会说歌曲信息不准确怎么办？在复制音乐进去 NAS 之前用编辑软件 Mp3Tag 先编集一下信息和专辑封面就好。Mp3Tag 是一款依靠自愿捐款的免费软件，好用且强大，有中文版，可以批量修改歌曲信息。格式支持非常好，包括 ALAC、FLAC、DSD 等都支持。原生是 Windows 平台，MacOS／Linux 字体委屈一点也有 wine 版，毕竟这两个平台软件少。</p>
+<h1 id="歌曲信息编辑"><a href="#歌曲信息编辑" class="headerlink" title="歌曲信息编辑"></a>歌曲信息编辑</h1><p>有人可能会说歌曲信息不准确怎么办？在复制音乐进去 NAS 之前用编辑软件 Mp3Tag 先编集一下信息和专辑封面就好。Mp3Tag 是一款依靠自愿捐款的免费软件，好用且强大，有中文版，可以批量修改歌曲信息。格式支持非常好，包括 ALAC、FLAC、DSD 等都支持。原生是 Windows 平台，MacOS／Linux 字体委屈一点也有 wine 版，毕竟这两个平台软件少。</p>
 <p>想要批量编辑的，把需要编辑歌曲全部拖进去，选中所有歌曲，例如想要修改所有歌曲的类型（genre）为 <code>Anime</code>，那么编辑红色框那个类型栏，点击保存就行。其他无需改变的字段它晖显示为 <code>&lt;keep&gt;</code>，表示保留原值。包括专辑封面图片都可以批量更改。</p>
 <p><img src="/img/201710/synology_mp3tag2.png" alt="批量修改"></p>
 <p>现在中档以上手机屏幕分辨率都是 1080p 起步，旗舰机都是 2k 以上，所以专辑封面也是时候升级了。很多下载的歌曲还是史前的 500px 规格，建议找更高分辨率的，至少 1500px 吧。</p>
 <p><img src="/img/201710/synology_mp3tag.png" alt="修改专辑封面"></p>
 <hr>
-<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -176,7 +174,7 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/PHP/">PHP</a><a href="/tags/群晖/">群晖</a>
+  <span></span> <a href="/tags/群晖/">群晖</a><a href="/tags/PHP/">PHP</a>
   </div>
 
 </div>
@@ -198,9 +196,9 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
+ <div class="prev">
  <a href="/2017/global_financial_crisis_3_global_savings_glut/" title="08金融危机（三）：安全资产与资金过剩">
-  <strong>上一篇：</strong><br/>
+  <strong>上一篇：</strong><br>
   <span>
   08金融危机（三）：安全资产与资金过剩</span>
 </a>
@@ -208,8 +206,8 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 
 
 <div class="next">
-<a href="/2017/swimming-in-the-bubble-jeffrey-greene/"  title="泡沫浮世绘（一）：史上最赚钱个人投资者">
- <strong>下一篇：</strong><br/> 
+<a href="/2017/swimming-in-the-bubble-jeffrey-greene/" title="泡沫浮世绘（一）：史上最赚钱个人投资者">
+ <strong>下一篇：</strong><br> 
  <span>泡沫浮世绘（一）：史上最赚钱个人投资者
 </span>
 </a>
@@ -231,7 +229,7 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Audio_Station网易歌词插件"><span class="toc-number">1.</span> <span class="toc-text">Audio Station网易歌词插件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装与使用歌词插件"><span class="toc-number">1.1.</span> <span class="toc-text">安装与使用歌词插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#歌词插件特色"><span class="toc-number">1.2.</span> <span class="toc-text">歌词插件特色</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Audio_Station智能播放列表"><span class="toc-number">2.</span> <span class="toc-text">Audio Station智能播放列表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#说说_DS_Audio"><span class="toc-number">2.1.</span> <span class="toc-text">说说 DS Audio</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#歌曲信息编辑"><span class="toc-number">3.</span> <span class="toc-text">歌曲信息编辑</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Audio-Station网易歌词插件"><span class="toc-number">1.</span> <span class="toc-text">Audio Station网易歌词插件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装与使用歌词插件"><span class="toc-number">1.1.</span> <span class="toc-text">安装与使用歌词插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#歌词插件特色"><span class="toc-number">1.2.</span> <span class="toc-text">歌词插件特色</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Audio-Station智能播放列表"><span class="toc-number">2.</span> <span class="toc-text">Audio Station智能播放列表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#说说-DS-Audio"><span class="toc-number">2.1.</span> <span class="toc-text">说说 DS Audio</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#歌曲信息编辑"><span class="toc-number">3.</span> <span class="toc-text">歌曲信息编辑</span></a></li></ol>
  
   </div>
 
@@ -261,11 +259,11 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 		  
 		
 		  
-			<li><a href="/categories/编程开发/" title="编程开发">编程开发<sup>1</sup></a></li>
+			<li><a href="/categories/编程开发/" title="编程开发">编程开发<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>8</sup></a></li>
+			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>9</sup></a></li>
 		  
 		
 		  
@@ -281,7 +279,7 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 		  
 		
 		  
-			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>1</sup></a></li>
+			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>2</sup></a></li>
 		  
 		
 		</ul>
@@ -302,7 +300,7 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 			
 		
 			
-				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>11</sup></a></li>
+				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>12</sup></a></li>
 			
 		
 			
@@ -310,7 +308,15 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 			
 		
 			
+				<li><a href="/tags/English/" title="English">English<sup>3</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
@@ -318,7 +324,7 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 			
 		
 			
-				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
+				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
 			
 		
 			
@@ -326,11 +332,11 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 			
 		
 			
-				<li><a href="/tags/Android/" title="Android">Android<sup>2</sup></a></li>
+				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
+				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
 			
 		
 			
@@ -342,7 +348,19 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 			
 		
 			
-				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
+				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日剧/" title="日剧">日剧<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/黑暗鸡汤料理协会/" title="黑暗鸡汤料理协会">黑暗鸡汤料理协会<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/油腻中年大叔也要炖鸡汤/" title="油腻中年大叔也要炖鸡汤">油腻中年大叔也要炖鸡汤<sup>1</sup></a></li>
 			
 		
 			
@@ -350,11 +368,7 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 			
 		
 			
-				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -368,7 +382,7 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 </aside>
 </div>
     </div>
-    <footer><div id="footer" >
+    <footer><div id="footer">
 	
 	<div class="line">
 		<span></span>
@@ -377,11 +391,11 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 	
 	
 	<section class="info">
-		<p> このツインテールに、夢と願いを込めるんだ <br/>
+		<p> このツインテールに、夢と願いを込めるんだ <br>
 			Android Dev | 二次元 | New Zeland</p>
 	</section>
 	 
-	<div class="social-font" class="clearfix">
+	<div class="social-font">
 		
 		
 		
@@ -397,13 +411,13 @@ Audio Station网易歌词插件由于国内版权保护越来越严格，加上�
 		
 				<div class="cc-license">
           <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
-            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons" />
+            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons">
           </a>
         </div>
     
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
 		
 		<a href="http://tsuinte.ru/about" target="_blank" title="胖的Panda">胖的Panda</a>
 		
@@ -588,7 +602,7 @@ ga('send', 'pageview');
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

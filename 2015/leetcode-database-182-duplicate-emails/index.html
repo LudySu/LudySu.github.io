@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
     <title>Leetcode Database: #182 Duplicate Emails | tsuinteru</title>
@@ -11,19 +11,20 @@
     
 
     
-    <meta name="description" content="题目#182 Duplicate Emails
-解题思路可以想到类似与 WHERE count(Email) &amp;gt; 1 之类的条件，但实际上 count 是一个聚合函数需要和 HAVING 配合使用；此外还需要 GROUP BY 分组。">
+    <meta name="description" content="题目#182 Duplicate Emails 解题思路可以想到类似与 WHERE count(Email) &amp;gt; 1 之类的条件，但实际上 count 是一个聚合函数需要和 HAVING 配合使用；此外还需要 GROUP BY 分组。">
+<meta name="keywords" content="leetcode,database">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode Database: #182 Duplicate Emails">
 <meta property="og:url" content="http://tsuinte.ru/2015/leetcode-database-182-duplicate-emails/index.html">
 <meta property="og:site_name" content="tsuinteru">
-<meta property="og:description" content="题目#182 Duplicate Emails
-解题思路可以想到类似与 WHERE count(Email) &amp;gt; 1 之类的条件，但实际上 count 是一个聚合函数需要和 HAVING 配合使用；此外还需要 GROUP BY 分组。">
-<meta property="og:image" content="/img/201711/wechat_qr.jpg">
+<meta property="og:description" content="题目#182 Duplicate Emails 解题思路可以想到类似与 WHERE count(Email) &amp;gt; 1 之类的条件，但实际上 count 是一个聚合函数需要和 HAVING 配合使用；此外还需要 GROUP BY 分组。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://tsuinte.ru/img/201711/wechat_qr.jpg">
+<meta property="og:updated_time" content="2017-12-05T10:03:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Database: #182 Duplicate Emails">
-<meta name="twitter:description" content="题目#182 Duplicate Emails
-解题思路可以想到类似与 WHERE count(Email) &amp;gt; 1 之类的条件，但实际上 count 是一个聚合函数需要和 HAVING 配合使用；此外还需要 GROUP BY 分组。">
+<meta name="twitter:description" content="题目#182 Duplicate Emails 解题思路可以想到类似与 WHERE count(Email) &amp;gt; 1 之类的条件，但实际上 count 是一个聚合函数需要和 HAVING 配合使用；此外还需要 GROUP BY 分组。">
+<meta name="twitter:image" content="http://tsuinte.ru/img/201711/wechat_qr.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="tsuinteru" type="application/atom+xml">
@@ -35,9 +36,9 @@
     <link rel="apple-touch-icon" href="/img/logo.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/logo.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
   <body>
     <header>
       
@@ -63,13 +64,13 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索">
 						<input type="hidden" name="q" value="site:tsuinte.ru">
 					</form>
 					
 					</li>
 				</ul>
-			</nav>			
+			</ul></nav>			
 </div>
     </header>
     <div id="container">
@@ -85,10 +86,10 @@
        
 		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
 		
-  <p class="article-time">
+  </p><p class="article-time">
     <time datetime="2015-04-03T00:32:15.000Z" itemprop="datePublished"> 发表于 2015-04-03</time>
    
-    <p class="article-updated">
+    </p><p class="article-updated">
     <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
@@ -103,10 +104,10 @@
 		
 		</div>
 		
-		<h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/duplicate-emails/" target="_blank" rel="external">#182 Duplicate Emails</a></p>
-<h1 id="解题思路">解题思路</h1><p>可以想到类似与 <code>WHERE count(Email) &gt; 1</code> 之类的条件，但实际上 count 是一个聚合函数需要和 <code>HAVING</code> 配合使用；此外还需要 <code>GROUP BY</code> 分组。</p>
+		<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.com/problems/duplicate-emails/" target="_blank" rel="noopener">#182 Duplicate Emails</a></p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>可以想到类似与 <code>WHERE count(Email) &gt; 1</code> 之类的条件，但实际上 count 是一个聚合函数需要和 <code>HAVING</code> 配合使用；此外还需要 <code>GROUP BY</code> 分组。</p>
 <a id="more"></a>
-<h1 id="注意事项">注意事项</h1><p>如果没有 <code>GROUP BY</code> 那么查询语句是 <code>SELECT COUNT(Email), Email FROM Person</code>，其结果是：</p>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>如果没有 <code>GROUP BY</code> 那么查询语句是 <code>SELECT COUNT(Email), Email FROM Person</code>，其结果是：</p>
 <table>
 <thead>
 <tr>
@@ -117,29 +118,29 @@
 <tbody>
 <tr>
 <td>3</td>
-<td>a@b.com</td>
+<td><a href="mailto:a@b.com" target="_blank" rel="noopener">a@b.com</a></td>
 </tr>
 </tbody>
 </table>
 <p>因为聚合函数 COUNT 只会返回一行，所以结果只有一行。如果需要每组的 Email 个数，则需要 <code>GROUP BY</code> 先分组，而事实上使用聚合函数一般都会 <code>GROUP BY</code>。</p>
-<p>还需要注意的是标准 SQL 中，含有 <code>GROUP BY</code> 的语句中 SELECT 的列只能包含聚合函数（例如 MAX/MIN/SUM/COUNT） 和在 <code>GROUP BY</code> 中的列。由于 MySQL 对这个规则进行了扩展不会报错，但可能得到意想不到的结果。<a href="https://dev.mysql.com/doc/refman/5.0/en/group-by-handling.html" target="_blank" rel="external">MySQL Handling of GROUP BY</a> 中是这么说的：</p>
+<p>还需要注意的是标准 SQL 中，含有 <code>GROUP BY</code> 的语句中 SELECT 的列只能包含聚合函数（例如 MAX/MIN/SUM/COUNT） 和在 <code>GROUP BY</code> 中的列。由于 MySQL 对这个规则进行了扩展不会报错，但可能得到意想不到的结果。<a href="https://dev.mysql.com/doc/refman/5.0/en/group-by-handling.html" target="_blank" rel="noopener">MySQL Handling of GROUP BY</a> 中是这么说的：</p>
 <blockquote>
 <p>MySQL extends the use of GROUP BY so that the select list can refer to nonaggregated columns not named in the GROUP BY clause. This means that the preceding query is legal in MySQL. You can use this feature to get better performance by avoiding unnecessary column sorting and grouping. However, this is useful primarily when all values in each nonaggregated column not named in the GROUP BY are the same for each group. The server is free to choose any value from each group, so unless they are the same, the values chosen are indeterminate. </p>
 </blockquote>
-<h1 id="构造测试数据">构造测试数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> Person (</span><br><span class="line">    Id <span class="built_in">INT</span>,</span><br><span class="line">    Email <span class="built_in">VARCHAR</span>(<span class="number">50</span>)</span><br><span class="line">);</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Person;</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Person <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="string">'a@b.com'</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="string">'c@d.com'</span>),</span><br><span class="line">(<span class="number">3</span>, <span class="string">'a@b.com'</span>),</span><br><span class="line">(<span class="number">4</span>, <span class="string">'a@b.com'</span>);</span></span><br></pre></td></tr></table></figure>
+<h1 id="构造测试数据"><a href="#构造测试数据" class="headerlink" title="构造测试数据"></a>构造测试数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> Person (</span><br><span class="line">    <span class="keyword">Id</span> <span class="built_in">INT</span>,</span><br><span class="line">    Email <span class="built_in">VARCHAR</span>(<span class="number">50</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Person;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Person <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="string">'a@b.com'</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="string">'c@d.com'</span>),</span><br><span class="line">(<span class="number">3</span>, <span class="string">'a@b.com'</span>),</span><br><span class="line">(<span class="number">4</span>, <span class="string">'a@b.com'</span>);</span><br></pre></td></tr></table></figure>
 <p>预期结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+---------+&#10;| Email   |&#10;+---------+&#10;| a@b.com |&#10;+---------+</span><br></pre></td></tr></table></figure>
-<h1 id="一种答案">一种答案</h1><p>完整答案</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Runtime: 984 ms</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> Email <span class="keyword">FROM</span> Person <span class="keyword">GROUP</span> <span class="keyword">BY</span> Email <span class="keyword">HAVING</span> <span class="keyword">count</span>(Email) &gt; <span class="number">1</span></span></span><br></pre></td></tr></table></figure>
-<h1 id="另一种答案">另一种答案</h1><p>换个思路，第一步先找到某个 Email 中 Id 最小的一个。 查询语句及结果是：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="keyword">MIN</span>(Id) <span class="keyword">AS</span> Id, Email</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Person</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Email</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+----+---------+  &#10;| Id | Email   |  &#10;+----+---------+  &#10;| 1  | a@b.com |  &#10;+----+---------+  &#10;| 2  | c@d.com |  &#10;+----+---------+</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+---------+</span><br><span class="line">| Email   |</span><br><span class="line">+---------+</span><br><span class="line">| a@b.com |</span><br><span class="line">+---------+</span><br></pre></td></tr></table></figure>
+<h1 id="一种答案"><a href="#一种答案" class="headerlink" title="一种答案"></a>一种答案</h1><p>完整答案</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Runtime: 984 ms</span></span><br><span class="line"><span class="keyword">SELECT</span> Email <span class="keyword">FROM</span> Person <span class="keyword">GROUP</span> <span class="keyword">BY</span> Email <span class="keyword">HAVING</span> <span class="keyword">count</span>(Email) &gt; <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h1 id="另一种答案"><a href="#另一种答案" class="headerlink" title="另一种答案"></a>另一种答案</h1><p>换个思路，第一步先找到某个 Email 中 Id 最小的一个。 查询语句及结果是：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="keyword">MIN</span>(<span class="keyword">Id</span>) <span class="keyword">AS</span> <span class="keyword">Id</span>, Email</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Person</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Email</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+----+---------+  </span><br><span class="line">| Id | Email   |  </span><br><span class="line">+----+---------+  </span><br><span class="line">| 1  | a@b.com |  </span><br><span class="line">+----+---------+  </span><br><span class="line">| 2  | c@d.com |  </span><br><span class="line">+----+---------+</span><br></pre></td></tr></table></figure>
 <p>第二步原来的 Person 表和第一步得到的临时表 LEFT JOIN，相当于从原理的 Person 表里减去所有 DISTINCT。如果 Email 是非重复的在 LEFT JOIN 之后就不存在了；如果是重复的，那么其重复值会少一个。得到结果的过程是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+----+---------+   &#20943;&#21435;   +----+---------+  &#10;| Id | Email   |         | Id | Email   |  &#10;+----+---------+         +----+---------+  &#10;| 1  | a@b.com |         | 1  | a@b.com |  &#10;+----+---------+         +----+---------+  &#10;| 2  | c@d.com |         | 2  | c@d.com |  &#10;+----+---------+         +----+---------+  &#10;| 3  | a@b.com |&#10;+----+---------+&#10;| 4  | a@b.com |&#10;+----+---------+&#10;&#10;&#31561;&#20110;  &#10;&#10;+----+---------+&#10;| Id | Email   |&#10;+----+---------+&#10;| 3  | a@b.com |&#10;+----+---------+&#10;| 4  | a@b.com |&#10;+----+---------+</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">+----+---------+   减去   +----+---------+  </span><br><span class="line">| Id | Email   |         | Id | Email   |  </span><br><span class="line">+----+---------+         +----+---------+  </span><br><span class="line">| 1  | a@b.com |         | 1  | a@b.com |  </span><br><span class="line">+----+---------+         +----+---------+  </span><br><span class="line">| 2  | c@d.com |         | 2  | c@d.com |  </span><br><span class="line">+----+---------+         +----+---------+  </span><br><span class="line">| 3  | a@b.com |</span><br><span class="line">+----+---------+</span><br><span class="line">| 4  | a@b.com |</span><br><span class="line">+----+---------+</span><br><span class="line"></span><br><span class="line">等于  </span><br><span class="line"></span><br><span class="line">+----+---------+</span><br><span class="line">| Id | Email   |</span><br><span class="line">+----+---------+</span><br><span class="line">| 3  | a@b.com |</span><br><span class="line">+----+---------+</span><br><span class="line">| 4  | a@b.com |</span><br><span class="line">+----+---------+</span><br></pre></td></tr></table></figure>
 <p>最后加一个 DISTINCT a.Email，把多个重复值去重。最后答案是</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Runtime: 1128 ms</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span></span><br><span class="line">    a.Email</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Person a</span><br><span class="line">        <span class="keyword">LEFT</span> <span class="keyword">JOIN</span></span><br><span class="line">    (<span class="keyword">SELECT</span> </span><br><span class="line">        <span class="keyword">MIN</span>(Id) <span class="keyword">AS</span> Id, Email</span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        Person</span><br><span class="line">    <span class="keyword">GROUP</span> <span class="keyword">BY</span> Email) tmp <span class="keyword">ON</span> a.Id = tmp.Id</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    tmp.Id <span class="keyword">IS</span> <span class="literal">NULL</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Runtime: 1128 ms</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span></span><br><span class="line">    a.Email</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Person a</span><br><span class="line">        <span class="keyword">LEFT</span> <span class="keyword">JOIN</span></span><br><span class="line">    (<span class="keyword">SELECT</span> </span><br><span class="line">        <span class="keyword">MIN</span>(<span class="keyword">Id</span>) <span class="keyword">AS</span> <span class="keyword">Id</span>, Email</span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        Person</span><br><span class="line">    <span class="keyword">GROUP</span> <span class="keyword">BY</span> Email) tmp <span class="keyword">ON</span> a.Id = tmp.Id</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    tmp.Id <span class="keyword">IS</span> <span class="literal">NULL</span></span><br></pre></td></tr></table></figure>
 <hr>
-<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -153,7 +154,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
   </div>
 
 </div>
@@ -175,9 +176,9 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
+ <div class="prev">
  <a href="/2015/leetcode-database-175-combine-2tables/" title="Leetcode Database: #175 Combine Two Tables">
-  <strong>上一篇：</strong><br/>
+  <strong>上一篇：</strong><br>
   <span>
   Leetcode Database: #175 Combine Two Tables</span>
 </a>
@@ -230,11 +231,11 @@
 		  
 		
 		  
-			<li><a href="/categories/编程开发/" title="编程开发">编程开发<sup>1</sup></a></li>
+			<li><a href="/categories/编程开发/" title="编程开发">编程开发<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>8</sup></a></li>
+			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>9</sup></a></li>
 		  
 		
 		  
@@ -250,7 +251,7 @@
 		  
 		
 		  
-			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>1</sup></a></li>
+			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>2</sup></a></li>
 		  
 		
 		</ul>
@@ -271,7 +272,7 @@
 			
 		
 			
-				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>11</sup></a></li>
+				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>12</sup></a></li>
 			
 		
 			
@@ -279,7 +280,15 @@
 			
 		
 			
+				<li><a href="/tags/English/" title="English">English<sup>3</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
@@ -287,7 +296,7 @@
 			
 		
 			
-				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
+				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
 			
 		
 			
@@ -295,11 +304,11 @@
 			
 		
 			
-				<li><a href="/tags/Android/" title="Android">Android<sup>2</sup></a></li>
+				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
+				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
 			
 		
 			
@@ -311,7 +320,19 @@
 			
 		
 			
-				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
+				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日剧/" title="日剧">日剧<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/黑暗鸡汤料理协会/" title="黑暗鸡汤料理协会">黑暗鸡汤料理协会<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/油腻中年大叔也要炖鸡汤/" title="油腻中年大叔也要炖鸡汤">油腻中年大叔也要炖鸡汤<sup>1</sup></a></li>
 			
 		
 			
@@ -319,11 +340,7 @@
 			
 		
 			
-				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -337,7 +354,7 @@
 </aside>
 </div>
     </div>
-    <footer><div id="footer" >
+    <footer><div id="footer">
 	
 	<div class="line">
 		<span></span>
@@ -346,11 +363,11 @@
 	
 	
 	<section class="info">
-		<p> このツインテールに、夢と願いを込めるんだ <br/>
+		<p> このツインテールに、夢と願いを込めるんだ <br>
 			Android Dev | 二次元 | New Zeland</p>
 	</section>
 	 
-	<div class="social-font" class="clearfix">
+	<div class="social-font">
 		
 		
 		
@@ -366,13 +383,13 @@
 		
 				<div class="cc-license">
           <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
-            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons" />
+            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons">
           </a>
         </div>
     
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
 		
 		<a href="http://tsuinte.ru/about" target="_blank" title="胖的Panda">胖的Panda</a>
 		
@@ -557,7 +574,7 @@ ga('send', 'pageview');
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

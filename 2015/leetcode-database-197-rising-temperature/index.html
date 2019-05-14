@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
     <title>Leetcode Database: #197 Rising Temperature | tsuinteru</title>
@@ -11,19 +11,20 @@
     
 
     
-    <meta name="description" content="题目#197 Rising Temperature
-解题思路依然是 Ranking 类问题。首先构造一个临时表 tmpTable，里面构造一个临时变量 prevVal 储存上一个 Temperature 值，把比较结果储存在临时列 isRising；构造一个临时变量 prevDate 用于判断日期是否连续。然后 SELECT 所有临时表中 isRising = 1 AND isDateOk = 1">
+    <meta name="description" content="题目#197 Rising Temperature 解题思路依然是 Ranking 类问题。首先构造一个临时表 tmpTable，里面构造一个临时变量 prevVal 储存上一个 Temperature 值，把比较结果储存在临时列 isRising；构造一个临时变量 prevDate 用于判断日期是否连续。然后 SELECT 所有临时表中 isRising = 1 AND isDateOk = 1">
+<meta name="keywords" content="leetcode,database">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode Database: #197 Rising Temperature">
 <meta property="og:url" content="http://tsuinte.ru/2015/leetcode-database-197-rising-temperature/index.html">
 <meta property="og:site_name" content="tsuinteru">
-<meta property="og:description" content="题目#197 Rising Temperature
-解题思路依然是 Ranking 类问题。首先构造一个临时表 tmpTable，里面构造一个临时变量 prevVal 储存上一个 Temperature 值，把比较结果储存在临时列 isRising；构造一个临时变量 prevDate 用于判断日期是否连续。然后 SELECT 所有临时表中 isRising = 1 AND isDateOk = 1">
-<meta property="og:image" content="/img/201711/wechat_qr.jpg">
+<meta property="og:description" content="题目#197 Rising Temperature 解题思路依然是 Ranking 类问题。首先构造一个临时表 tmpTable，里面构造一个临时变量 prevVal 储存上一个 Temperature 值，把比较结果储存在临时列 isRising；构造一个临时变量 prevDate 用于判断日期是否连续。然后 SELECT 所有临时表中 isRising = 1 AND isDateOk = 1">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://tsuinte.ru/img/201711/wechat_qr.jpg">
+<meta property="og:updated_time" content="2017-12-05T10:03:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Database: #197 Rising Temperature">
-<meta name="twitter:description" content="题目#197 Rising Temperature
-解题思路依然是 Ranking 类问题。首先构造一个临时表 tmpTable，里面构造一个临时变量 prevVal 储存上一个 Temperature 值，把比较结果储存在临时列 isRising；构造一个临时变量 prevDate 用于判断日期是否连续。然后 SELECT 所有临时表中 isRising = 1 AND isDateOk = 1">
+<meta name="twitter:description" content="题目#197 Rising Temperature 解题思路依然是 Ranking 类问题。首先构造一个临时表 tmpTable，里面构造一个临时变量 prevVal 储存上一个 Temperature 值，把比较结果储存在临时列 isRising；构造一个临时变量 prevDate 用于判断日期是否连续。然后 SELECT 所有临时表中 isRising = 1 AND isDateOk = 1">
+<meta name="twitter:image" content="http://tsuinte.ru/img/201711/wechat_qr.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="tsuinteru" type="application/atom+xml">
@@ -35,9 +36,9 @@
     <link rel="apple-touch-icon" href="/img/logo.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/logo.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
   <body>
     <header>
       
@@ -63,13 +64,13 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索">
 						<input type="hidden" name="q" value="site:tsuinte.ru">
 					</form>
 					
 					</li>
 				</ul>
-			</nav>			
+			</ul></nav>			
 </div>
     </header>
     <div id="container">
@@ -85,10 +86,10 @@
        
 		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
 		
-  <p class="article-time">
+  </p><p class="article-time">
     <time datetime="2015-04-28T11:17:04.000Z" itemprop="datePublished"> 发表于 2015-04-28</time>
    
-    <p class="article-updated">
+    </p><p class="article-updated">
     <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
@@ -103,8 +104,8 @@
 		
 		</div>
 		
-		<h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/rising-temperature/" target="_blank" rel="external">#197 Rising Temperature</a></p>
-<h1 id="解题思路">解题思路</h1><p>依然是 Ranking 类问题。首先构造一个临时表 <code>tmpTable</code>，里面构造一个临时变量 <code>prevVal</code> 储存上一个 <code>Temperature</code> 值，把比较结果储存在临时列 <code>isRising</code>；构造一个临时变量 <code>prevDate</code> 用于判断日期是否连续。然后 SELECT 所有临时表中 <strong>isRising = 1 AND isDateOk = 1</strong> 的行。最后最外层过滤其他列，只选出 <code>Id</code> 一列。</p>
+		<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.com/problems/rising-temperature/" target="_blank" rel="noopener">#197 Rising Temperature</a></p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>依然是 Ranking 类问题。首先构造一个临时表 <code>tmpTable</code>，里面构造一个临时变量 <code>prevVal</code> 储存上一个 <code>Temperature</code> 值，把比较结果储存在临时列 <code>isRising</code>；构造一个临时变量 <code>prevDate</code> 用于判断日期是否连续。然后 SELECT 所有临时表中 <strong>isRising = 1 AND isDateOk = 1</strong> 的行。最后最外层过滤其他列，只选出 <code>Id</code> 一列。</p>
 <p>日期比较方法有以下几种，第一第二种差不多，第三种当 @preDate = NULL 时 <code>DATE_ADD</code> 函数会出错不建议使用</p>
 <ul>
 <li>Date BETWEEN Date AND @prevDate + INTERVAL 1 DAY</li>
@@ -113,7 +114,7 @@
 <li>DATEDIFF(Date, @prevDate) = 1</li>
 </ul>
 <a id="more"></a>
-<h1 id="注意事项">注意事项</h1><ul>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
 <li><p>Date 列的数据是乱序排列，不像题中例子那样是顺序的 </p>
 <blockquote>
 <p><code>ORDER BY</code> 排序</p>
@@ -125,7 +126,7 @@
 </blockquote>
 </li>
 </ul>
-<h1 id="构造测试数据">构造测试数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Weather (</span><br><span class="line">    Id <span class="built_in">INT</span>,</span><br><span class="line">    <span class="built_in">Date</span> <span class="built_in">DATE</span>,</span><br><span class="line">    Temperature <span class="built_in">INT</span></span><br><span class="line">);</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Weather;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 根据测试用例增加了容易出错的一些行</span></span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Weather <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="string">'2015-01-01'</span>, <span class="number">10</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="string">'2015-01-02'</span>, <span class="number">25</span>),</span><br><span class="line">(<span class="number">4</span>, <span class="string">'2015-01-04'</span>, <span class="number">30</span>),</span><br><span class="line">(<span class="number">3</span>, <span class="string">'2015-01-03'</span>, <span class="number">32</span>),</span><br><span class="line">(<span class="number">5</span>, <span class="string">'2015-01-06'</span>, <span class="number">35</span>);</span></span><br></pre></td></tr></table></figure>
+<h1 id="构造测试数据"><a href="#构造测试数据" class="headerlink" title="构造测试数据"></a>构造测试数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Weather (</span><br><span class="line">    <span class="keyword">Id</span> <span class="built_in">INT</span>,</span><br><span class="line">    <span class="built_in">Date</span> <span class="built_in">DATE</span>,</span><br><span class="line">    Temperature <span class="built_in">INT</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Weather;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 根据测试用例增加了容易出错的一些行</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Weather <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="string">'2015-01-01'</span>, <span class="number">10</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="string">'2015-01-02'</span>, <span class="number">25</span>),</span><br><span class="line">(<span class="number">4</span>, <span class="string">'2015-01-04'</span>, <span class="number">30</span>),</span><br><span class="line">(<span class="number">3</span>, <span class="string">'2015-01-03'</span>, <span class="number">32</span>),</span><br><span class="line">(<span class="number">5</span>, <span class="string">'2015-01-06'</span>, <span class="number">35</span>);</span><br></pre></td></tr></table></figure>
 <p>预期结果：</p>
 <table>
 <thead>
@@ -142,10 +143,10 @@
 </tr>
 </tbody>
 </table>
-<h1 id="一种答案">一种答案</h1><p>完整答案</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Runtime: 1115 ms</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    Id</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    (<span class="keyword">SELECT</span> </span><br><span class="line">        Id,</span><br><span class="line">            <span class="keyword">IF</span>(Temperature &gt; @prevVal, <span class="number">1</span>, <span class="number">0</span>) <span class="keyword">AS</span> isRising,</span><br><span class="line">            <span class="keyword">IF</span>(<span class="built_in">Date</span> &gt; @prevDate</span><br><span class="line">                <span class="keyword">AND</span> <span class="built_in">Date</span> &lt;= @prevDate + <span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>, <span class="number">1</span>, <span class="number">0</span>) <span class="keyword">AS</span> isDateOk,</span><br><span class="line">            @prevVal:=Temperature,</span><br><span class="line">            @prevDate:=<span class="built_in">Date</span></span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        Weather, (<span class="keyword">SELECT</span> @prevVal:=<span class="literal">NULL</span>) tmpVal, (<span class="keyword">SELECT</span> @prevDate:=<span class="literal">NULL</span>) tmpDate</span><br><span class="line">    <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="built_in">Date</span>) tmpTable</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    isRising = <span class="number">1</span> <span class="keyword">AND</span> isDateOk = <span class="number">1</span></span></span><br></pre></td></tr></table></figure>
+<h1 id="一种答案"><a href="#一种答案" class="headerlink" title="一种答案"></a>一种答案</h1><p>完整答案</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Runtime: 1115 ms</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="keyword">Id</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    (<span class="keyword">SELECT</span> </span><br><span class="line">        <span class="keyword">Id</span>,</span><br><span class="line">            <span class="keyword">IF</span>(Temperature &gt; @prevVal, <span class="number">1</span>, <span class="number">0</span>) <span class="keyword">AS</span> isRising,</span><br><span class="line">            <span class="keyword">IF</span>(<span class="built_in">Date</span> &gt; @prevDate</span><br><span class="line">                <span class="keyword">AND</span> <span class="built_in">Date</span> &lt;= @prevDate + <span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>, <span class="number">1</span>, <span class="number">0</span>) <span class="keyword">AS</span> isDateOk,</span><br><span class="line">            @prevVal:=Temperature,</span><br><span class="line">            @prevDate:=<span class="built_in">Date</span></span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        Weather, (<span class="keyword">SELECT</span> @prevVal:=<span class="literal">NULL</span>) tmpVal, (<span class="keyword">SELECT</span> @prevDate:=<span class="literal">NULL</span>) tmpDate</span><br><span class="line">    <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="built_in">Date</span>) tmpTable</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    isRising = <span class="number">1</span> <span class="keyword">AND</span> isDateOk = <span class="number">1</span></span><br></pre></td></tr></table></figure>
 <p>其中内层查询得到 <code>tmpTable</code> 的语句是：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    Id,</span><br><span class="line">    <span class="keyword">IF</span>(Temperature &gt; @prevVal, <span class="number">1</span>, <span class="number">0</span>) <span class="keyword">AS</span> isRising,</span><br><span class="line">    <span class="keyword">IF</span>(<span class="built_in">Date</span> &gt; @prevDate</span><br><span class="line">            <span class="keyword">AND</span> <span class="built_in">Date</span> &lt;= @prevDate + <span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>,</span><br><span class="line">        <span class="number">1</span>,</span><br><span class="line">        <span class="number">0</span>) <span class="keyword">AS</span> isDateOk,</span><br><span class="line">    @prevVal:=Temperature,</span><br><span class="line">    @prevDate:=<span class="built_in">Date</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Weather,</span><br><span class="line">    (<span class="keyword">SELECT</span> @prevVal:=<span class="literal">NULL</span>) tmpVal,</span><br><span class="line">    (<span class="keyword">SELECT</span> @prevDate:=<span class="literal">NULL</span>) tmpDate</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="built_in">Date</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="keyword">Id</span>,</span><br><span class="line">    <span class="keyword">IF</span>(Temperature &gt; @prevVal, <span class="number">1</span>, <span class="number">0</span>) <span class="keyword">AS</span> isRising,</span><br><span class="line">    <span class="keyword">IF</span>(<span class="built_in">Date</span> &gt; @prevDate</span><br><span class="line">            <span class="keyword">AND</span> <span class="built_in">Date</span> &lt;= @prevDate + <span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>,</span><br><span class="line">        <span class="number">1</span>,</span><br><span class="line">        <span class="number">0</span>) <span class="keyword">AS</span> isDateOk,</span><br><span class="line">    @prevVal:=Temperature,</span><br><span class="line">    @prevDate:=<span class="built_in">Date</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Weather,</span><br><span class="line">    (<span class="keyword">SELECT</span> @prevVal:=<span class="literal">NULL</span>) tmpVal,</span><br><span class="line">    (<span class="keyword">SELECT</span> @prevDate:=<span class="literal">NULL</span>) tmpDate</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="built_in">Date</span></span><br></pre></td></tr></table></figure>
 <p>内层查询得到的临时表 <code>tmpTable</code> 结果是：</p>
 <table>
 <thead>
@@ -196,7 +197,7 @@
 </tbody>
 </table>
 <hr>
-<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -210,7 +211,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
   </div>
 
 </div>
@@ -232,9 +233,9 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
+ <div class="prev">
  <a href="/2015/jacman-theme-customizations/" title="对 Jacman 主题的一些个性化修改">
-  <strong>上一篇：</strong><br/>
+  <strong>上一篇：</strong><br>
   <span>
   对 Jacman 主题的一些个性化修改</span>
 </a>
@@ -242,8 +243,8 @@
 
 
 <div class="next">
-<a href="/2015/how-to-print-stack-trace/"  title="如何打印程序的 stack trace">
- <strong>下一篇：</strong><br/> 
+<a href="/2015/how-to-print-stack-trace/" title="如何打印程序的 stack trace">
+ <strong>下一篇：</strong><br> 
  <span>如何打印程序的 stack trace
 </span>
 </a>
@@ -295,11 +296,11 @@
 		  
 		
 		  
-			<li><a href="/categories/编程开发/" title="编程开发">编程开发<sup>1</sup></a></li>
+			<li><a href="/categories/编程开发/" title="编程开发">编程开发<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>8</sup></a></li>
+			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>9</sup></a></li>
 		  
 		
 		  
@@ -315,7 +316,7 @@
 		  
 		
 		  
-			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>1</sup></a></li>
+			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>2</sup></a></li>
 		  
 		
 		</ul>
@@ -336,7 +337,7 @@
 			
 		
 			
-				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>11</sup></a></li>
+				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>12</sup></a></li>
 			
 		
 			
@@ -344,7 +345,15 @@
 			
 		
 			
+				<li><a href="/tags/English/" title="English">English<sup>3</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
@@ -352,7 +361,7 @@
 			
 		
 			
-				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
+				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
 			
 		
 			
@@ -360,11 +369,11 @@
 			
 		
 			
-				<li><a href="/tags/Android/" title="Android">Android<sup>2</sup></a></li>
+				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
+				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
 			
 		
 			
@@ -376,7 +385,19 @@
 			
 		
 			
-				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
+				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日剧/" title="日剧">日剧<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/黑暗鸡汤料理协会/" title="黑暗鸡汤料理协会">黑暗鸡汤料理协会<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/油腻中年大叔也要炖鸡汤/" title="油腻中年大叔也要炖鸡汤">油腻中年大叔也要炖鸡汤<sup>1</sup></a></li>
 			
 		
 			
@@ -384,11 +405,7 @@
 			
 		
 			
-				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -402,7 +419,7 @@
 </aside>
 </div>
     </div>
-    <footer><div id="footer" >
+    <footer><div id="footer">
 	
 	<div class="line">
 		<span></span>
@@ -411,11 +428,11 @@
 	
 	
 	<section class="info">
-		<p> このツインテールに、夢と願いを込めるんだ <br/>
+		<p> このツインテールに、夢と願いを込めるんだ <br>
 			Android Dev | 二次元 | New Zeland</p>
 	</section>
 	 
-	<div class="social-font" class="clearfix">
+	<div class="social-font">
 		
 		
 		
@@ -431,13 +448,13 @@
 		
 				<div class="cc-license">
           <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
-            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons" />
+            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons">
           </a>
         </div>
     
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
 		
 		<a href="http://tsuinte.ru/about" target="_blank" title="胖的Panda">胖的Panda</a>
 		
@@ -622,7 +639,7 @@ ga('send', 'pageview');
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

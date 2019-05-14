@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
     <title>Leetcode Database: #184 Department Highest Salary | tsuinteru</title>
@@ -11,22 +11,20 @@
     
 
     
-    <meta name="description" content="题目#184 Department Highest Salary
-解题思路&amp;amp;一种答案第一步这题比较麻烦，我们慢慢分步解决，首先是找出各组最大的值，很容易想到下面的方法。
-12345SELECT     MAX(salary) AS maxSalary, DepartmentIdFROM    EmployeeGROUP BY DepartmentId">
+    <meta name="description" content="题目#184 Department Highest Salary 解题思路&amp;amp;一种答案第一步这题比较麻烦，我们慢慢分步解决，首先是找出各组最大的值，很容易想到下面的方法。 12345SELECT     MAX(salary) AS maxSalary, DepartmentIdFROM    EmployeeGROUP BY DepartmentId">
+<meta name="keywords" content="leetcode,database">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode Database: #184 Department Highest Salary">
 <meta property="og:url" content="http://tsuinte.ru/2015/leetcode-database-184-department-highest-salary/index.html">
 <meta property="og:site_name" content="tsuinteru">
-<meta property="og:description" content="题目#184 Department Highest Salary
-解题思路&amp;amp;一种答案第一步这题比较麻烦，我们慢慢分步解决，首先是找出各组最大的值，很容易想到下面的方法。
-12345SELECT     MAX(salary) AS maxSalary, DepartmentIdFROM    EmployeeGROUP BY DepartmentId">
-<meta property="og:image" content="/img/201711/wechat_qr.jpg">
+<meta property="og:description" content="题目#184 Department Highest Salary 解题思路&amp;amp;一种答案第一步这题比较麻烦，我们慢慢分步解决，首先是找出各组最大的值，很容易想到下面的方法。 12345SELECT     MAX(salary) AS maxSalary, DepartmentIdFROM    EmployeeGROUP BY DepartmentId">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://tsuinte.ru/img/201711/wechat_qr.jpg">
+<meta property="og:updated_time" content="2017-12-05T10:03:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Database: #184 Department Highest Salary">
-<meta name="twitter:description" content="题目#184 Department Highest Salary
-解题思路&amp;amp;一种答案第一步这题比较麻烦，我们慢慢分步解决，首先是找出各组最大的值，很容易想到下面的方法。
-12345SELECT     MAX(salary) AS maxSalary, DepartmentIdFROM    EmployeeGROUP BY DepartmentId">
+<meta name="twitter:description" content="题目#184 Department Highest Salary 解题思路&amp;amp;一种答案第一步这题比较麻烦，我们慢慢分步解决，首先是找出各组最大的值，很容易想到下面的方法。 12345SELECT     MAX(salary) AS maxSalary, DepartmentIdFROM    EmployeeGROUP BY DepartmentId">
+<meta name="twitter:image" content="http://tsuinte.ru/img/201711/wechat_qr.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="tsuinteru" type="application/atom+xml">
@@ -38,9 +36,9 @@
     <link rel="apple-touch-icon" href="/img/logo.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/logo.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
   <body>
     <header>
       
@@ -66,13 +64,13 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索">
 						<input type="hidden" name="q" value="site:tsuinte.ru">
 					</form>
 					
 					</li>
 				</ul>
-			</nav>			
+			</ul></nav>			
 </div>
     </header>
     <div id="container">
@@ -88,10 +86,10 @@
        
 		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
 		
-  <p class="article-time">
+  </p><p class="article-time">
     <time datetime="2015-05-03T12:03:19.000Z" itemprop="datePublished"> 发表于 2015-05-04</time>
    
-    <p class="article-updated">
+    </p><p class="article-updated">
     <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
@@ -102,13 +100,13 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解题思路&一种答案"><span class="toc-number">2.</span> <span class="toc-text">解题思路&一种答案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一步"><span class="toc-number">2.1.</span> <span class="toc-text">第一步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二步"><span class="toc-number">2.2.</span> <span class="toc-text">第二步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三步"><span class="toc-number">2.3.</span> <span class="toc-text">第三步</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意事项"><span class="toc-number">3.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构造测试数据"><span class="toc-number">4.</span> <span class="toc-text">构造测试数据</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解题思路-amp-一种答案"><span class="toc-number">2.</span> <span class="toc-text">解题思路&amp;一种答案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一步"><span class="toc-number">2.1.</span> <span class="toc-text">第一步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二步"><span class="toc-number">2.2.</span> <span class="toc-text">第二步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三步"><span class="toc-number">2.3.</span> <span class="toc-text">第三步</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意事项"><span class="toc-number">3.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构造测试数据"><span class="toc-number">4.</span> <span class="toc-text">构造测试数据</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/department-highest-salary/" target="_blank" rel="external">#184 Department Highest Salary</a></p>
-<h1 id="解题思路&amp;一种答案">解题思路&amp;一种答案</h1><h2 id="第一步">第一步</h2><p>这题比较麻烦，我们慢慢分步解决，首先是找出各组最大的值，很容易想到下面的方法。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="keyword">MAX</span>(salary) <span class="keyword">AS</span> maxSalary, DepartmentId</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> DepartmentId</span></span><br></pre></td></tr></table></figure>
+		<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.com/problems/department-highest-salary/" target="_blank" rel="noopener">#184 Department Highest Salary</a></p>
+<h1 id="解题思路-amp-一种答案"><a href="#解题思路-amp-一种答案" class="headerlink" title="解题思路&amp;一种答案"></a>解题思路&amp;一种答案</h1><h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>这题比较麻烦，我们慢慢分步解决，首先是找出各组最大的值，很容易想到下面的方法。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="keyword">MAX</span>(salary) <span class="keyword">AS</span> maxSalary, DepartmentId</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> DepartmentId</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>其结果为：</p>
 <table>
@@ -129,12 +127,12 @@
 </tr>
 </tbody>
 </table>
-<p>需要注意的是标准 SQL 中，含有 <code>GROUP BY</code> 的语句中 SELECT 的列只能包含聚合函数（例如 MAX） 和在 <code>GROUP BY</code> 中的列。由于 MySQL 对这个规则进行了扩展不会报错，但例如你再 SELECT Name 列就会得到奇怪的结果，maxSalary 对应的 Name 很可能不对，<strong>除非 Name 和 DepartmentId 的组合只有一种</strong>。<a href="https://dev.mysql.com/doc/refman/5.0/en/group-by-handling.html" target="_blank" rel="external">MySQL Handling of GROUP BY</a> 中是这么说的：</p>
+<p>需要注意的是标准 SQL 中，含有 <code>GROUP BY</code> 的语句中 SELECT 的列只能包含聚合函数（例如 MAX） 和在 <code>GROUP BY</code> 中的列。由于 MySQL 对这个规则进行了扩展不会报错，但例如你再 SELECT Name 列就会得到奇怪的结果，maxSalary 对应的 Name 很可能不对，<strong>除非 Name 和 DepartmentId 的组合只有一种</strong>。<a href="https://dev.mysql.com/doc/refman/5.0/en/group-by-handling.html" target="_blank" rel="noopener">MySQL Handling of GROUP BY</a> 中是这么说的：</p>
 <blockquote>
 <p>MySQL extends the use of GROUP BY so that the select list can refer to nonaggregated columns not named in the GROUP BY clause. This means that the preceding query is legal in MySQL. You can use this feature to get better performance by avoiding unnecessary column sorting and grouping. However, this is useful primarily when all values in each nonaggregated column not named in the GROUP BY are the same for each group. The server is free to choose any value from each group, so unless they are the same, the values chosen are indeterminate. </p>
 </blockquote>
-<h2 id="第二步">第二步</h2><p>接着再在上一步结果中加上部门名称一列，由于涉及到两个表我们使用 INNER JOIN：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    b.Name <span class="keyword">AS</span> Department, <span class="keyword">MAX</span>(salary) <span class="keyword">AS</span> Salary, DepartmentId</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee a</span><br><span class="line">        <span class="keyword">INNER</span> <span class="keyword">JOIN</span></span><br><span class="line">    Department b <span class="keyword">ON</span> a.DepartmentId = b.Id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> DepartmentId</span></span><br></pre></td></tr></table></figure>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>接着再在上一步结果中加上部门名称一列，由于涉及到两个表我们使用 INNER JOIN：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    b.Name <span class="keyword">AS</span> Department, <span class="keyword">MAX</span>(salary) <span class="keyword">AS</span> Salary, DepartmentId</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee a</span><br><span class="line">        <span class="keyword">INNER</span> <span class="keyword">JOIN</span></span><br><span class="line">    Department b <span class="keyword">ON</span> a.DepartmentId = b.Id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> DepartmentId</span><br></pre></td></tr></table></figure>
 <p>结果是</p>
 <table>
 <thead>
@@ -157,8 +155,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="第三步">第三步</h2><p>我们还需要对应的人名，那就再和 Employee 表 INNER JOIN 一次，找出符合上一步条件的人。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Runtime: 982 ms</span></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    t.Department, e.Name, e.Salary</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee e</span><br><span class="line">        <span class="keyword">INNER</span> <span class="keyword">JOIN</span></span><br><span class="line">    (<span class="keyword">SELECT</span> </span><br><span class="line">        b.Name <span class="keyword">AS</span> Department, <span class="keyword">MAX</span>(salary) <span class="keyword">AS</span> Salary, DepartmentId</span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        Employee a</span><br><span class="line">    <span class="keyword">INNER</span> <span class="keyword">JOIN</span> Department b <span class="keyword">ON</span> a.DepartmentId = b.Id</span><br><span class="line">    <span class="keyword">GROUP</span> <span class="keyword">BY</span> DepartmentId) t <span class="keyword">ON</span> e.DepartmentId = t.DepartmentId</span><br><span class="line">        <span class="keyword">AND</span> e.Salary = t.Salary</span></span><br></pre></td></tr></table></figure>
+<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>我们还需要对应的人名，那就再和 Employee 表 INNER JOIN 一次，找出符合上一步条件的人。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Runtime: 982 ms</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    t.Department, e.Name, e.Salary</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee e</span><br><span class="line">        <span class="keyword">INNER</span> <span class="keyword">JOIN</span></span><br><span class="line">    (<span class="keyword">SELECT</span> </span><br><span class="line">        b.Name <span class="keyword">AS</span> Department, <span class="keyword">MAX</span>(salary) <span class="keyword">AS</span> Salary, DepartmentId</span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        Employee a</span><br><span class="line">    <span class="keyword">INNER</span> <span class="keyword">JOIN</span> Department b <span class="keyword">ON</span> a.DepartmentId = b.Id</span><br><span class="line">    <span class="keyword">GROUP</span> <span class="keyword">BY</span> DepartmentId) t <span class="keyword">ON</span> e.DepartmentId = t.DepartmentId</span><br><span class="line">        <span class="keyword">AND</span> e.Salary = t.Salary</span><br></pre></td></tr></table></figure>
 <p>最后就是预期的正确结果：</p>
 <table>
 <thead>
@@ -186,11 +184,11 @@
 </tr>
 </tbody>
 </table>
-<h1 id="注意事项">注意事项</h1><ul>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
 <li>最高工资有多个人时，需要把所有人都查询出来</li>
 <li>对应的 DepartmentId 行不存在</li>
 </ul>
-<h1 id="构造测试数据">构造测试数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> Employee (</span><br><span class="line">    Id <span class="built_in">INT</span>,</span><br><span class="line">    Name <span class="built_in">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">    Salary <span class="built_in">INT</span>,</span><br><span class="line">    DepartmentId <span class="built_in">INT</span></span><br><span class="line">);</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> Department (</span><br><span class="line">    Id <span class="built_in">INT</span>,</span><br><span class="line">    Name <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line">);</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Employee;</span></span><br><span class="line"><span class="operator"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Department;</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Employee <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="string">'Joe'</span>  , <span class="number">70000</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="string">'Henry'</span>, <span class="number">80000</span>, <span class="number">2</span>),</span><br><span class="line">(<span class="number">3</span>, <span class="string">'Sam'</span>  , <span class="number">60000</span>, <span class="number">2</span>),</span><br><span class="line">(<span class="number">4</span>, <span class="string">'Max'</span>  , <span class="number">90000</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">5</span>, <span class="string">'Tom'</span>  , <span class="number">90000</span>, <span class="number">1</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Department <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="string">'IT '</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="string">'Sales'</span>);</span></span><br></pre></td></tr></table></figure>
+<h1 id="构造测试数据"><a href="#构造测试数据" class="headerlink" title="构造测试数据"></a>构造测试数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> Employee (</span><br><span class="line">    <span class="keyword">Id</span> <span class="built_in">INT</span>,</span><br><span class="line">    <span class="keyword">Name</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">    Salary <span class="built_in">INT</span>,</span><br><span class="line">    DepartmentId <span class="built_in">INT</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> Department (</span><br><span class="line">    <span class="keyword">Id</span> <span class="built_in">INT</span>,</span><br><span class="line">    <span class="keyword">Name</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Employee;</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Department;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Employee <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="string">'Joe'</span>  , <span class="number">70000</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="string">'Henry'</span>, <span class="number">80000</span>, <span class="number">2</span>),</span><br><span class="line">(<span class="number">3</span>, <span class="string">'Sam'</span>  , <span class="number">60000</span>, <span class="number">2</span>),</span><br><span class="line">(<span class="number">4</span>, <span class="string">'Max'</span>  , <span class="number">90000</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">5</span>, <span class="string">'Tom'</span>  , <span class="number">90000</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Department <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="string">'IT '</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="string">'Sales'</span>);</span><br></pre></td></tr></table></figure>
 <p>预期结果：</p>
 <table>
 <thead>
@@ -219,7 +217,7 @@
 </tbody>
 </table>
 <hr>
-<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -233,7 +231,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
   </div>
 
 </div>
@@ -255,9 +253,9 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
+ <div class="prev">
  <a href="/2015/how-to-filter-logcat-output/" title="如何过滤 adb logcat 输出">
-  <strong>上一篇：</strong><br/>
+  <strong>上一篇：</strong><br>
   <span>
   如何过滤 adb logcat 输出</span>
 </a>
@@ -265,8 +263,8 @@
 
 
 <div class="next">
-<a href="/2015/leetcode-database-180-consecutive-numbers/"  title="Leetcode Database: #180 Consecutive Numbers">
- <strong>下一篇：</strong><br/> 
+<a href="/2015/leetcode-database-180-consecutive-numbers/" title="Leetcode Database: #180 Consecutive Numbers">
+ <strong>下一篇：</strong><br> 
  <span>Leetcode Database: #180 Consecutive Numbers
 </span>
 </a>
@@ -288,7 +286,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解题思路&一种答案"><span class="toc-number">2.</span> <span class="toc-text">解题思路&一种答案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一步"><span class="toc-number">2.1.</span> <span class="toc-text">第一步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二步"><span class="toc-number">2.2.</span> <span class="toc-text">第二步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三步"><span class="toc-number">2.3.</span> <span class="toc-text">第三步</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意事项"><span class="toc-number">3.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构造测试数据"><span class="toc-number">4.</span> <span class="toc-text">构造测试数据</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解题思路-amp-一种答案"><span class="toc-number">2.</span> <span class="toc-text">解题思路&amp;一种答案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一步"><span class="toc-number">2.1.</span> <span class="toc-text">第一步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二步"><span class="toc-number">2.2.</span> <span class="toc-text">第二步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三步"><span class="toc-number">2.3.</span> <span class="toc-text">第三步</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意事项"><span class="toc-number">3.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构造测试数据"><span class="toc-number">4.</span> <span class="toc-text">构造测试数据</span></a></li></ol>
  
   </div>
 
@@ -318,11 +316,11 @@
 		  
 		
 		  
-			<li><a href="/categories/编程开发/" title="编程开发">编程开发<sup>1</sup></a></li>
+			<li><a href="/categories/编程开发/" title="编程开发">编程开发<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>8</sup></a></li>
+			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>9</sup></a></li>
 		  
 		
 		  
@@ -338,7 +336,7 @@
 		  
 		
 		  
-			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>1</sup></a></li>
+			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>2</sup></a></li>
 		  
 		
 		</ul>
@@ -359,7 +357,7 @@
 			
 		
 			
-				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>11</sup></a></li>
+				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>12</sup></a></li>
 			
 		
 			
@@ -367,7 +365,15 @@
 			
 		
 			
+				<li><a href="/tags/English/" title="English">English<sup>3</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
@@ -375,7 +381,7 @@
 			
 		
 			
-				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
+				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
 			
 		
 			
@@ -383,11 +389,11 @@
 			
 		
 			
-				<li><a href="/tags/Android/" title="Android">Android<sup>2</sup></a></li>
+				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
+				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
 			
 		
 			
@@ -399,7 +405,19 @@
 			
 		
 			
-				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
+				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日剧/" title="日剧">日剧<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/黑暗鸡汤料理协会/" title="黑暗鸡汤料理协会">黑暗鸡汤料理协会<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/油腻中年大叔也要炖鸡汤/" title="油腻中年大叔也要炖鸡汤">油腻中年大叔也要炖鸡汤<sup>1</sup></a></li>
 			
 		
 			
@@ -407,11 +425,7 @@
 			
 		
 			
-				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -425,7 +439,7 @@
 </aside>
 </div>
     </div>
-    <footer><div id="footer" >
+    <footer><div id="footer">
 	
 	<div class="line">
 		<span></span>
@@ -434,11 +448,11 @@
 	
 	
 	<section class="info">
-		<p> このツインテールに、夢と願いを込めるんだ <br/>
+		<p> このツインテールに、夢と願いを込めるんだ <br>
 			Android Dev | 二次元 | New Zeland</p>
 	</section>
 	 
-	<div class="social-font" class="clearfix">
+	<div class="social-font">
 		
 		
 		
@@ -454,13 +468,13 @@
 		
 				<div class="cc-license">
           <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
-            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons" />
+            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons">
           </a>
         </div>
     
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
 		
 		<a href="http://tsuinte.ru/about" target="_blank" title="胖的Panda">胖的Panda</a>
 		
@@ -645,7 +659,7 @@ ga('send', 'pageview');
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

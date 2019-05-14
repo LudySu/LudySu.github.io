@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
     <title>Leetcode Database: #177 Nth Highest Salary | tsuinteru</title>
@@ -11,37 +11,20 @@
     
 
     
-    <meta name="description" content="题目#177 Nth Highest Salary
-注意事项
-Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 Salary 排名是 2
-
-所以计算排名的方法有三种情况
-
-
-不能直接 WHERE Ranking = N，因为 SQL 计算顺序是 FROM &amp;gt; WHERE &amp;gt; GROUP BY &amp;gt; HAVING &amp;gt; SELECT &amp;gt; ORDER">
+    <meta name="description" content="题目#177 Nth Highest Salary 注意事项 Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 Salary 排名是 2  所以计算排名的方法有三种情况   不能直接 WHERE Ranking = N，因为 SQL 计算顺序是 FROM &amp;gt; WHERE &amp;gt; GROUP BY &amp;gt; HAVING &amp;gt; SELECT &amp;gt; ORDER">
+<meta name="keywords" content="leetcode,database">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode Database: #177 Nth Highest Salary">
 <meta property="og:url" content="http://tsuinte.ru/2015/leetcode-database-177-nth-highest-salary/index.html">
 <meta property="og:site_name" content="tsuinteru">
-<meta property="og:description" content="题目#177 Nth Highest Salary
-注意事项
-Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 Salary 排名是 2
-
-所以计算排名的方法有三种情况
-
-
-不能直接 WHERE Ranking = N，因为 SQL 计算顺序是 FROM &amp;gt; WHERE &amp;gt; GROUP BY &amp;gt; HAVING &amp;gt; SELECT &amp;gt; ORDER">
-<meta property="og:image" content="/img/201711/wechat_qr.jpg">
+<meta property="og:description" content="题目#177 Nth Highest Salary 注意事项 Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 Salary 排名是 2  所以计算排名的方法有三种情况   不能直接 WHERE Ranking = N，因为 SQL 计算顺序是 FROM &amp;gt; WHERE &amp;gt; GROUP BY &amp;gt; HAVING &amp;gt; SELECT &amp;gt; ORDER">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://tsuinte.ru/img/201711/wechat_qr.jpg">
+<meta property="og:updated_time" content="2017-12-05T10:03:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Database: #177 Nth Highest Salary">
-<meta name="twitter:description" content="题目#177 Nth Highest Salary
-注意事项
-Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 Salary 排名是 2
-
-所以计算排名的方法有三种情况
-
-
-不能直接 WHERE Ranking = N，因为 SQL 计算顺序是 FROM &amp;gt; WHERE &amp;gt; GROUP BY &amp;gt; HAVING &amp;gt; SELECT &amp;gt; ORDER">
+<meta name="twitter:description" content="题目#177 Nth Highest Salary 注意事项 Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 Salary 排名是 2  所以计算排名的方法有三种情况   不能直接 WHERE Ranking = N，因为 SQL 计算顺序是 FROM &amp;gt; WHERE &amp;gt; GROUP BY &amp;gt; HAVING &amp;gt; SELECT &amp;gt; ORDER">
+<meta name="twitter:image" content="http://tsuinte.ru/img/201711/wechat_qr.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="tsuinteru" type="application/atom+xml">
@@ -53,9 +36,9 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
     <link rel="apple-touch-icon" href="/img/logo.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/logo.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
   <body>
     <header>
       
@@ -81,13 +64,13 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索">
 						<input type="hidden" name="q" value="site:tsuinte.ru">
 					</form>
 					
 					</li>
 				</ul>
-			</nav>			
+			</ul></nav>			
 </div>
     </header>
     <div id="container">
@@ -103,10 +86,10 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
        
 		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
 		
-  <p class="article-time">
+  </p><p class="article-time">
     <time datetime="2015-05-08T13:34:32.000Z" itemprop="datePublished"> 发表于 2015-05-09</time>
    
-    <p class="article-updated">
+    </p><p class="article-updated">
     <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
     
   </p>
@@ -121,8 +104,8 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 		
 		</div>
 		
-		<h1 id="题目">题目</h1><p><a href="https://leetcode.com/problems/nth-highest-salary/" target="_blank" rel="external">#177 Nth Highest Salary</a></p>
-<h1 id="注意事项">注意事项</h1><ul>
+		<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.com/problems/nth-highest-salary/" target="_blank" rel="noopener">#177 Nth Highest Salary</a></p>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
 <li><p>Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 Salary 排名是 2</p>
 <blockquote>
 <p>所以计算排名的方法有三种情况</p>
@@ -137,11 +120,11 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 </li>
 </ul>
 <a id="more"></a>
-<h1 id="解题思路">解题思路</h1><p>非常熟悉的 Ranking 类题目，解题方法就是使用自定义变量计算排名。这个题目应该比较简单，可能因为编号靠前所以通过率倒数第二。</p>
-<h1 id="构造测试数据">构造测试数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> Employee (</span><br><span class="line">    Id <span class="built_in">INT</span>,</span><br><span class="line">    Salary <span class="built_in">INT</span></span><br><span class="line">);</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Employee;</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Employee <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="number">100</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="number">200</span>),</span><br><span class="line">(<span class="number">3</span>, <span class="number">300</span>),</span><br><span class="line">(<span class="number">4</span>, <span class="number">200</span>);</span></span><br></pre></td></tr></table></figure>
-<h1 id="一种答案">一种答案</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Runtime: 992 ms</span></span><br><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> getNthHighestSalary(N <span class="built_in">INT</span>) <span class="keyword">RETURNS</span> <span class="built_in">INT</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  <span class="keyword">RETURN</span> (</span><br><span class="line">      # <span class="keyword">Write</span> your MySQL <span class="keyword">query</span> statement below.</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span></span><br><span class="line">    Salary</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    (<span class="keyword">SELECT</span> </span><br><span class="line">        Id,</span><br><span class="line">            Salary,</span><br><span class="line">            @rowNum:=<span class="keyword">IF</span>(Salary &lt; @prevVal, @rowNum + <span class="number">1</span>, @rowNum) <span class="keyword">AS</span> Rank,</span><br><span class="line">            @prevVal:=Salary</span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        Employee, (<span class="keyword">SELECT</span> @rowNum:=<span class="number">1</span>) x, (<span class="keyword">SELECT</span> @prevVal:=<span class="number">0</span>) y</span><br><span class="line">    <span class="keyword">ORDER</span> <span class="keyword">BY</span> Salary <span class="keyword">DESC</span>) tmp</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    Rank = N</span><br><span class="line">  );</span></span><br><span class="line"><span class="operator"><span class="keyword">END</span></span></span><br></pre></td></tr></table></figure>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>非常熟悉的 Ranking 类题目，解题方法就是使用自定义变量计算排名。这个题目应该比较简单，可能因为编号靠前所以通过率倒数第二。</p>
+<h1 id="构造测试数据"><a href="#构造测试数据" class="headerlink" title="构造测试数据"></a>构造测试数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> Employee (</span><br><span class="line">    <span class="keyword">Id</span> <span class="built_in">INT</span>,</span><br><span class="line">    Salary <span class="built_in">INT</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Employee;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Employee <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="number">100</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="number">200</span>),</span><br><span class="line">(<span class="number">3</span>, <span class="number">300</span>),</span><br><span class="line">(<span class="number">4</span>, <span class="number">200</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="一种答案"><a href="#一种答案" class="headerlink" title="一种答案"></a>一种答案</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Runtime: 992 ms</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> getNthHighestSalary(N <span class="built_in">INT</span>) <span class="keyword">RETURNS</span> <span class="built_in">INT</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  <span class="keyword">RETURN</span> (</span><br><span class="line">      <span class="comment"># Write your MySQL query statement below.</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span></span><br><span class="line">    Salary</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    (<span class="keyword">SELECT</span> </span><br><span class="line">        <span class="keyword">Id</span>,</span><br><span class="line">            Salary,</span><br><span class="line">            @<span class="keyword">rowNum</span>:=<span class="keyword">IF</span>(Salary &lt; @prevVal, @<span class="keyword">rowNum</span> + <span class="number">1</span>, @<span class="keyword">rowNum</span>) <span class="keyword">AS</span> <span class="keyword">Rank</span>,</span><br><span class="line">            @prevVal:=Salary</span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        Employee, (<span class="keyword">SELECT</span> @<span class="keyword">rowNum</span>:=<span class="number">1</span>) x, (<span class="keyword">SELECT</span> @prevVal:=<span class="number">0</span>) y</span><br><span class="line">    <span class="keyword">ORDER</span> <span class="keyword">BY</span> Salary <span class="keyword">DESC</span>) tmp</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    <span class="keyword">Rank</span> = N</span><br><span class="line">  );</span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
 <p>内层查询语句是：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> </span><br><span class="line">    Id,</span><br><span class="line">    Salary,</span><br><span class="line">    @rowNum:=<span class="keyword">IF</span>(Salary &lt; @prevVal,</span><br><span class="line">        @rowNum + <span class="number">1</span>,</span><br><span class="line">        @rowNum) <span class="keyword">AS</span> Rank,</span><br><span class="line">    @prevVal:=Salary</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee,</span><br><span class="line">    (<span class="keyword">SELECT</span> @rowNum:=<span class="number">1</span>) x,</span><br><span class="line">    (<span class="keyword">SELECT</span> @prevVal:=<span class="number">0</span>) y</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> Salary <span class="keyword">DESC</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="keyword">Id</span>,</span><br><span class="line">    Salary,</span><br><span class="line">    @<span class="keyword">rowNum</span>:=<span class="keyword">IF</span>(Salary &lt; @prevVal,</span><br><span class="line">        @<span class="keyword">rowNum</span> + <span class="number">1</span>,</span><br><span class="line">        @<span class="keyword">rowNum</span>) <span class="keyword">AS</span> <span class="keyword">Rank</span>,</span><br><span class="line">    @prevVal:=Salary</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee,</span><br><span class="line">    (<span class="keyword">SELECT</span> @<span class="keyword">rowNum</span>:=<span class="number">1</span>) x,</span><br><span class="line">    (<span class="keyword">SELECT</span> @prevVal:=<span class="number">0</span>) y</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> Salary <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure>
 <p>其结果：</p>
 <table>
 <thead>
@@ -181,7 +164,7 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 </table>
 <p>第二步只是增加 <code>WHERE Rank = N</code> 和去除不需要的列</p>
 <hr>
-<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt=""></p>
+<p>本博客微信公众号<br><img src="/img/201711/wechat_qr.jpg" alt></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -195,7 +178,7 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/database/">database</a><a href="/tags/leetcode/">leetcode</a>
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
   </div>
 
 </div>
@@ -217,9 +200,9 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
+ <div class="prev">
  <a href="/2015/leetcode-database-summary/" title="Leetcode Database: 题目总结">
-  <strong>上一篇：</strong><br/>
+  <strong>上一篇：</strong><br>
   <span>
   Leetcode Database: 题目总结</span>
 </a>
@@ -227,8 +210,8 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 
 
 <div class="next">
-<a href="/2015/leetcode-database-185-department-top3-salaries/"  title="Leetcode Database: #185 Department Top Three Salaries">
- <strong>下一篇：</strong><br/> 
+<a href="/2015/leetcode-database-185-department-top3-salaries/" title="Leetcode Database: #185 Department Top Three Salaries">
+ <strong>下一篇：</strong><br> 
  <span>Leetcode Database: #185 Department Top Three Salaries
 </span>
 </a>
@@ -280,11 +263,11 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 		  
 		
 		  
-			<li><a href="/categories/编程开发/" title="编程开发">编程开发<sup>1</sup></a></li>
+			<li><a href="/categories/编程开发/" title="编程开发">编程开发<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>8</sup></a></li>
+			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>9</sup></a></li>
 		  
 		
 		  
@@ -300,7 +283,7 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 		  
 		
 		  
-			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>1</sup></a></li>
+			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>2</sup></a></li>
 		  
 		
 		</ul>
@@ -321,7 +304,7 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 			
 		
 			
-				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>11</sup></a></li>
+				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>12</sup></a></li>
 			
 		
 			
@@ -329,7 +312,15 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 			
 		
 			
+				<li><a href="/tags/English/" title="English">English<sup>3</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
@@ -337,7 +328,7 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 			
 		
 			
-				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
+				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
 			
 		
 			
@@ -345,11 +336,11 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 			
 		
 			
-				<li><a href="/tags/Android/" title="Android">Android<sup>2</sup></a></li>
+				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
+				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
 			
 		
 			
@@ -361,7 +352,19 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 			
 		
 			
-				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
+				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日剧/" title="日剧">日剧<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/黑暗鸡汤料理协会/" title="黑暗鸡汤料理协会">黑暗鸡汤料理协会<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/油腻中年大叔也要炖鸡汤/" title="油腻中年大叔也要炖鸡汤">油腻中年大叔也要炖鸡汤<sup>1</sup></a></li>
 			
 		
 			
@@ -369,11 +372,7 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 			
 		
 			
-				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -387,7 +386,7 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 </aside>
 </div>
     </div>
-    <footer><div id="footer" >
+    <footer><div id="footer">
 	
 	<div class="line">
 		<span></span>
@@ -396,11 +395,11 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 	
 	
 	<section class="info">
-		<p> このツインテールに、夢と願いを込めるんだ <br/>
+		<p> このツインテールに、夢と願いを込めるんだ <br>
 			Android Dev | 二次元 | New Zeland</p>
 	</section>
 	 
-	<div class="social-font" class="clearfix">
+	<div class="social-font">
 		
 		
 		
@@ -416,13 +415,13 @@ Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 S
 		
 				<div class="cc-license">
           <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
-            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons" />
+            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons">
           </a>
         </div>
     
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
 		
 		<a href="http://tsuinte.ru/about" target="_blank" title="胖的Panda">胖的Panda</a>
 		
@@ -607,7 +606,7 @@ ga('send', 'pageview');
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
