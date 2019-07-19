@@ -78,6 +78,86 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/leetcode-database-185-department-top3-salaries/" title="Leetcode Database: #185 Department Top Three Salaries" itemprop="url">Leetcode Database: #185 Department Top Three Salaries</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
+		
+  </p><p class="article-time">
+    <time datetime="2015-05-08T12:50:42.000Z" itemprop="datePublished"> 发表于 2015-05-09</time>
+   
+    </p><p class="article-updated">
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
+    
+  </p>
+</header>
+
+    <div class="article-content">
+        
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.com/problems/department-top-three-salaries/" target="_blank" rel="noopener">#185 Department Top Three Salaries</a></p>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
+<li><p>Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 Salary 排名是 2</p>
+<blockquote>
+<p>所以计算排名的方法有三种情况</p>
+</blockquote>
+</li>
+<li><p>第一步中不能直接 <code>WHERE RowNumber &lt;= 3</code>，因为 SQL 计算顺序是 <code>FROM &gt; WHERE &gt; GROUP BY &gt; HAVING &gt; SELECT &gt; ORDER BY</code></p>
+<blockquote>
+<p>临时列 RowNumber 在<strong>计算 WHERE 时这个列尚未生成</strong>，所以需要再在外层 SELECT 一次</p>
+</blockquote>
+</li>
+</ul>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/leetcode-database-185-department-top3-salaries/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/leetcode-database-185-department-top3-salaries/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/leetcode-database-196-delete-duplicate-emails/" title="Leetcode Database: #196 Delete Duplicate Emails" itemprop="url">Leetcode Database: #196 Delete Duplicate Emails</a>
   </h1>
   <p class="article-author">By
@@ -711,75 +791,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/leetcode-database-176-second-highest-salary/" title="Leetcode Database: #176 Second Highest Salary" itemprop="url">Leetcode Database: #176 Second Highest Salary</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
-		
-  </p><p class="article-time">
-    <time datetime="2015-04-05T11:04:04.000Z" itemprop="datePublished"> 发表于 2015-04-05</time>
-   
-    </p><p class="article-updated">
-    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
-    
-  </p>
-</header>
-
-    <div class="article-content">
-        
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.com/problems/second-highest-salary/" target="_blank" rel="noopener">#176 Second Highest Salary</a></p>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>依然是 Ranking 类问题。可以想到这么一个方法，对 DISTINCT Salary 进行排序加上 LIMIT 即可得到排名第 2 的行。但是题目要求若没有第 2 名的行，需要返回 NULL，而这个答案是不返回任何行，所以还需要加工。</p>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/leetcode-database-176-second-highest-salary/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/leetcode-database-176-second-highest-salary/#disqus_thread" class="comments-count-link">Comments</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/4/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next<span></span></a>
@@ -855,7 +866,7 @@
 			
 		
 			
-				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>12</sup></a></li>
+				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>13</sup></a></li>
 			
 		
 			
@@ -867,10 +878,6 @@
 			
 		
 			
-				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
@@ -879,15 +886,19 @@
 			
 		
 			
+				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/DIY工具/" title="DIY工具">DIY工具<sup>2</sup></a></li>
+				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
+				<li><a href="/tags/DIY工具/" title="DIY工具">DIY工具<sup>2</sup></a></li>
 			
 		
 			
@@ -899,11 +910,11 @@
 			
 		
 			
-				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
