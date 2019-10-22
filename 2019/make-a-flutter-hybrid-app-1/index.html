@@ -11,22 +11,22 @@
     
 
     
-    <meta name="description" content="TL;DR: this guide gives a real example (which is a minimized version that comes from our real project) when you follow the Official wiki: Add Flutter to existing apps, covering some common issues you">
-<meta name="keywords" content="English">
+    <meta name="description" content="UPDATED: Updated for Flutter v1.9.1. TL;DR: this guide gives a real example (which is a minimized version that comes from our real project) when you follow the Official wiki: Add Flutter to existing a">
+<meta name="keywords" content="English,Flutter">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Power of hybrid (I): add flutter to existing apps">
 <meta property="og:url" content="http://tsuinte.ru/2019/make-a-flutter-hybrid-app-1/index.html">
 <meta property="og:site_name" content="tsuinteru">
-<meta property="og:description" content="TL;DR: this guide gives a real example (which is a minimized version that comes from our real project) when you follow the Official wiki: Add Flutter to existing apps, covering some common issues you">
+<meta property="og:description" content="UPDATED: Updated for Flutter v1.9.1. TL;DR: this guide gives a real example (which is a minimized version that comes from our real project) when you follow the Official wiki: Add Flutter to existing a">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://tsuinte.ru/img/201903/flutter_project_navigation.png">
 <meta property="og:image" content="http://tsuinte.ru/img/201903/flutter_app_screens.jpg">
 <meta property="og:image" content="http://tsuinte.ru/img/201903/flutter_run_script.png">
 <meta property="og:image" content="http://tsuinte.ru/img/201903/flutter_ios_storyboard.png">
-<meta property="og:updated_time" content="2019-05-08T09:29:05.549Z">
+<meta property="og:updated_time" content="2019-10-22T09:02:34.381Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Power of hybrid (I): add flutter to existing apps">
-<meta name="twitter:description" content="TL;DR: this guide gives a real example (which is a minimized version that comes from our real project) when you follow the Official wiki: Add Flutter to existing apps, covering some common issues you">
+<meta name="twitter:description" content="UPDATED: Updated for Flutter v1.9.1. TL;DR: this guide gives a real example (which is a minimized version that comes from our real project) when you follow the Official wiki: Add Flutter to existing a">
 <meta name="twitter:image" content="http://tsuinte.ru/img/201903/flutter_project_navigation.png">
 
     
@@ -93,7 +93,7 @@
     <time datetime="2019-05-07T12:00:00.000Z" itemprop="datePublished"> 发表于 2019-05-08</time>
    
     </p><p class="article-updated">
-    <time datetime="2019-05-08T09:29:05.549Z" itemprop="updated"> 更新日期 2019-05-08</time>
+    <time datetime="2019-10-22T09:02:34.381Z" itemprop="updated"> 更新日期 2019-10-22</time>
     
   </p>
 </header>
@@ -103,11 +103,12 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Create-a-Flutter-project"><span class="toc-number">1.</span> <span class="toc-text">1. Create a Flutter project</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Android-app"><span class="toc-number">2.</span> <span class="toc-text">2. Android app</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Add-denpendency-on-Flutter-module"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Add denpendency on Flutter module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Use-Flutter-module"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 Use Flutter module</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Optional-AndroidX-headache"><span class="toc-number">2.2.1.</span> <span class="toc-text">Optional: AndroidX headache</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Hot-reload"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 Hot reload</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-iOS-app"><span class="toc-number">3.</span> <span class="toc-text">3. iOS app</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-Add-denpendency-on-Flutter-module"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 Add denpendency on Flutter module</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Optional-post-install-hook-headache"><span class="toc-number">3.1.1.</span> <span class="toc-text">Optional: post_install hook headache</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Use-Flutter-module"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 Use Flutter module</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-number">4.</span> <span class="toc-text">Reference</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Create-a-Flutter-project"><span class="toc-number">1.</span> <span class="toc-text">1. Create a Flutter project</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Android-app"><span class="toc-number">2.</span> <span class="toc-text">2. Android app</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Add-denpendency-on-Flutter-module"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Add denpendency on Flutter module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Use-Flutter-module"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 Use Flutter module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Hot-reload"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 Hot reload</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-iOS-app"><span class="toc-number">3.</span> <span class="toc-text">3. iOS app</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-Add-denpendency-on-Flutter-module"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 Add denpendency on Flutter module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Use-Flutter-module"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 Use Flutter module</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-number">4.</span> <span class="toc-text">Reference</span></a></li></ol>
 		
 		</div>
 		
-		<p><strong>TL;DR</strong>: this guide gives a real example (which is a minimized version that comes from our real project) when you follow the <a href="https://github.com/flutter/flutter/wiki/Add-Flutter-to-existing-apps" target="_blank" rel="noopener">Official wiki: Add Flutter to existing apps</a>, covering some common issues you might have. Check out the full <a href="https://github.com/LudySu/FlutterHybridExample" target="_blank" rel="noopener">FlutterHybridExample</a> in Github to see what it looks like when done.</p>
+		<p><strong>UPDATED</strong>: Updated for Flutter <code>v1.9.1</code>.</p>
+<p><strong>TL;DR</strong>: this guide gives a real example (which is a minimized version that comes from our real project) when you follow the <a href="https://github.com/flutter/flutter/wiki/Add-Flutter-to-existing-apps" target="_blank" rel="noopener">Official wiki: Add Flutter to existing apps</a>, covering some common issues you might have. Check out the full <a href="https://github.com/LudySu/FlutterHybridExample" target="_blank" rel="noopener">FlutterHybridExample</a> in Github to see what it looks like when done.</p>
 <p>Consider this situation, you have an app that works for both Android and iOS platforms, you developed them in a native way to get the best performance and user experience possible. Then one day you need to add a new feature to make it more attractive, which means the same thing has to be done twice, one for each platform. You heard of fancy and shinny stuff - Flutter that promises to work for both platforms and claims to bring native performance. But you can’t afford the time in totally rebuild the app, you still need to keep things running for existing users, just like doing an open heart surgery. So my answer is:</p>
 <ul>
 <li>Develop the new feature using Flutter</li>
@@ -122,14 +123,14 @@
 </ul>
 <p>Before starting, here are a few prerequsites:</p>
 <ol>
-<li>You have set up Flutter tool chain 1.0</li>
-<li>You have set up Android Studio IDE 3.3</li>
+<li>You have set up Flutter tool chain 1.9.1</li>
+<li>You have set up Android Studio IDE 3.5</li>
 </ol>
 <p>Let’s get started.</p>
 <h1 id="1-Create-a-Flutter-project"><a href="#1-Create-a-Flutter-project" class="headerlink" title="1. Create a Flutter project"></a>1. Create a Flutter project</h1><p>First we create a new Flutter project <code>FlutterHybridExample/flutter_common_module</code> as a sub-module in order to develop a new feature:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> FlutterHybridExample</span><br><span class="line">flutter create -t module flutter_common_module</span><br></pre></td></tr></table></figure>
 <h1 id="2-Android-app"><a href="#2-Android-app" class="headerlink" title="2. Android app"></a>2. Android app</h1><p>There’s an existing Android minimal app at <code>FlutterHybridExample/android_native_app</code> which represents our existing Android app. It has a TextView saying “This is Android native fragment” and a button labeled “GO TO FLUTTER” that does nothing at this stage.</p>
-<h2 id="2-1-Add-denpendency-on-Flutter-module"><a href="#2-1-Add-denpendency-on-Flutter-module" class="headerlink" title="2.1 Add denpendency on Flutter module"></a>2.1 Add denpendency on Flutter module</h2><p>Edit file <code>android_native_app/settings.gradle</code> to include Flutter project as a sub-project, which will look like:</p>
+<h2 id="2-1-Add-denpendency-on-Flutter-module"><a href="#2-1-Add-denpendency-on-Flutter-module" class="headerlink" title="2.1 Add denpendency on Flutter module"></a>2.1 Add denpendency on Flutter module</h2><p>Here we use the option “Depend on the module’s source code” described in the official wiki. Edit file <code>android_native_app/settings.gradle</code> to include Flutter project as a sub-project, which will look like:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">include &apos;:app&apos;</span><br><span class="line"></span><br><span class="line">setBinding(new Binding([gradle: this]))</span><br><span class="line">evaluate(new File(</span><br><span class="line">        settingsDir.parentFile,</span><br><span class="line">        &apos;flutter_common_module/.android/include_flutter.groovy&apos;</span><br><span class="line">))</span><br></pre></td></tr></table></figure>
 <p>Then edit file <code>android_native_app/app/build.gradle</code> to add denpendency on Flutter module:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation project(&apos;:flutter&apos;)</span><br></pre></td></tr></table></figure>
@@ -140,13 +141,6 @@
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FlutterHostFragment</span>: <span class="type">Fragment</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">newInstance</span><span class="params">()</span></span>: FlutterHostFragment &#123;</span><br><span class="line">            <span class="keyword">return</span> FlutterHostFragment()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> flutterView: FlutterView? = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreateView</span><span class="params">(inflater: <span class="type">LayoutInflater</span>, container: <span class="type">ViewGroup</span>?, savedInstanceState: <span class="type">Bundle</span>?)</span></span>: View? &#123;</span><br><span class="line">        flutterView = Flutter.createView(activity <span class="keyword">as</span> Activity, lifecycle, <span class="literal">null</span>)</span><br><span class="line">        <span class="keyword">return</span> flutterView</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Then you can build and run the app in the same way building a normal Android one.</p>
 <p><img src="/img/201903/flutter_app_screens.jpg" alt="Screen shots"></p>
-<h3 id="Optional-AndroidX-headache"><a href="#Optional-AndroidX-headache" class="headerlink" title="Optional: AndroidX headache"></a>Optional: AndroidX headache</h3><p>As of I’m writing at Feburary 2019, Flutter doesn’t support <code>com.android.support.androidx</code> packages yet. If your app has migrated to <a href="https://developer.android.com/jetpack/androidx/migrate" target="_blank" rel="noopener">AndroidX</a>, Android Studio will give you errors like when you try to run the app:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">flutter_common_module/.android/Flutter/src/main/java/io/flutter/facade/FlutterFragment.java</span><br><span class="line">error: package android.support.annotation does not exist</span><br><span class="line"></span><br><span class="line">flutter_common_module/.android/Flutter/src/main/java/io/flutter/facade/Flutter.java</span><br><span class="line">error: package android.support.annotation does not exist</span><br><span class="line">error: package android.arch.lifecycle does not exist</span><br></pre></td></tr></table></figure>
-<p>This is because Flutter still uses <code>com.android.support</code> in their Java wrapper files, if your app is depending on <code>com.android.support.androidx</code>, it will cause conflict. So you have to modify some wrapper Java file generated by Flutter. The fix is simple, open <code>flutter_common_module/.android/Flutter/build.gradle</code>, replace the dependencies at the bottom from:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    testImplementation &apos;junit:junit:4.12&apos;</span><br><span class="line">    implementation &apos;com.android.support:support-v13:27.1.1&apos;</span><br><span class="line">    implementation &apos;com.android.support:support-annotations:27.1.1&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>to this:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    testImplementation &apos;junit:junit:4.12&apos;</span><br><span class="line">    implementation &apos;androidx.legacy:legacy-support-v13:1.0.0&apos;</span><br><span class="line">    implementation &apos;androidx.annotation:annotation:1.0.0&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Errors should go away after a Gradle sync. Then open <code>FlutterFragment.java</code> and <code>Flutter.java</code>, remove all imports that the compiler marks red saying can’t find the packages.</p>
 <h2 id="2-3-Hot-reload"><a href="#2-3-Hot-reload" class="headerlink" title="2.3 Hot reload"></a>2.3 Hot reload</h2><p>This is the best part of a dynamic language like Javascript where you can do hot reload that shows the changes to UI instantly. For the compiled languages like Java/Kotlin , even with partial compile and JVM hot bainary swap, it’s still a headache especially there is a long way to get to the screen that is changed.</p>
 <p>Connect a device or launch an emulator. Then attach Flutter to the app by typing commands in terminal:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> FlutterHybridExample/flutter_common_module</span><br><span class="line">flutter attach <span class="comment"># Use flutter attach -d DEVICE_ID if there are multiple devices connected</span></span><br></pre></td></tr></table></figure>
@@ -156,14 +150,12 @@
 <h1 id="3-iOS-app"><a href="#3-iOS-app" class="headerlink" title="3. iOS app"></a>3. iOS app</h1><p>There’s another minimal app at <code>FlutterHybridExample/ios_native_app</code> which represents our existing iOS counterpart. It uses cocoapods for dependencies management.</p>
 <h2 id="3-1-Add-denpendency-on-Flutter-module"><a href="#3-1-Add-denpendency-on-Flutter-module" class="headerlink" title="3.1 Add denpendency on Flutter module"></a>3.1 Add denpendency on Flutter module</h2><p>First add these two lines to the end of your <code>Podfile</code> which calls a script to setup Flutter stuff:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flutter_application_path = &apos;../flutter_common_module&apos;</span><br><span class="line">eval(File.read(File.join(flutter_application_path, &apos;.ios&apos;, &apos;Flutter&apos;, &apos;podhelper.rb&apos;)), binding)</span><br></pre></td></tr></table></figure>
+<p>Then for each Xcode target that needs to embed Flutter, call <code>install_all_flutter_pods(flutter_application_path)</code> in the <code>Podfile</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">target &apos;ios_native_app&apos; do</span><br><span class="line">  install_all_flutter_pods(flutter_application_path)</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 <p>Then run <code>pod install</code>, you should be able to see pod output like this without any error:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Analyzing dependencies</span><br><span class="line">Fetching podspec for `Flutter` from `../flutter_common_module/.ios/Flutter/engine`</span><br><span class="line">Fetching podspec for `FlutterPluginRegistrant` from `../flutter_common_module/.ios/Flutter/FlutterPluginRegistrant`</span><br><span class="line">Downloading dependencies</span><br><span class="line">Installing Flutter (1.0.0)</span><br><span class="line">Installing FlutterPluginRegistrant (0.0.1)</span><br></pre></td></tr></table></figure>
-<p>Then go to project navigator, select <code>ios_native_app</code> project and then <strong>TARGETS</strong> <code>ios_native_app</code>. Select <code>Build Phases</code> tab, click the + button to add a <code>New Run Script Phase</code>. Add the following lines to the text field:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh&quot; build</span><br><span class="line">&quot;$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh&quot; embed</span><br></pre></td></tr></table></figure>
-<p>Finally, drag the new build phase to just after the <code>Target Dependencies</code> phase. It should look like this:</p>
+<p>It should look like this:</p>
 <p><img src="/img/201903/flutter_run_script.png" alt="Flutter Run Script Phase"></p>
-<h3 id="Optional-post-install-hook-headache"><a href="#Optional-post-install-hook-headache" class="headerlink" title="Optional: post_install hook headache"></a>Optional: <code>post_install</code> hook headache</h3><p>If you have a <code>post_install</code> hook in your <code>Podfile</code>, then you need to move the content into <code>flutter_common_module/.ios/Flutter/podhelper.rb</code>. Flutter uses that hook to disable bitcode, which will cause conflict with yours.</p>
-<p>Then you should be able to build and run the app like before when there’s no Flutter module.</p>
 <h2 id="3-2-Use-Flutter-module"><a href="#3-2-Use-Flutter-module" class="headerlink" title="3.2 Use Flutter module"></a>3.2 Use Flutter module</h2><p>The way described in the official wiki (see reference 1 at the end of article) requires modifying <code>AppDelegate</code> to register additoinal Flutter libraries, which I don’t really like. Actually the <code>FlutterViewController</code> class wraps everything up pretty good, so the easiest way is to add a new <code>ViewController</code> in storyboard and set is as subclass <code>FlutterViewController</code>. No code is needed.</p>
 <p>Here we add one more host <code>FlutterHostViewController</code> to embed the <code>FlutterViewController</code> to give a little bit more flexibility.</p>
 <p><img src="/img/201903/flutter_ios_storyboard.png" alt="iOS storyboard"></p>
@@ -179,7 +171,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/English/">English</a>
+  <span></span> <a href="/tags/English/">English</a><a href="/tags/Flutter/">Flutter</a>
   </div>
 
 </div>
@@ -234,7 +226,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Create-a-Flutter-project"><span class="toc-number">1.</span> <span class="toc-text">1. Create a Flutter project</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Android-app"><span class="toc-number">2.</span> <span class="toc-text">2. Android app</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Add-denpendency-on-Flutter-module"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Add denpendency on Flutter module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Use-Flutter-module"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 Use Flutter module</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Optional-AndroidX-headache"><span class="toc-number">2.2.1.</span> <span class="toc-text">Optional: AndroidX headache</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Hot-reload"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 Hot reload</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-iOS-app"><span class="toc-number">3.</span> <span class="toc-text">3. iOS app</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-Add-denpendency-on-Flutter-module"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 Add denpendency on Flutter module</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Optional-post-install-hook-headache"><span class="toc-number">3.1.1.</span> <span class="toc-text">Optional: post_install hook headache</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Use-Flutter-module"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 Use Flutter module</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-number">4.</span> <span class="toc-text">Reference</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Create-a-Flutter-project"><span class="toc-number">1.</span> <span class="toc-text">1. Create a Flutter project</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Android-app"><span class="toc-number">2.</span> <span class="toc-text">2. Android app</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Add-denpendency-on-Flutter-module"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Add denpendency on Flutter module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Use-Flutter-module"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 Use Flutter module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Hot-reload"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 Hot reload</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-iOS-app"><span class="toc-number">3.</span> <span class="toc-text">3. iOS app</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-Add-denpendency-on-Flutter-module"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 Add denpendency on Flutter module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Use-Flutter-module"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 Use Flutter module</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-number">4.</span> <span class="toc-text">Reference</span></a></li></ol>
  
   </div>
 
@@ -253,6 +245,10 @@
 		
 		  
 			<li><a href="/categories/Android-Debug-and-Profiling/" title="Android_Debug_and_Profiling">Android_Debug_and_Profiling<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/EverydayFlutter/" title="EverydayFlutter">EverydayFlutter<sup>2</sup></a></li>
 		  
 		
 		  
@@ -284,7 +280,11 @@
 		  
 		
 		  
-			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>2</sup></a></li>
+			<li><a href="/categories/鸡汤药丸/" title="鸡汤药丸">鸡汤药丸<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>1</sup></a></li>
 		  
 		
 		</ul>
@@ -309,15 +309,11 @@
 			
 		
 			
+				<li><a href="/tags/English/" title="English">English<sup>5</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/08金融危机/" title="08金融危机">08金融危机<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/English/" title="English">English<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
@@ -325,15 +321,23 @@
 			
 		
 			
+				<li><a href="/tags/Flutter/" title="Flutter">Flutter<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
+				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
+				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
 			
 		
 			
@@ -349,23 +353,15 @@
 			
 		
 			
-				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
+				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/日剧/" title="日剧">日剧<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/黑暗鸡汤料理协会/" title="黑暗鸡汤料理协会">黑暗鸡汤料理协会<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/油腻中年大叔也要炖鸡汤/" title="油腻中年大叔也要炖鸡汤">油腻中年大叔也要炖鸡汤<sup>1</sup></a></li>
 			
 		
 			

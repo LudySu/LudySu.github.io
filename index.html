@@ -78,6 +78,156 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2019/flutter_log_2_cognito/" title="Flutter Dev Journal(2): AWS Cognito SDK" itemprop="url">Flutter Dev Journal(2): AWS Cognito SDK</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
+		
+  </p><p class="article-time">
+    <time datetime="2019-10-20T11:00:00.000Z" itemprop="datePublished"> 发表于 2019-10-21</time>
+   
+    </p><p class="article-updated">
+    <time datetime="2019-10-22T09:56:50.874Z" itemprop="updated"> 更新日期 2019-10-22</time>
+    
+  </p>
+</header>
+
+    <div class="article-content">
+        
+        <p>When you are searching for AWS Cognito SDK that can be used in Flutter, you will soon be shocked that there’s no official support yet. According to a thread in <a href="https://forums.aws.amazon.com/thread.jspa?messageID=887161" target="_blank" rel="noopener">AWS forum</a>, one guy says:</p>
+<blockquote>
+<p>I work on the AWS SDK team. I am not aware of any plans to support Flutter at this point. I will take this to my team as a feature request and will post back on this thread/or through a general forum announcement if our plans change in the future.</p>
+</blockquote>
+<p>This is still true as of TODAY (October 2019).</p>
+<p>So there are two community packages out there, which are <a href="https://pub.dev/packages/amazon_cognito_identity_dart" target="_blank" rel="noopener">amazon_cognito_identity_dart</a> and <a href="https://pub.dev/packages/flutter_cognito_plugin" target="_blank" rel="noopener">flutter_cognito_plugin</a>. The former is a pure Dart one translated from AWS official javascript SDK, with good examples, but last active date was 7 months ago. The latter uses Native Android and iOS AWS SDK by wrapping them into <code>MethodChannel</code>s, still activily in development.</p>
+<p><strong>TL;DR</strong></p>
+<p>I chose <code>amazon_cognito_identity_dart</code> out of its pureness in Dart, the first try was successful. But later on found 2 major issues, <a href="https://github.com/LudySu/amazon-cognito-identity-dart" target="_blank" rel="noopener">all fixed in my fork</a>. If you are not interested in the details, you can check that out and follow the usage there.</p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2019/flutter_log_2_cognito/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/EverydayFlutter/">EverydayFlutter</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/English/">English</a><a href="/tags/Flutter/">Flutter</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2019/flutter_log_2_cognito/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/flutter_log_1_hybrid/" title="Flutter Dev Journal(1): Going hybrid" itemprop="url">Flutter Dev Journal(1): Going hybrid</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
+		
+  </p><p class="article-time">
+    <time datetime="2019-09-08T12:00:00.000Z" itemprop="datePublished"> 发表于 2019-09-09</time>
+   
+    </p><p class="article-updated">
+    <time datetime="2019-10-22T09:02:34.381Z" itemprop="updated"> 更新日期 2019-10-22</time>
+    
+  </p>
+</header>
+
+    <div class="article-content">
+        
+        <p><strong>Situation:</strong> I have an existing iOS app and an Android counterpart, and will be moving to Flutter to leverage the cross-platform ability. But there’s a new feature has to be added on time, is there a future-proof solution that I can avoid re-writing the same feature later on?</p>
+<p>The answer is <strong>YES</strong>, IF it does not rely too much on communication with existing apps. So we can do:</p>
+<ul>
+<li>Develop the new feature using Flutter</li>
+<li>Add the new Flutter module into existing native Android and iOS apps</li>
+<li>Write platform specific code in Flutter, and/or add bridging code to Flutter and/or native apps as required</li>
+<li>Reuse this Flutter module in the future unified Flutter app</li>
+</ul>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2019/flutter_log_1_hybrid/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/EverydayFlutter/">EverydayFlutter</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/English/">English</a><a href="/tags/Flutter/">Flutter</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2019/flutter_log_1_hybrid/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2019/pregenency-in-nz/" title="新西兰生孩子经验分享" itemprop="url">新西兰生孩子经验分享</a>
   </h1>
   <p class="article-author">By
@@ -152,14 +302,15 @@
     <time datetime="2019-05-07T12:00:00.000Z" itemprop="datePublished"> 发表于 2019-05-08</time>
    
     </p><p class="article-updated">
-    <time datetime="2019-05-08T09:29:05.549Z" itemprop="updated"> 更新日期 2019-05-08</time>
+    <time datetime="2019-10-22T09:02:34.381Z" itemprop="updated"> 更新日期 2019-10-22</time>
     
   </p>
 </header>
 
     <div class="article-content">
         
-        <p><strong>TL;DR</strong>: this guide gives a real example (which is a minimized version that comes from our real project) when you follow the <a href="https://github.com/flutter/flutter/wiki/Add-Flutter-to-existing-apps" target="_blank" rel="noopener">Official wiki: Add Flutter to existing apps</a>, covering some common issues you might have. Check out the full <a href="https://github.com/LudySu/FlutterHybridExample" target="_blank" rel="noopener">FlutterHybridExample</a> in Github to see what it looks like when done.</p>
+        <p><strong>UPDATED</strong>: Updated for Flutter <code>v1.9.1</code>.</p>
+<p><strong>TL;DR</strong>: this guide gives a real example (which is a minimized version that comes from our real project) when you follow the <a href="https://github.com/flutter/flutter/wiki/Add-Flutter-to-existing-apps" target="_blank" rel="noopener">Official wiki: Add Flutter to existing apps</a>, covering some common issues you might have. Check out the full <a href="https://github.com/LudySu/FlutterHybridExample" target="_blank" rel="noopener">FlutterHybridExample</a> in Github to see what it looks like when done.</p>
 <p>Consider this situation, you have an app that works for both Android and iOS platforms, you developed them in a native way to get the best performance and user experience possible. Then one day you need to add a new feature to make it more attractive, which means the same thing has to be done twice, one for each platform. You heard of fancy and shinny stuff - Flutter that promises to work for both platforms and claims to bring native performance. But you can’t afford the time in totally rebuild the app, you still need to keep things running for existing users, just like doing an open heart surgery. So my answer is:</p>
 <ul>
 <li>Develop the new feature using Flutter</li>
@@ -180,7 +331,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/English/">English</a>
+  <span></span> <a href="/tags/English/">English</a><a href="/tags/Flutter/">Flutter</a>
   </div>
 
 </div>
@@ -221,7 +372,7 @@
     <time datetime="2018-10-15T11:00:00.000Z" itemprop="datePublished"> 发表于 2018-10-16</time>
    
     </p><p class="article-updated">
-    <time datetime="2019-03-10T10:30:41.344Z" itemprop="updated"> 更新日期 2019-03-10</time>
+    <time datetime="2019-10-22T09:02:34.382Z" itemprop="updated"> 更新日期 2019-10-22</time>
     
   </p>
 </header>
@@ -250,13 +401,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/鸡汤药理学会/">鸡汤药理学会</a>
+  <a class="article-category-link" href="/categories/鸡汤药丸/">鸡汤药丸</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/日剧/">日剧</a><a href="/tags/黑暗鸡汤料理协会/">黑暗鸡汤料理协会</a><a href="/tags/油腻中年大叔也要炖鸡汤/">油腻中年大叔也要炖鸡汤</a>
+  <span></span> <a href="/tags/日剧/">日剧</a>
   </div>
 
 </div>
@@ -632,181 +783,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/drill_introduction/" title="电钻类电动工具简介" itemprop="url">电钻类电动工具简介</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
-		
-  </p><p class="article-time">
-    <time datetime="2018-05-01T12:00:00.000Z" itemprop="datePublished"> 发表于 2018-05-02</time>
-   
-    </p><p class="article-updated">
-    <time datetime="2019-05-08T09:29:05.548Z" itemprop="updated"> 更新日期 2019-05-08</time>
-    
-  </p>
-</header>
-
-    <div class="article-content">
-        
-        <h1 id="有线与无线"><a href="#有线与无线" class="headerlink" title="有线与无线"></a>有线与无线</h1><p>有线工具需要连接插座，体积较大、不方便移动，但胜在价格便宜、动力强劲，不常用的可以买有线。无线的就是锂电池驱动，主要分 10-12V 和 18-20V 两种，更低电压的力量不足只能上螺丝（例如组装宜家家具）；更高电压的 36V 甚至 54V 重量太大一般是专业人士用来替代有线工具的，价格昂贵。</p>
-<p>12V 电钻带电池一般只有 1 公斤，可以打 10mm 以下的孔、上螺丝，可作为第一把电钻购买，更低电压的就没必要购买了。个人 DIY 主力是 18V 电动工具，带 2.5Ah 小电池一般 1.5 公斤左右，比 12V 重了不少，但钻孔能力已经可以和有线媲美，可使用 13mm 以下直径的钻头。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>12V Bosch GSR120-LI</th>
-<th>18V Ryobi</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>夹头尺寸</td>
-<td>10mm</td>
-<td>13mm</td>
-</tr>
-<tr>
-<td>金属钻孔能力</td>
-<td>10mm</td>
-<td>13mm</td>
-</tr>
-<tr>
-<td>重量</td>
-<td>1kg（1.5Ah电池）</td>
-<td>1.5kg（2.5Ah以下薄电池）</td>
-</tr>
-<tr>
-<td>最大扭力</td>
-<td>20Nm</td>
-<td>45Nm</td>
-</tr>
-<tr>
-<td>套装价格</td>
-<td>¥399RMB（带1.5Ah电池x2，充电器）</td>
-<td>$198NZD（带2.5Ah电池x2，充电器）</td>
-</tr>
-</tbody>
-</table>
-<p>无线电动工具就像单反相机与镜头一样，看中的是系统完整程度，同一个系统的电池可互换，所以充电器、电池买一套，以后就能用在各个电动工具上，完整的系统都会包含 Drill, Impact drill, Impact driver, Impact wrench, Circular saw，甚至还有 Line trimmer，手持吸尘器等数十种工具。</p>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2018/drill_introduction/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Life-Style/">Life_Style</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/DIY工具/">DIY工具</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2018/drill_introduction/#disqus_thread" class="comments-count-link">Comments</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/nz_house_repair/" title="新西兰买房维权：少收了三五十平米、爆水管、漏水" itemprop="url">新西兰买房维权：少收了三五十平米、爆水管、漏水</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
-		
-  </p><p class="article-time">
-    <time datetime="2018-02-27T11:00:00.000Z" itemprop="datePublished"> 发表于 2018-02-28</time>
-   
-    </p><p class="article-updated">
-    <time datetime="2018-05-02T22:03:16.000Z" itemprop="updated"> 更新日期 2018-05-03</time>
-    
-  </p>
-</header>
-
-    <div class="article-content">
-        
-        <p>由于新手所以买的是比较可靠的老牌洋人建筑商的新房，但买房后还是遇到了一些倒霉烦心事，记录下来。</p>
-<h1 id="少了50平米地"><a href="#少了50平米地" class="headerlink" title="少了50平米地"></a>少了50平米地</h1><p><img src="/img/201803/house_map.jpg" alt></p>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2018/nz_house_repair/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Life-Style/">Life_Style</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/新西兰/">新西兰</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2018/nz_house_repair/#disqus_thread" class="comments-count-link">Comments</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -830,6 +806,10 @@
 		
 		  
 			<li><a href="/categories/Android-Debug-and-Profiling/" title="Android_Debug_and_Profiling">Android_Debug_and_Profiling<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/EverydayFlutter/" title="EverydayFlutter">EverydayFlutter<sup>2</sup></a></li>
 		  
 		
 		  
@@ -861,7 +841,11 @@
 		  
 		
 		  
-			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>2</sup></a></li>
+			<li><a href="/categories/鸡汤药丸/" title="鸡汤药丸">鸡汤药丸<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>1</sup></a></li>
 		  
 		
 		</ul>
@@ -886,15 +870,11 @@
 			
 		
 			
+				<li><a href="/tags/English/" title="English">English<sup>5</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/08金融危机/" title="08金融危机">08金融危机<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/English/" title="English">English<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
@@ -902,15 +882,23 @@
 			
 		
 			
+				<li><a href="/tags/Flutter/" title="Flutter">Flutter<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
+				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
+				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
 			
 		
 			
@@ -926,23 +914,15 @@
 			
 		
 			
-				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
+				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/日剧/" title="日剧">日剧<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/黑暗鸡汤料理协会/" title="黑暗鸡汤料理协会">黑暗鸡汤料理协会<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/油腻中年大叔也要炖鸡汤/" title="油腻中年大叔也要炖鸡汤">油腻中年大叔也要炖鸡汤<sup>1</sup></a></li>
 			
 		
 			

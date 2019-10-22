@@ -78,6 +78,165 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/leetcode-database-summary/" title="Leetcode Database: 题目总结" itemprop="url">Leetcode Database: 题目总结</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
+		
+  </p><p class="article-time">
+    <time datetime="2015-05-10T08:18:24.000Z" itemprop="datePublished"> 发表于 2015-05-10</time>
+   
+    </p><p class="article-updated">
+    <time datetime="2018-05-02T22:23:57.000Z" itemprop="updated"> 更新日期 2018-05-03</time>
+    
+  </p>
+</header>
+
+    <div class="article-content">
+        
+        <h1 id="一些注意事项"><a href="#一些注意事项" class="headerlink" title="一些注意事项"></a>一些注意事项</h1><ul>
+<li><p>Leetcode 不支持 T-SQL，也就是说答案只能在一个 SQL 语句中</p>
+</li>
+<li><p>熟悉其他数据库例如 Oracle、MS SQL 的同学，注意 MySQL 某些特性（analytic function）可能缺失，也可能对标准 SQL 进行了扩展（GROUP BY）</p>
+</li>
+<li><p>注意题目中的特殊要求和边界条件</p>
+</li>
+<li><p>复杂的问题一般需要多个 subquery 语句，MySQL 中要求每个 subquery 都命名。</p>
+</li>
+</ul>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/leetcode-database-summary/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/leetcode-database-summary/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/leetcode-database-177-nth-highest-salary/" title="Leetcode Database: #177 Nth Highest Salary" itemprop="url">Leetcode Database: #177 Nth Highest Salary</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
+		
+  </p><p class="article-time">
+    <time datetime="2015-05-08T13:34:32.000Z" itemprop="datePublished"> 发表于 2015-05-09</time>
+   
+    </p><p class="article-updated">
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
+    
+  </p>
+</header>
+
+    <div class="article-content">
+        
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.com/problems/nth-highest-salary/" target="_blank" rel="noopener">#177 Nth Highest Salary</a></p>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
+<li><p>Salary 排序要求是，例如前两名 Salary 相同，那么接着第三人 Salary 排名是 2</p>
+<blockquote>
+<p>所以计算排名的方法有三种情况</p>
+</blockquote>
+</li>
+<li><p>不能直接 <code>WHERE Ranking = N</code>，因为 SQL 计算顺序是 <code>FROM &gt; WHERE &gt; GROUP BY &gt; HAVING &gt; SELECT &gt; ORDER BY</code></p>
+<blockquote>
+<p>临时列 Ranking 在<strong>计算 WHERE 时这个列尚未生成</strong>，所以需要再在外层 SELECT 一次</p>
+</blockquote>
+</li>
+<li><p>相同的 Salary 可能有多个，要加 DISCTINCT 去除重复值</p>
+</li>
+</ul>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/leetcode-database-177-nth-highest-salary/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/leetcode-database-177-nth-highest-salary/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/leetcode-database-185-department-top3-salaries/" title="Leetcode Database: #185 Department Top Three Salaries" itemprop="url">Leetcode Database: #185 Department Top Three Salaries</a>
   </h1>
   <p class="article-author">By
@@ -653,144 +812,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/leetcode-database-178-rank-score/" title="Leetcode Database: #178 Rank Scores" itemprop="url">Leetcode Database: #178 Rank Scores</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
-		
-  </p><p class="article-time">
-    <time datetime="2015-04-10T11:23:57.000Z" itemprop="datePublished"> 发表于 2015-04-10</time>
-   
-    </p><p class="article-updated">
-    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
-    
-  </p>
-</header>
-
-    <div class="article-content">
-        
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.com/problems/rank-scores/" target="_blank" rel="noopener">#178 Rank Scores</a></p>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>典型的 Ranking 类问题，后面很多其他题目也会用到这个方法。就是构造用户自定义变量 <code>prev_value</code> 记录前值，<code>rank_count</code> 记录当前排名。</p>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/leetcode-database-178-rank-score/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/leetcode-database-178-rank-score/#disqus_thread" class="comments-count-link">Comments</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/leetcode-database-181-employees-earning-more/" title="Leetcode Database: #181 Employees Earning More Than Their Managers" itemprop="url">Leetcode Database: #181 Employees Earning More Than Their Managers</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
-		
-  </p><p class="article-time">
-    <time datetime="2015-04-07T01:17:07.000Z" itemprop="datePublished"> 发表于 2015-04-07</time>
-   
-    </p><p class="article-updated">
-    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
-    
-  </p>
-</header>
-
-    <div class="article-content">
-        
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.com/problems/employees-earning-more-than-their-managers/" target="_blank" rel="noopener">#181 Employees Earning More Than Their Managers</a></p>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>这是成功率最高的一题。需要想办法查找出某人对应 Manager 的 Salary，并放在同一个表中，然后比较 Salary 就很方便了。可以利用 <code>INNER JOIN</code></p>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/leetcode-database-181-employees-earning-more/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/leetcode-database-181-employees-earning-more/#disqus_thread" class="comments-count-link">Comments</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/4/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next<span></span></a>
@@ -814,6 +835,10 @@
 		
 		  
 			<li><a href="/categories/Android-Debug-and-Profiling/" title="Android_Debug_and_Profiling">Android_Debug_and_Profiling<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/EverydayFlutter/" title="EverydayFlutter">EverydayFlutter<sup>2</sup></a></li>
 		  
 		
 		  
@@ -845,7 +870,11 @@
 		  
 		
 		  
-			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>2</sup></a></li>
+			<li><a href="/categories/鸡汤药丸/" title="鸡汤药丸">鸡汤药丸<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>1</sup></a></li>
 		  
 		
 		</ul>
@@ -870,15 +899,11 @@
 			
 		
 			
+				<li><a href="/tags/English/" title="English">English<sup>5</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/08金融危机/" title="08金融危机">08金融危机<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/English/" title="English">English<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
@@ -886,15 +911,23 @@
 			
 		
 			
+				<li><a href="/tags/Flutter/" title="Flutter">Flutter<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
+				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
+				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
 			
 		
 			
@@ -910,23 +943,15 @@
 			
 		
 			
-				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
+				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/日剧/" title="日剧">日剧<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/黑暗鸡汤料理协会/" title="黑暗鸡汤料理协会">黑暗鸡汤料理协会<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/油腻中年大叔也要炖鸡汤/" title="油腻中年大叔也要炖鸡汤">油腻中年大叔也要炖鸡汤<sup>1</sup></a></li>
 			
 		
 			

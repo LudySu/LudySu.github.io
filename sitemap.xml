@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://tsuinte.ru/2019/flutter_log_2_cognito/</loc>
+    
+    <lastmod>2019-10-22T09:56:50.874Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tsuinte.ru/2018/rikuou/</loc>
+    
+    <lastmod>2019-10-22T09:02:34.382Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tsuinte.ru/2019/flutter_log_1_hybrid/</loc>
+    
+    <lastmod>2019-10-22T09:02:34.381Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tsuinte.ru/2019/make-a-flutter-hybrid-app-1/</loc>
+    
+    <lastmod>2019-10-22T09:02:34.381Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tsuinte.ru/2019/pregenency-in-nz/</loc>
     
     <lastmod>2019-07-19T10:41:48.028Z</lastmod>
@@ -16,20 +44,6 @@
   </url>
   
   <url>
-    <loc>http://tsuinte.ru/2019/make-a-flutter-hybrid-app-1/</loc>
-    
-    <lastmod>2019-05-08T09:29:05.549Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tsuinte.ru/2015/introduction-to-japanese-chef-knives-steel/</loc>
-    
-    <lastmod>2019-05-08T09:29:05.548Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://tsuinte.ru/2018/drill_introduction/</loc>
     
     <lastmod>2019-05-08T09:29:05.548Z</lastmod>
@@ -37,9 +51,9 @@
   </url>
   
   <url>
-    <loc>http://tsuinte.ru/2018/rikuou/</loc>
+    <loc>http://tsuinte.ru/2015/introduction-to-japanese-chef-knives-steel/</loc>
     
-    <lastmod>2019-03-10T10:30:41.344Z</lastmod>
+    <lastmod>2019-05-08T09:29:05.548Z</lastmod>
     
   </url>
   
@@ -128,14 +142,7 @@
   </url>
   
   <url>
-    <loc>http://tsuinte.ru/2017/global_financial_crisis_2_mortgage/</loc>
-    
-    <lastmod>2017-12-05T10:03:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tsuinte.ru/2015/leetcode-database-183-customers-who-never-order/</loc>
+    <loc>http://tsuinte.ru/2015/jacman-theme-customizations/</loc>
     
     <lastmod>2017-12-05T10:03:11.000Z</lastmod>
     
@@ -149,20 +156,6 @@
   </url>
   
   <url>
-    <loc>http://tsuinte.ru/2015/leetcode-database-foreword/</loc>
-    
-    <lastmod>2017-12-05T10:03:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tsuinte.ru/2015/leetcode-database-178-rank-score/</loc>
-    
-    <lastmod>2017-12-05T10:03:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://tsuinte.ru/2015/leetcode-database-185-department-top3-salaries/</loc>
     
     <lastmod>2017-12-05T10:03:11.000Z</lastmod>
@@ -170,7 +163,14 @@
   </url>
   
   <url>
-    <loc>http://tsuinte.ru/2015/leetcode-database-182-duplicate-emails/</loc>
+    <loc>http://tsuinte.ru/2015/leetcode-database-196-delete-duplicate-emails/</loc>
+    
+    <lastmod>2017-12-05T10:03:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tsuinte.ru/2015/leetcode-database-176-second-highest-salary/</loc>
     
     <lastmod>2017-12-05T10:03:11.000Z</lastmod>
     
@@ -184,6 +184,20 @@
   </url>
   
   <url>
+    <loc>http://tsuinte.ru/2015/leetcode-database-foreword/</loc>
+    
+    <lastmod>2017-12-05T10:03:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tsuinte.ru/2015/leetcode-database-177-nth-highest-salary/</loc>
+    
+    <lastmod>2017-12-05T10:03:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tsuinte.ru/2017/swimming-in-the-bubble-jeffrey-greene/</loc>
     
     <lastmod>2017-12-05T10:03:11.000Z</lastmod>
@@ -191,14 +205,14 @@
   </url>
   
   <url>
-    <loc>http://tsuinte.ru/2017/the-future-of-vr/</loc>
+    <loc>http://tsuinte.ru/2015/leetcode-database-178-rank-score/</loc>
     
     <lastmod>2017-12-05T10:03:11.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://tsuinte.ru/2015/how-to-print-stack-trace/</loc>
+    <loc>http://tsuinte.ru/2015/apply-for-nz-whv-log/</loc>
     
     <lastmod>2017-12-05T10:03:11.000Z</lastmod>
     
@@ -219,6 +233,13 @@
   </url>
   
   <url>
+    <loc>http://tsuinte.ru/2017/the-future-of-vr/</loc>
+    
+    <lastmod>2017-12-05T10:03:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://tsuinte.ru/2015/how-to-filter-logcat-output/</loc>
     
     <lastmod>2017-12-05T10:03:11.000Z</lastmod>
@@ -226,28 +247,7 @@
   </url>
   
   <url>
-    <loc>http://tsuinte.ru/2015/jacman-theme-customizations/</loc>
-    
-    <lastmod>2017-12-05T10:03:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tsuinte.ru/2015/leetcode-database-176-second-highest-salary/</loc>
-    
-    <lastmod>2017-12-05T10:03:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tsuinte.ru/2015/leetcode-database-177-nth-highest-salary/</loc>
-    
-    <lastmod>2017-12-05T10:03:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://tsuinte.ru/2015/leetcode-database-196-delete-duplicate-emails/</loc>
+    <loc>http://tsuinte.ru/2015/how-to-print-stack-trace/</loc>
     
     <lastmod>2017-12-05T10:03:11.000Z</lastmod>
     
@@ -261,14 +261,28 @@
   </url>
   
   <url>
-    <loc>http://tsuinte.ru/2015/leetcode-database-184-department-highest-salary/</loc>
+    <loc>http://tsuinte.ru/2017/global_financial_crisis_2_mortgage/</loc>
     
     <lastmod>2017-12-05T10:03:11.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://tsuinte.ru/2015/apply-for-nz-whv-log/</loc>
+    <loc>http://tsuinte.ru/2015/leetcode-database-183-customers-who-never-order/</loc>
+    
+    <lastmod>2017-12-05T10:03:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tsuinte.ru/2015/leetcode-database-182-duplicate-emails/</loc>
+    
+    <lastmod>2017-12-05T10:03:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://tsuinte.ru/2015/leetcode-database-184-department-highest-salary/</loc>
     
     <lastmod>2017-12-05T10:03:11.000Z</lastmod>
     
