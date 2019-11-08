@@ -78,6 +78,76 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/how-to-print-stack-trace/" title="如何打印程序的 stack trace" itemprop="url">如何打印程序的 stack trace</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
+		
+  </p><p class="article-time">
+    <time datetime="2015-04-17T12:32:17.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
+   
+    </p><p class="article-updated">
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
+    
+  </p>
+</header>
+
+    <div class="article-content">
+        
+        <h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><p>非常简单，创建一个 Throwable 对象，就可以得到当前的 stack trace。下面例子是打出调用 foobar() 函数的 trace：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">foobar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Throwable t = <span class="keyword">new</span> Throwable();</span><br><span class="line">    Log.d(TAG, <span class="string">"stack trace is "</span>, t);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><h2 id="Android-4-4-及之前版本"><a href="#Android-4-4-及之前版本" class="headerlink" title="Android 4.4 及之前版本"></a>Android 4.4 及之前版本</h2><p>也比较简单，使用 utils/Callstack 类即可。头文件位于 frameworks/native/include/utils/CallStack.h，一般无需修改 Android.mk 可直接使用。</p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/how-to-print-stack-trace/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Android-Debug-and-Profiling/">Android_Debug_and_Profiling</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Android/">Android</a><a href="/tags/debug/">debug</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/how-to-print-stack-trace/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/leetcode-database-178-rank-score/" title="Leetcode Database: #178 Rank Scores" itemprop="url">Leetcode Database: #178 Rank Scores</a>
   </h1>
   <p class="article-author">By
@@ -514,7 +584,7 @@
 		  
 		
 		  
-			<li><a href="/categories/EverydayFlutter/" title="EverydayFlutter">EverydayFlutter<sup>2</sup></a></li>
+			<li><a href="/categories/EverydayFlutter/" title="EverydayFlutter">EverydayFlutter<sup>3</sup></a></li>
 		  
 		
 		  
@@ -546,11 +616,7 @@
 		  
 		
 		  
-			<li><a href="/categories/鸡汤药丸/" title="鸡汤药丸">鸡汤药丸<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>1</sup></a></li>
+			<li><a href="/categories/鸡汤药丸/" title="鸡汤药丸">鸡汤药丸<sup>2</sup></a></li>
 		  
 		
 		</ul>
@@ -563,11 +629,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/database/" title="database">database<sup>14</sup></a></li>
+				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>14</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>14</sup></a></li>
+				<li><a href="/tags/database/" title="database">database<sup>14</sup></a></li>
 			
 		
 			
@@ -575,7 +641,11 @@
 			
 		
 			
-				<li><a href="/tags/English/" title="English">English<sup>5</sup></a></li>
+				<li><a href="/tags/English/" title="English">English<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Flutter/" title="Flutter">Flutter<sup>4</sup></a></li>
 			
 		
 			
@@ -583,15 +653,11 @@
 			
 		
 			
-				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Flutter/" title="Flutter">Flutter<sup>3</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/下厨房/" title="下厨房">下厨房<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
 			
 		
 			
@@ -611,11 +677,11 @@
 			
 		
 			
-				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
+				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
+				<li><a href="/tags/三体/" title="三体">三体<sup>1</sup></a></li>
 			
 		
 			
@@ -635,7 +701,7 @@
 			
 		
 			
-				<li><a href="/tags/三体/" title="三体">三体<sup>1</sup></a></li>
+				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
 			
 		
 		</ul>

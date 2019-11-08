@@ -78,6 +78,81 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2019/flutter_log_3_proxy/" title="Flutter Dev Journal(3): HTTP proxy" itemprop="url">Flutter Dev Journal(3): HTTP proxy</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
+		
+  </p><p class="article-time">
+    <time datetime="2019-11-06T11:00:00.000Z" itemprop="datePublished"> 发表于 2019-11-07</time>
+   
+    </p><p class="article-updated">
+    <time datetime="2019-11-08T08:24:54.510Z" itemprop="updated"> 更新日期 2019-11-08</time>
+    
+  </p>
+</header>
+
+    <div class="article-content">
+        
+        <p>When you want to setup proxy to debug network traffic as you do in developing native apps, you will find there’s no traffic comming through. The reason why this happens is that the proxy configuration in Andorid or iOS Wifi network settings don’t affect Flutter.</p>
+<p>So we have to set up the proxy in our Flutter app. Luckly it’s just a piece of cake with the code below:</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyProxyHttpOverride</span> <span class="keyword">extends</span> <span class="title">HttpOverrides</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">String</span> _ipAddress;</span><br><span class="line"></span><br><span class="line">  MyProxyHttpOverride(<span class="built_in">String</span> ip, <span class="built_in">String</span> port) &#123;</span><br><span class="line">    _ipAddress = <span class="string">'<span class="subst">$ip</span>:<span class="subst">$port</span>'</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  HttpClient createHttpClient(SecurityContext context) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.createHttpClient(context)</span><br><span class="line">      ..findProxy = (uri) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"PROXY <span class="subst">$_ipAddress</span>;"</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      ..badCertificateCallback =</span><br><span class="line">        (X509Certificate cert, <span class="built_in">String</span> host, <span class="built_in">int</span> port) =&gt; <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  HttpOverrides.global = MyProxyHttpOverride(<span class="string">"192.168.1.xxx"</span>, <span class="string">"8888"</span>);</span><br><span class="line">  runApp(MyApp());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Important things to know:</p>
+<ol>
+<li><code>HttpOverrides.global</code> must be set before using any HTTP methods</li>
+<li>If proxy configuration (IP or port) is changed during using, the app has to be killed and relaunched for the new configuration to take effect</li>
+<li>For HTTPS, certificates are loaded from the OS, same as native apps</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/EverydayFlutter/">EverydayFlutter</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/English/">English</a><a href="/tags/Flutter/">Flutter</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2019/flutter_log_3_proxy/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2019/flutter_log_2_cognito/" title="Flutter Dev Journal(2): AWS Cognito SDK" itemprop="url">Flutter Dev Journal(2): AWS Cognito SDK</a>
   </h1>
   <p class="article-author">By
@@ -710,79 +785,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2018/three_body_and_game_theory/" title="从《三体》看博弈的艺术" itemprop="url">从《三体》看博弈的艺术</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
-		
-  </p><p class="article-time">
-    <time datetime="2018-05-26T12:00:00.000Z" itemprop="datePublished"> 发表于 2018-05-27</time>
-   
-    </p><p class="article-updated">
-    <time datetime="2018-05-27T01:20:38.000Z" itemprop="updated"> 更新日期 2018-05-27</time>
-    
-  </p>
-</header>
-
-    <div class="article-content">
-        
-        <blockquote>
-<p>声明：下面包含大量《三体》剧透</p>
-</blockquote>
-<p>《三体2》中罗辑终于找到了与三体这个科技远比人类发达的文明博弈的筹码——宇宙广播，一旦触发基于黑暗森林法则，宇宙中更先进的文明一定会灭掉三体文明，但同时不久后地球也必然遭到同样的毁灭性打击。这是一种恐怖平衡，博弈成立的关键在于执剑人——罗辑是否有决心触发广播，一旦三体人确信执剑人没有同归于尽的觉悟，那么三体人一定会向地球发动攻击。这真是一个微妙的位置，为了两个文明和平共处，必须有同时毁灭两个文明的觉悟。</p>
-<p>罗辑的威慑力建立在三体人看不透他，吊儿郎当、玩世不恭，心里全然没有人类命运这些宏大的东西，只想过好自己当前的生活。作为面壁者的时候也是，一心隐居和心爱的人过着小日子。正是因为他没有这种对全人类的大爱，才让他有能力当好执剑人，一旦三体人轻举妄动他会毫不犹豫的触发广播。面对这个看不透、不知底牌的对手，三体人始终没有机会下手。</p>
-<p>到《三体3》人类度过数十年和平的日子后，危机感已经完全消退，没几个人真心相信会和三体人再发生冲突，放弃掉自己唯一的博弈筹码。在这个背景下，程心成为了第二任执剑人。三体人看在眼里，马上对地球发动攻击摧毁了所有威慑广播设施，大家这才明白三体人一刻也没有停止入侵计划，苦等数十年就是为了这一刻。</p>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2018/three_body_and_game_theory/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/阅读感想/">阅读感想</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/三体/">三体</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2018/three_body_and_game_theory/#disqus_thread" class="comments-count-link">Comments</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -809,7 +811,7 @@
 		  
 		
 		  
-			<li><a href="/categories/EverydayFlutter/" title="EverydayFlutter">EverydayFlutter<sup>2</sup></a></li>
+			<li><a href="/categories/EverydayFlutter/" title="EverydayFlutter">EverydayFlutter<sup>3</sup></a></li>
 		  
 		
 		  
@@ -841,11 +843,7 @@
 		  
 		
 		  
-			<li><a href="/categories/鸡汤药丸/" title="鸡汤药丸">鸡汤药丸<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/鸡汤药理学会/" title="鸡汤药理学会">鸡汤药理学会<sup>1</sup></a></li>
+			<li><a href="/categories/鸡汤药丸/" title="鸡汤药丸">鸡汤药丸<sup>2</sup></a></li>
 		  
 		
 		</ul>
@@ -858,11 +856,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/database/" title="database">database<sup>14</sup></a></li>
+				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>14</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>14</sup></a></li>
+				<li><a href="/tags/database/" title="database">database<sup>14</sup></a></li>
 			
 		
 			
@@ -870,7 +868,11 @@
 			
 		
 			
-				<li><a href="/tags/English/" title="English">English<sup>5</sup></a></li>
+				<li><a href="/tags/English/" title="English">English<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Flutter/" title="Flutter">Flutter<sup>4</sup></a></li>
 			
 		
 			
@@ -878,15 +880,11 @@
 			
 		
 			
-				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Flutter/" title="Flutter">Flutter<sup>3</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/下厨房/" title="下厨房">下厨房<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
 			
 		
 			
@@ -906,11 +904,11 @@
 			
 		
 			
-				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
+				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
+				<li><a href="/tags/三体/" title="三体">三体<sup>1</sup></a></li>
 			
 		
 			
@@ -930,7 +928,7 @@
 			
 		
 			
-				<li><a href="/tags/三体/" title="三体">三体<sup>1</sup></a></li>
+				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
 			
 		
 		</ul>
