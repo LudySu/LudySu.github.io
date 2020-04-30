@@ -78,6 +78,147 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/jacman-theme-customizations/" title="对 Jacman 主题的一些个性化修改" itemprop="url">对 Jacman 主题的一些个性化修改</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
+		
+  </p><p class="article-time">
+    <time datetime="2015-05-03T07:17:57.000Z" itemprop="datePublished"> 发表于 2015-05-03</time>
+   
+    </p><p class="article-updated">
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
+    
+  </p>
+</header>
+
+    <div class="article-content">
+        
+        <p>本博客基于 <a href="https://github.com/wuchong/jacman" target="_blank" rel="noopener">Jacman</a> 这个主题，这篇文章记录一下所做的一些修改。原理都是相同的，这些修改一般也可以用于其他主题。</p>
+<h1 id="banner-图片上的文字加阴影"><a href="#banner-图片上的文字加阴影" class="headerlink" title="banner 图片上的文字加阴影"></a>banner 图片上的文字加阴影</h1><p>本博客 banner 图片搭配白色字体很难看清，换其他颜色字体搭配起来也总觉得不好看，就想到了字体加阴影。</p>
+<p>字体阴影使用了 CSS 的 <code>text-shadow</code>，搜索框阴影是 <code>box-shadow</code>，修改的地方如下：</p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/jacman-theme-customizations/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/hexo/">hexo</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/jacman-theme-customizations/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/leetcode-database-197-rising-temperature/" title="Leetcode Database: #197 Rising Temperature" itemprop="url">Leetcode Database: #197 Rising Temperature</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="胖的Panda" target="_blank" itemprop="author">胖的Panda</a>
+		
+  </p><p class="article-time">
+    <time datetime="2015-04-28T11:17:04.000Z" itemprop="datePublished"> 发表于 2015-04-28</time>
+   
+    </p><p class="article-updated">
+    <time datetime="2017-12-05T10:03:11.000Z" itemprop="updated"> 更新日期 2017-12-05</time>
+    
+  </p>
+</header>
+
+    <div class="article-content">
+        
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.com/problems/rising-temperature/" target="_blank" rel="noopener">#197 Rising Temperature</a></p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>依然是 Ranking 类问题。首先构造一个临时表 <code>tmpTable</code>，里面构造一个临时变量 <code>prevVal</code> 储存上一个 <code>Temperature</code> 值，把比较结果储存在临时列 <code>isRising</code>；构造一个临时变量 <code>prevDate</code> 用于判断日期是否连续。然后 SELECT 所有临时表中 <strong>isRising = 1 AND isDateOk = 1</strong> 的行。最后最外层过滤其他列，只选出 <code>Id</code> 一列。</p>
+<p>日期比较方法有以下几种，第一第二种差不多，第三种当 @preDate = NULL 时 <code>DATE_ADD</code> 函数会出错不建议使用</p>
+<ul>
+<li>Date BETWEEN Date AND @prevDate + INTERVAL 1 DAY</li>
+<li>Date &gt; @prevDate AND Date &lt;= @prevDate + INTERVAL 1 DAY</li>
+<li>Date BETWEEN Date AND DATE_ADD(@prevDate, INTERVAL 1 DAY)</li>
+<li>DATEDIFF(Date, @prevDate) = 1</li>
+</ul>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/leetcode-database-197-rising-temperature/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/leetcode-database-197-rising-temperature/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/how-to-print-stack-trace/" title="如何打印程序的 stack trace" itemprop="url">如何打印程序的 stack trace</a>
   </h1>
   <p class="article-author">By
@@ -592,7 +733,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Life-Style/" title="Life_Style">Life_Style<sup>11</sup></a></li>
+			<li><a href="/categories/Life-Style/" title="Life_Style">Life_Style<sup>12</sup></a></li>
 		  
 		
 		  
@@ -604,7 +745,7 @@
 		  
 		
 		  
-			<li><a href="/categories/金融市场/" title="金融市场">金融市场<sup>5</sup></a></li>
+			<li><a href="/categories/金融市场/" title="金融市场">金融市场<sup>6</sup></a></li>
 		  
 		
 		  
@@ -645,15 +786,11 @@
 			
 		
 			
+				<li><a href="/tags/08金融危机/" title="08金融危机">08金融危机<sup>5</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Flutter/" title="Flutter">Flutter<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/08金融危机/" title="08金融危机">08金融危机<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/下厨房/" title="下厨房">下厨房<sup>3</sup></a></li>
 			
 		
 			
@@ -661,15 +798,19 @@
 			
 		
 			
+				<li><a href="/tags/下厨房/" title="下厨房">下厨房<sup>3</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/DIY工具/" title="DIY工具">DIY工具<sup>2</sup></a></li>
+				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
+				<li><a href="/tags/DIY工具/" title="DIY工具">DIY工具<sup>2</sup></a></li>
 			
 		
 			
@@ -750,7 +891,7 @@
     
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
 		
 		<a href="http://tsuinte.ru/about" target="_blank" title="胖的Panda">胖的Panda</a>
 		
