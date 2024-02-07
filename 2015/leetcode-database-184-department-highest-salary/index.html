@@ -1,0 +1,680 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Leetcode Database: #184 Department Highest Salary | tsuinteru</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="正义双马尾">
+    
+
+    
+    <meta name="description" content="题目#184 Department Highest Salary 解题思路&amp;一种答案第一步这题比较麻烦，我们慢慢分步解决，首先是找出各组最大的值，很容易想到下面的方法。 12345SELECT     MAX(salary) AS maxSalary, DepartmentIdFROM    EmployeeGROUP BY DepartmentId">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode Database: #184 Department Highest Salary">
+<meta property="og:url" content="http://tsuinte.ru/2015/leetcode-database-184-department-highest-salary/index.html">
+<meta property="og:site_name" content="tsuinteru">
+<meta property="og:description" content="题目#184 Department Highest Salary 解题思路&amp;一种答案第一步这题比较麻烦，我们慢慢分步解决，首先是找出各组最大的值，很容易想到下面的方法。 12345SELECT     MAX(salary) AS maxSalary, DepartmentIdFROM    EmployeeGROUP BY DepartmentId">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2015-05-03T12:03:19.000Z">
+<meta property="article:modified_time" content="2024-02-07T04:31:23.901Z">
+<meta property="article:author" content="正义双马尾">
+<meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="database">
+<meta name="twitter:card" content="summary">
+
+    
+    <link rel="alternative" href="/atom.xml" title="tsuinteru" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.jpg">
+    
+    
+    <link rel="apple-touch-icon" href="/img/logo.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/logo.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="tsuinteru">tsuinteru</a></h1>
+				<h2 class="blog-motto">このツインテールに、夢と願いを込めるんだ</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/tags/English">English posts</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:tsuinte.ru">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/leetcode-database-184-department-highest-salary/" title="Leetcode Database: #184 Department Highest Salary" itemprop="url">Leetcode Database: #184 Department Highest Salary</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="正义双马尾" target="_blank" itemprop="author">正义双马尾</a>
+		
+  <p class="article-time">
+    <time datetime="2015-05-03T12:03:19.000Z" itemprop="datePublished"> 发表于 2015-05-04</time>
+   
+    <p class="article-updated">
+    <time datetime="2024-02-07T04:31:23.901Z" itemprop="updated"> 更新日期 2024-02-07</time>
+    
+  </p>
+</header>
+
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF-amp-%E4%B8%80%E7%A7%8D%E7%AD%94%E6%A1%88"><span class="toc-number">2.</span> <span class="toc-text">解题思路&amp;一种答案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5"><span class="toc-number">2.1.</span> <span class="toc-text">第一步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5"><span class="toc-number">2.2.</span> <span class="toc-text">第二步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5"><span class="toc-number">2.3.</span> <span class="toc-text">第三步</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">3.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="toc-number">4.</span> <span class="toc-text">构造测试数据</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://leetcode.com/problems/department-highest-salary/" target="_blank" rel="noopener">#184 Department Highest Salary</a></p>
+<h1 id="解题思路-amp-一种答案"><a href="#解题思路-amp-一种答案" class="headerlink" title="解题思路&amp;一种答案"></a>解题思路&amp;一种答案</h1><h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>这题比较麻烦，我们慢慢分步解决，首先是找出各组最大的值，很容易想到下面的方法。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="keyword">MAX</span>(salary) <span class="keyword">AS</span> maxSalary, DepartmentId</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> DepartmentId</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>其结果为：</p>
+<table>
+<thead>
+<tr>
+<th>maxSalary</th>
+<th>DepartmentId</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>90000</td>
+<td>1</td>
+</tr>
+<tr>
+<td>80000</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>需要注意的是标准 SQL 中，含有 <code>GROUP BY</code> 的语句中 SELECT 的列只能包含聚合函数（例如 MAX） 和在 <code>GROUP BY</code> 中的列。由于 MySQL 对这个规则进行了扩展不会报错，但例如你再 SELECT Name 列就会得到奇怪的结果，maxSalary 对应的 Name 很可能不对，<strong>除非 Name 和 DepartmentId 的组合只有一种</strong>。<a href="https://dev.mysql.com/doc/refman/5.0/en/group-by-handling.html" target="_blank" rel="noopener">MySQL Handling of GROUP BY</a> 中是这么说的：</p>
+<blockquote>
+<p>MySQL extends the use of GROUP BY so that the select list can refer to nonaggregated columns not named in the GROUP BY clause. This means that the preceding query is legal in MySQL. You can use this feature to get better performance by avoiding unnecessary column sorting and grouping. However, this is useful primarily when all values in each nonaggregated column not named in the GROUP BY are the same for each group. The server is free to choose any value from each group, so unless they are the same, the values chosen are indeterminate. </p>
+</blockquote>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>接着再在上一步结果中加上部门名称一列，由于涉及到两个表我们使用 INNER JOIN：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    b.Name <span class="keyword">AS</span> Department, <span class="keyword">MAX</span>(salary) <span class="keyword">AS</span> Salary, DepartmentId</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee a</span><br><span class="line">        <span class="keyword">INNER</span> <span class="keyword">JOIN</span></span><br><span class="line">    Department b <span class="keyword">ON</span> a.DepartmentId = b.Id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> DepartmentId</span><br></pre></td></tr></table></figure>
+<p>结果是</p>
+<table>
+<thead>
+<tr>
+<th>Department</th>
+<th>Salary</th>
+<th>DepartmentId</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IT</td>
+<td>90000</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Sales</td>
+<td>80000</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>我们还需要对应的人名，那就再和 Employee 表 INNER JOIN 一次，找出符合上一步条件的人。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Runtime: 982 ms</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    t.Department, e.Name, e.Salary</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    Employee e</span><br><span class="line">        <span class="keyword">INNER</span> <span class="keyword">JOIN</span></span><br><span class="line">    (<span class="keyword">SELECT</span> </span><br><span class="line">        b.Name <span class="keyword">AS</span> Department, <span class="keyword">MAX</span>(salary) <span class="keyword">AS</span> Salary, DepartmentId</span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        Employee a</span><br><span class="line">    <span class="keyword">INNER</span> <span class="keyword">JOIN</span> Department b <span class="keyword">ON</span> a.DepartmentId = b.Id</span><br><span class="line">    <span class="keyword">GROUP</span> <span class="keyword">BY</span> DepartmentId) t <span class="keyword">ON</span> e.DepartmentId = t.DepartmentId</span><br><span class="line">        <span class="keyword">AND</span> e.Salary = t.Salary</span><br></pre></td></tr></table></figure>
+<p>最后就是预期的正确结果：</p>
+<table>
+<thead>
+<tr>
+<th>Department</th>
+<th>Name</th>
+<th>Salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sales</td>
+<td>Henry</td>
+<td>80000</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>Max</td>
+<td>90000</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>Tom</td>
+<td>90000</td>
+</tr>
+</tbody>
+</table>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
+<li>最高工资有多个人时，需要把所有人都查询出来</li>
+<li>对应的 DepartmentId 行不存在</li>
+</ul>
+<h1 id="构造测试数据"><a href="#构造测试数据" class="headerlink" title="构造测试数据"></a>构造测试数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> Employee (</span><br><span class="line">    <span class="keyword">Id</span> <span class="built_in">INT</span>,</span><br><span class="line">    <span class="keyword">Name</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">    Salary <span class="built_in">INT</span>,</span><br><span class="line">    DepartmentId <span class="built_in">INT</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> Department (</span><br><span class="line">    <span class="keyword">Id</span> <span class="built_in">INT</span>,</span><br><span class="line">    <span class="keyword">Name</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Employee;</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Department;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Employee <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="string">'Joe'</span>  , <span class="number">70000</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="string">'Henry'</span>, <span class="number">80000</span>, <span class="number">2</span>),</span><br><span class="line">(<span class="number">3</span>, <span class="string">'Sam'</span>  , <span class="number">60000</span>, <span class="number">2</span>),</span><br><span class="line">(<span class="number">4</span>, <span class="string">'Max'</span>  , <span class="number">90000</span>, <span class="number">1</span>),</span><br><span class="line">(<span class="number">5</span>, <span class="string">'Tom'</span>  , <span class="number">90000</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Department <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>, <span class="string">'IT '</span>),</span><br><span class="line">(<span class="number">2</span>, <span class="string">'Sales'</span>);</span><br></pre></td></tr></table></figure>
+<p>预期结果：</p>
+<table>
+<thead>
+<tr>
+<th>Department</th>
+<th>Name</th>
+<th>Salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sales</td>
+<td>Henry</td>
+<td>80000</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>Max</td>
+<td>90000</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>Tom</td>
+<td>90000</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>本博客微信公众号</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Leetcode-Database/">Leetcode_Database</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/database/">database</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tsuinte.ru/2015/leetcode-database-184-department-highest-salary/" data-title="Leetcode Database: #184 Department Highest Salary | tsuinteru" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/how-to-filter-logcat-output/" title="如何过滤 adb logcat 输出">
+  <strong>上一篇：</strong><br/>
+  <span>
+  如何过滤 adb logcat 输出</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/leetcode-database-180-consecutive-numbers/"  title="Leetcode Database: #180 Consecutive Numbers">
+ <strong>下一篇：</strong><br/> 
+ <span>Leetcode Database: #180 Consecutive Numbers
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF-amp-%E4%B8%80%E7%A7%8D%E7%AD%94%E6%A1%88"><span class="toc-number">2.</span> <span class="toc-text">解题思路&amp;一种答案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5"><span class="toc-number">2.1.</span> <span class="toc-text">第一步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5"><span class="toc-number">2.2.</span> <span class="toc-text">第二步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5"><span class="toc-number">2.3.</span> <span class="toc-text">第三步</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">3.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="toc-number">4.</span> <span class="toc-text">构造测试数据</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/ACG/" title="ACG">ACG<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Android-Debug-and-Profiling/" title="Android_Debug_and_Profiling">Android_Debug_and_Profiling<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/EverydayFlutter/" title="EverydayFlutter">EverydayFlutter<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>14</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Life-Style/" title="Life_Style">Life_Style<sup>12</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/编程开发/" title="编程开发">编程开发<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/金融市场/" title="金融市场">金融市场<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/键盘侠云评测/" title="键盘侠云评测">键盘侠云评测<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/阅读感想/" title="阅读感想">阅读感想<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/鸡汤药丸/" title="鸡汤药丸">鸡汤药丸<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>14</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/database/" title="database">database<sup>14</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/English/" title="English">English<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Flutter/" title="Flutter">Flutter<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/08金融危机/" title="08金融危机">08金融危机<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/下厨房/" title="下厨房">下厨房<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/DIY工具/" title="DIY工具">DIY工具<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日剧/" title="日剧">日剧<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/三体/" title="三体">三体<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VR/" title="VR">VR<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> このツインテールに、夢と願いを込めるんだ <br/>
+			Android Dev | 二次元 | New Zeland</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2024 
+		
+		<a href="http://tsuinte.ru/about" target="_blank" title="正义双马尾">正义双马尾</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'tsuinteru';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-25407559-4', 'tsuinte.ru');  
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

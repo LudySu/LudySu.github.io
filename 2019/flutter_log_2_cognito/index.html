@@ -1,0 +1,613 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Flutter Dev Journal(2): AWS Cognito SDK | tsuinteru</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="正义双马尾">
+    
+
+    
+    <meta name="description" content="When you are searching for AWS Cognito SDK that can be used in Flutter, you will soon be shocked that there’s no official support yet. According to a thread in AWS forum, one guy says:  I work on the">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flutter Dev Journal(2): AWS Cognito SDK">
+<meta property="og:url" content="http://tsuinte.ru/2019/flutter_log_2_cognito/index.html">
+<meta property="og:site_name" content="tsuinteru">
+<meta property="og:description" content="When you are searching for AWS Cognito SDK that can be used in Flutter, you will soon be shocked that there’s no official support yet. According to a thread in AWS forum, one guy says:  I work on the">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://tsuinte.ru/img/201910/flutter_aws_client_secret.png">
+<meta property="og:image" content="https://dmhnzl5mp9mj6.cloudfront.net/mobile_awsblog/images/cognito_devices_console.png">
+<meta property="article:published_time" content="2019-10-20T11:00:00.000Z">
+<meta property="article:modified_time" content="2019-10-24T08:50:37.000Z">
+<meta property="article:author" content="正义双马尾">
+<meta property="article:tag" content="English">
+<meta property="article:tag" content="Flutter">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://tsuinte.ru/img/201910/flutter_aws_client_secret.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="tsuinteru" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.jpg">
+    
+    
+    <link rel="apple-touch-icon" href="/img/logo.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/logo.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="tsuinteru">tsuinteru</a></h1>
+				<h2 class="blog-motto">このツインテールに、夢と願いを込めるんだ</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/tags/English">English posts</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:tsuinte.ru">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/flutter_log_2_cognito/" title="Flutter Dev Journal(2): AWS Cognito SDK" itemprop="url">Flutter Dev Journal(2): AWS Cognito SDK</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="正义双马尾" target="_blank" itemprop="author">正义双马尾</a>
+		
+  <p class="article-time">
+    <time datetime="2019-10-20T11:00:00.000Z" itemprop="datePublished"> 发表于 2019-10-21</time>
+   
+    <p class="article-updated">
+    <time datetime="2019-10-24T08:50:37.000Z" itemprop="updated"> 更新日期 2019-10-24</time>
+    
+  </p>
+</header>
+
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Issues-and-fixes"><span class="toc-number">1.</span> <span class="toc-text">Issues and fixes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Client-secret-support"><span class="toc-number">1.1.</span> <span class="toc-text">1. Client secret support</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Device-authentication-failure"><span class="toc-number">1.2.</span> <span class="toc-text">2. Device authentication failure</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Development-journal"><span class="toc-number">2.</span> <span class="toc-text">Development journal</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Client-secret"><span class="toc-number">2.1.</span> <span class="toc-text">Client secret</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Device-authentication"><span class="toc-number">2.2.</span> <span class="toc-text">Device authentication</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<p>When you are searching for AWS Cognito SDK that can be used in Flutter, you will soon be shocked that there’s no official support yet. According to a thread in <a href="https://forums.aws.amazon.com/thread.jspa?messageID=887161" target="_blank" rel="noopener">AWS forum</a>, one guy says:</p>
+<blockquote>
+<p>I work on the AWS SDK team. I am not aware of any plans to support Flutter at this point. I will take this to my team as a feature request and will post back on this thread/or through a general forum announcement if our plans change in the future.</p>
+</blockquote>
+<p>This is still true as of TODAY (October 2019).</p>
+<p>So there are two community packages out there, which are <a href="https://pub.dev/packages/amazon_cognito_identity_dart" target="_blank" rel="noopener">amazon_cognito_identity_dart</a> and <a href="https://pub.dev/packages/flutter_cognito_plugin" target="_blank" rel="noopener">flutter_cognito_plugin</a>. The former is a pure Dart one translated from AWS official Javascript SDK, with good examples, but last active date was 7 months ago. The latter uses native Android and iOS AWS SDK by wrapping them into <code>MethodChannel</code>s, still activily in development.</p>
+<p><strong>TL;DR</strong></p>
+<p>I chose <code>amazon_cognito_identity_dart</code> out of its pureness in Dart, the first try was successful. But later on found 2 major issues, <a href="https://github.com/LudySu/amazon-cognito-identity-dart" target="_blank" rel="noopener">all fixed in my fork</a>. If you are not interested in the details, you can check that out and follow the usage there.</p>
+<a id="more"></a>
+<p>Thanks the author Jon Saw for the tremendous effort put into this Dart SDK, it saved me tons of time. I would not have been moved our native app into Flutter without this AWS Cognito SDK.</p>
+<h1 id="Issues-and-fixes"><a href="#Issues-and-fixes" class="headerlink" title="Issues and fixes"></a>Issues and fixes</h1><h2 id="1-Client-secret-support"><a href="#1-Client-secret-support" class="headerlink" title="1. Client secret support"></a>1. Client secret support</h2><p>From <a href="https://github.com/aws-amplify/amplify-js/tree/master/packages/amazon-cognito-identity-js" target="_blank" rel="noopener">amazon-cognito-identity-js</a> where this Dart SDK translates from, it says</p>
+<blockquote>
+<p>When creating the App, the generate client secret box must be unchecked because the JavaScript SDK doesn’t support apps that have a client secret.</p>
+</blockquote>
+<p>Client secret is used to restrict access to AWS User Pool, any client that doesn’t have the client secret won’t be able to communicate to the pool.</p>
+<p><img src="/img/201910/flutter_aws_client_secret.png" alt="Client secret setting"></p>
+<p>But our User Pool already has a client secret that has been running smoothly with Android and iOS native SDKs, so we don’t want to change.</p>
+<p>Fortunately, it’s an easy fix by adding a <code>SECRET_HASH</code> parameter to the JSON requests. The hash generating method can be found in the <a href="https://github.com/aws-amplify/aws-sdk-android/blob/master/aws-android-sdk-cognitoidentityprovider/src/main/java/com/amazonaws/mobileconnectors/cognitoidentityprovider/util/CognitoSecretHash.java" target="_blank" rel="noopener">AWS Android SDK</a>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">///</span><br><span class="line">/// Translated from library `aws-android-sdk-cognitoprovider@2.6.30` file `CognitoSecretHash.java::getSecretHash()`</span><br><span class="line">///</span><br><span class="line">static String calculateClientSecretHash(String userName, String clientId, String clientSecret) &#123;</span><br><span class="line">    Hmac hmac = new Hmac(sha256, utf8.encode(clientSecret));</span><br><span class="line">    Digest digest = hmac.convert(utf8.encode(userName + clientId));</span><br><span class="line">    hmac.convert(digest.bytes);</span><br><span class="line">    return base64.encode(digest.bytes);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-Device-authentication-failure"><a href="#2-Device-authentication-failure" class="headerlink" title="2. Device authentication failure"></a>2. Device authentication failure</h2><p><img src="https://dmhnzl5mp9mj6.cloudfront.net/mobile_awsblog/images/cognito_devices_console.png" alt="Cognito device remembering"></p>
+<p>If you have enabled <a href="https://aws.amazon.com/blogs/mobile/tracking-and-remembering-devices-using-amazon-cognito-your-user-pools/" target="_blank" rel="noopener">device remembering</a> feature in you User Pool, this <code>amazon_cognito_identity_dart</code> SDK will fail in response to <code>DEVICE_PASSWORD_VERIFIER</code> challenge, which occurs on the <strong>second</strong> time you login with the same device. Here is the error response from AWS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 400 Bad Request</span><br><span class="line">x-amzn-ErrorType: NotAuthorizedException:</span><br><span class="line">x-amzn-ErrorMessage: Incorrect username or password.</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;__type&quot;: &quot;NotAuthorizedException&quot;,</span><br><span class="line">  &quot;message&quot;: &quot;Incorrect username or password.&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This is because when you first time login with this device, it sends the WRONG <code>PasswordVerifier</code> JSON parameter in the <code>AWSCognitoIdentityProviderService.ConfirmDevice</code> request. This doesn’t fail, which means you will be able to login the first time, but it is sending a WRONG parameter (hash based of the combination of device key, device group key and a random string), so AWS Cognito remembers the WRONG information. Consequently, the second time when the SDK sends a parameter <code>PASSWORD_CLAIM_SIGNATURE</code> in the <code>DEVICE_PASSWORD_VERIFIER</code> phase using the CORRECT device key and device group key to generate that hash, hence the conflict. AWS Cognito would complain</p>
+<blockquote>
+<p>hey dude, this is not what you told me before, get outa here</p>
+</blockquote>
+<p>It sounds a lot to comprehend, but the fix is easy, change file <code>authentication_helper.dart</code> in <code>amazon_cognito_identity_dart</code> as shown below</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-        '`$deviceGroupKey$username:$&#123;this._randomPassword&#125;';</span></span><br><span class="line"><span class="addition">+        '$deviceGroupKey$username:$&#123;this._randomPassword&#125;';</span></span><br></pre></td></tr></table></figure>
+<p>As you can see, there is one more backtick ` at the beginning of the string, which is copy &amp; pasted from the original Amazon Javascript SDK. In Javascript, backtick is used to create template literal.</p>
+<h1 id="Development-journal"><a href="#Development-journal" class="headerlink" title="Development journal"></a>Development journal</h1><h2 id="Client-secret"><a href="#Client-secret" class="headerlink" title="Client secret"></a>Client secret</h2><p>To figure out how to add client secret, I set up a Charles proxy to deciper the traffic between the my device and AWS server. Then I did a side by side comparison of the JSON reqeust between the official Android SDK and the Dart one.</p>
+<p>I noticed there is one more parameter <code>SECRET_HASH</code> in the Android request:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">POST / HTTP/1.1</span><br><span class="line">user-agent: Dart/2.5 (dart:io)</span><br><span class="line">x-amz-target: AWSCognitoIdentityProviderService.InitiateAuth</span><br><span class="line">accept-encoding: gzip</span><br><span class="line">host: cognito-idp.ap-southeast-2.amazonaws.com</span><br><span class="line">content-type: application/x-amz-json-1.1; charset=utf-8</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;AuthFlow&quot;: &quot;USER_SRP_AUTH&quot;,</span><br><span class="line">  &quot;ClientId&quot;: &quot;YOUR_CLIENT_ID&quot;,</span><br><span class="line">  &quot;AuthParameters&quot;: &#123;</span><br><span class="line">    &quot;DEVICE_KEY&quot;: &quot;ap-southeast-2_DEVICE_UUID&quot;,</span><br><span class="line">    &quot;USERNAME&quot;: &quot;USER_EMAIL&quot;,</span><br><span class="line">    &quot;SRP_A&quot;: &quot;LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOONNNNNNNNNNNNNNNNNNNNNNNNNNNNGGGGGGGGGGGGGGGGGGGGGGGGGGG_RANDOM_STRING&quot;,</span><br><span class="line">    &quot;SECRET_HASH&quot;: &quot;FEgxHasTRmQq7SsCcBEAQB4xSyZmbl8UXm2a4QK6bA8=&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Then I digged into the Android SDK source code and found that little method that uses <a href="https://en.wikipedia.org/wiki/HMAC" target="_blank" rel="noopener">HMAC_SHA256</a> algorithm to generate this secret hash. The pseudo code is <code>HMAC_SHA256(clientSecret, userName + clientId)</code>, while <code>clientSecret</code> is the key.</p>
+<h2 id="Device-authentication"><a href="#Device-authentication" class="headerlink" title="Device authentication"></a>Device authentication</h2><p>This takes much more effort to fix. I have been staring at that place that has the extra backtick for a long long time but didn’t notice it. As with any backend related problem, I did a side by side comparison of the 400 error JSON request between the official Android SDK and the Dart one. Here is what it looks like:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">POST / HTTP/1.1</span><br><span class="line">user-agent: Dart/2.5 (dart:io)</span><br><span class="line">x-amz-target: AWSCognitoIdentityProviderService.RespondToAuthChallenge</span><br><span class="line">accept-encoding: gzip</span><br><span class="line">x-amz-user-agent: aws-amplify/0.0.x dart</span><br><span class="line">host: cognito-idp.ap-southeast-2.amazonaws.com</span><br><span class="line">content-type: application/x-amz-json-1.1; charset=utf-8</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;ChallengeName&quot;: &quot;DEVICE_PASSWORD_VERIFIER&quot;,</span><br><span class="line">  &quot;ClientId&quot;: &quot;YOUR_CLIENT_ID&quot;,</span><br><span class="line">  &quot;ChallengeResponses&quot;: &#123;</span><br><span class="line">    &quot;USERNAME&quot;: &quot;USER_EMAIL&quot;,</span><br><span class="line">    &quot;PASSWORD_CLAIM_SECRET_BLOCK&quot;: &quot;SUPERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR_LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOONNNNNNNNNNNNNNNNNNNNNNNNNNNNGGGGGGGGGGGGGGGGGGGGGGGGGGG_RANDOM_STRING&quot;,</span><br><span class="line">    &quot;TIMESTAMP&quot;: &quot;Mon Oct 21 12:33:53 UTC 2019&quot;,</span><br><span class="line">    &quot;PASSWORD_CLAIM_SIGNATURE&quot;: &quot;3oEI2DofcVVxxxxxxFV7UXJWnnqnQYPAxxxxxxxxxx=&quot;,</span><br><span class="line">    &quot;DEVICE_KEY&quot;: &quot;ap-southeast-2_DEVICE_UUID&quot;,</span><br><span class="line">    &quot;SECRET_HASH&quot;: &quot;FEgxHasTRmQq7SsCcBEAQB4xSyZmbl8UXm2a4QK6bA8=&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;Session&quot;: null</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The number of parameters are the same, after closely examining where those values come from, I noticed <code>PASSWORD_CLAIM_SECRET_BLOCK</code> is copied from previous server response, so the only thing can go wrong is the <code>PASSWORD_CLAIM_SIGNATURE</code>.</p>
+<p>Then I went into the file <code>cognito_user.dart</code> that generates the request, I was suspecting that the calculation of the hash in method <code>getDeviceResponse()</code> is not correct. I set up break points in the source file and went line by line to examine the result of every step. But soon found this is not effective, and I have no way to verify whether the algorithm itself has problem. So I went for another blackbox approach, I copied the cached device related parameters from Android SDK which resided in <code>/data/data/app_package_name/shared_prefs/CognitoIdentityProviderDeviceCache.POOL-ID_USER-EMAIL.xml</code>, to the Flutter one in my Android simulator <code>/data/data/app_package_name/shared_prefs/FlutterSharedPreferences.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Android shared preferences--&gt;</span></span><br><span class="line"><span class="meta">&lt;?xml version='1.0' encoding='utf-8' standalone='yes' ?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">map</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"DeviceSecret"</span>&gt;</span>DEVICE_GENERATED_RANDOM_STRING<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"DeviceKey"</span>&gt;</span>ap-southeast-2_DEVICE_ID<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"DeviceGroupKey"</span>&gt;</span>xxxxxxx<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">map</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>With the three device parameters from the Android SDK, the Dart SDK was able to successfully go through the previously failed <code>DEVICE_PASSWORD_VERIFIER</code> request!! So it’s clear the method <code>getDeviceResponse()</code> that generates the hash is 100% correct, the problem must be in previous requests where these three parameter are involved. After some digging, the scope got narrowed down to method <code>generateHashDevice()</code> in file <code>authentication_helper.dart</code> where device secret is generated.</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// File authentication_helper.dart</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> generateHashDevice(<span class="built_in">String</span> deviceGroupKey, <span class="built_in">String</span> deviceKey) &#123;</span><br><span class="line">  _randomPassword = <span class="keyword">this</span>.generateRandomString(); <span class="comment">// Device secret, a random string</span></span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">String</span> combinedString =</span><br><span class="line">      <span class="string">'`<span class="subst">$deviceGroupKey</span><span class="subst">$deviceKey</span>:<span class="subst">$&#123;<span class="keyword">this</span>._randomPassword&#125;</span>'</span>;</span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">String</span> hashedString = <span class="keyword">this</span>.hash(utf8.encode(combinedString)); <span class="comment">// BUG here!!</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">final</span> <span class="built_in">String</span> hexRandom = <span class="keyword">new</span> RandomString().generate(length: <span class="number">16</span>);</span><br><span class="line"></span><br><span class="line">  _saltToHashDevices = <span class="keyword">this</span>.padHex(BigInt.parse(hexRandom, radix: <span class="number">16</span>)); <span class="comment">// Random salt</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">final</span> verifierDevicesNotPadded = modPow(</span><br><span class="line">    <span class="keyword">this</span>.g,</span><br><span class="line">    BigInt.parse(<span class="keyword">this</span>.hexHash(_saltToHashDevices + hashedString), radix: <span class="number">16</span>),</span><br><span class="line">    <span class="keyword">this</span>.N,</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  _verifierDevices = <span class="keyword">this</span>.padHex(verifierDevicesNotPadded);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>There are three variables that are suspicious. Firstly, <code>_randomPassword</code> is a random string and being sent to server in some sort of hashed form, it is confidential to the device. The second <code>_saltToHashDevices</code> is also locally generated random number, so also innocent. The last one <code>_verifierDevices</code> which is a hashed form of <code>combinedString</code> variable, is used as <code>PasswordVerifier</code> parameter in the following <code>AWSCognitoIdentityProviderService.ConfirmDevice</code> request is the ONLY place that can go wrong:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">POST / HTTP/1.1</span><br><span class="line">user-agent: Dart/2.5 (dart:io)</span><br><span class="line">x-amz-target: AWSCognitoIdentityProviderService.ConfirmDevice</span><br><span class="line">accept-encoding: gzip</span><br><span class="line">x-amz-user-agent: aws-amplify/0.0.x dart</span><br><span class="line">host: cognito-idp.ap-southeast-2.amazonaws.com</span><br><span class="line">content-type: application/x-amz-json-1.1; charset=utf-8</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;DeviceKey&quot;: &quot;ap-southeast-2_DEVICE_ID&quot;,</span><br><span class="line">    &quot;AccessToken&quot;: &quot;ACCESS_TOKEN_FROM_PREVIOUS_SERVER_RESPONSE&quot;,</span><br><span class="line">  &quot;DeviceSecretVerifierConfig&quot;: &#123;</span><br><span class="line">    &quot;Salt&quot;: &quot;Wexxxxxxcws=&quot;,</span><br><span class="line">    &quot;PasswordVerifier&quot;: &quot;APjfxxxxxxxxxxxxxxx+8pZC4+iyRlksk6cxxxxxv6ROt3SCnmRIqO8/rt0RSG4TP8xxxxxxJ7jUJeT2MS+008qSCFyJ0WDTbKT6VRd4zx4hID3G1GLujSAOBuOfbYxftFxNxxxx2c6XT/pG4miBHC/7vz6x6VSkrC00gH/JU+V5kE964fTVBHxxxxxxjoButqn9f/kpdqxxxxxxxxxxxxzJWDQiVQWZFH+31kFC7ATZKnseqQfWIse7/Xj1O2GxxxxxxxxddOBX6/WSNm7SDzCA5i+6NAlZ67JywtoqV3twrnlpQ5/i5km8WBhL9+yP6FYVv6s/1ICADuorxxxxxxKhxR12bblNdBxxxxxxxxxmppnLQqIKK8oCog1uikudNi3DhCBHJw6oWxxxxxxxxxxxxxxxxxxxx6xTYT8aJmhNs4L6hmPgcLfumgyw==&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;DeviceName&quot;: &quot;Dart-device&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>After another examination of <code>combinedString</code> variable, suddenly I found the weird backtick ` at the beginning of the string. That’s the extra backstick that makes the hash go wrong.</p>
+<p>Problem resolved. One character deletion fix comes from several days of work… In Javascript, backtick is used to create template string, so it’s a copy &amp; paste error.</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/EverydayFlutter/">EverydayFlutter</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/English/">English</a><a href="/tags/Flutter/">Flutter</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tsuinte.ru/2019/flutter_log_2_cognito/" data-title="Flutter Dev Journal(2): AWS Cognito SDK | tsuinteru" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2019/flutter_log_3_proxy/" title="Flutter Dev Journal(3): HTTP proxy">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Flutter Dev Journal(3): HTTP proxy</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2019/flutter_log_1_hybrid/"  title="Flutter Dev Journal(1): Going hybrid">
+ <strong>下一篇：</strong><br/> 
+ <span>Flutter Dev Journal(1): Going hybrid
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Issues-and-fixes"><span class="toc-number">1.</span> <span class="toc-text">Issues and fixes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Client-secret-support"><span class="toc-number">1.1.</span> <span class="toc-text">1. Client secret support</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Device-authentication-failure"><span class="toc-number">1.2.</span> <span class="toc-text">2. Device authentication failure</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Development-journal"><span class="toc-number">2.</span> <span class="toc-text">Development journal</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Client-secret"><span class="toc-number">2.1.</span> <span class="toc-text">Client secret</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Device-authentication"><span class="toc-number">2.2.</span> <span class="toc-text">Device authentication</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/ACG/" title="ACG">ACG<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Android-Debug-and-Profiling/" title="Android_Debug_and_Profiling">Android_Debug_and_Profiling<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/EverydayFlutter/" title="EverydayFlutter">EverydayFlutter<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>14</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Life-Style/" title="Life_Style">Life_Style<sup>12</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/编程开发/" title="编程开发">编程开发<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/金融市场/" title="金融市场">金融市场<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/键盘侠云评测/" title="键盘侠云评测">键盘侠云评测<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/阅读感想/" title="阅读感想">阅读感想<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/鸡汤药丸/" title="鸡汤药丸">鸡汤药丸<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>14</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/database/" title="database">database<sup>14</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/English/" title="English">English<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Flutter/" title="Flutter">Flutter<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/08金融危机/" title="08金融危机">08金融危机<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/下厨房/" title="下厨房">下厨房<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/DIY工具/" title="DIY工具">DIY工具<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日剧/" title="日剧">日剧<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/三体/" title="三体">三体<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VR/" title="VR">VR<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> このツインテールに、夢と願いを込めるんだ <br/>
+			Android Dev | 二次元 | New Zeland</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2024 
+		
+		<a href="http://tsuinte.ru/about" target="_blank" title="正义双马尾">正义双马尾</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'tsuinteru';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-25407559-4', 'tsuinte.ru');  
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

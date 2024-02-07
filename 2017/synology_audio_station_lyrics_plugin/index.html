@@ -1,0 +1,624 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>群晖NAS进阶使用教程（一）：Audio Station网易歌词插件 | tsuinteru</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="正义双马尾">
+    
+
+    
+    <meta name="description" content="TL;DR 从 GitHub release 下载。有两种口味：netease_org.aum 是清真原味，仅显示歌词原文，适合学霸；netease_trans.aum 是带中文翻译的口味，大众首选。打不开 GitHub 的这里也有度娘盘。 Audio Station网易歌词插件由于国内版权保护越来越严格，加上各大版权联盟之间互相竞争，导致很多歌曲下架或者只能在一个网站独家播放。虽然这是好事，但">
+<meta property="og:type" content="article">
+<meta property="og:title" content="群晖NAS进阶使用教程（一）：Audio Station网易歌词插件">
+<meta property="og:url" content="http://tsuinte.ru/2017/synology_audio_station_lyrics_plugin/index.html">
+<meta property="og:site_name" content="tsuinteru">
+<meta property="og:description" content="TL;DR 从 GitHub release 下载。有两种口味：netease_org.aum 是清真原味，仅显示歌词原文，适合学霸；netease_trans.aum 是带中文翻译的口味，大众首选。打不开 GitHub 的这里也有度娘盘。 Audio Station网易歌词插件由于国内版权保护越来越严格，加上各大版权联盟之间互相竞争，导致很多歌曲下架或者只能在一个网站独家播放。虽然这是好事，但">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_head.jpg">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_mora.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_add_plugin.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_add_plugin2.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_show_lrc.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_show_lrc2.jpg">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_search_lrc.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_download_lrc.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_new_playlist.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_new_playlist2.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_new_playlist3.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_2233.jpg">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_mp3tag2.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201710/synology_mp3tag.png">
+<meta property="article:published_time" content="2017-11-09T11:00:00.000Z">
+<meta property="article:modified_time" content="2017-11-09T11:00:00.000Z">
+<meta property="article:author" content="正义双马尾">
+<meta property="article:tag" content="群晖">
+<meta property="article:tag" content="PHP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://tsuinte.ru/img/201710/synology_head.jpg">
+
+    
+    <link rel="alternative" href="/atom.xml" title="tsuinteru" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.jpg">
+    
+    
+    <link rel="apple-touch-icon" href="/img/logo.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/logo.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="tsuinteru">tsuinteru</a></h1>
+				<h2 class="blog-motto">このツインテールに、夢と願いを込めるんだ</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/tags/English">English posts</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:tsuinte.ru">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/synology_audio_station_lyrics_plugin/" title="群晖NAS进阶使用教程（一）：Audio Station网易歌词插件" itemprop="url">群晖NAS进阶使用教程（一）：Audio Station网易歌词插件</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="正义双马尾" target="_blank" itemprop="author">正义双马尾</a>
+		
+  <p class="article-time">
+    <time datetime="2017-11-09T11:00:00.000Z" itemprop="datePublished"> 发表于 2017-11-10</time>
+   
+    <p class="article-updated">
+    <time datetime="2017-11-09T11:00:00.000Z" itemprop="updated"> 更新日期 2017-11-10</time>
+    
+  </p>
+</header>
+
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Audio-Station%E7%BD%91%E6%98%93%E6%AD%8C%E8%AF%8D%E6%8F%92%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">Audio Station网易歌词插件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%AD%8C%E8%AF%8D%E6%8F%92%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">安装与使用歌词插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%8C%E8%AF%8D%E6%8F%92%E4%BB%B6%E7%89%B9%E8%89%B2"><span class="toc-number">1.2.</span> <span class="toc-text">歌词插件特色</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Audio-Station%E6%99%BA%E8%83%BD%E6%92%AD%E6%94%BE%E5%88%97%E8%A1%A8"><span class="toc-number">2.</span> <span class="toc-text">Audio Station智能播放列表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E8%AF%B4-DS-Audio"><span class="toc-number">2.1.</span> <span class="toc-text">说说 DS Audio</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%8C%E6%9B%B2%E4%BF%A1%E6%81%AF%E7%BC%96%E8%BE%91"><span class="toc-number">3.</span> <span class="toc-text">歌曲信息编辑</span></a></li></ol>
+		
+		</div>
+		
+		<p><img src="/img/201710/synology_head.jpg" class="img-topic"></p>
+<p><strong>TL;DR</strong></p>
+<p>从 <a href="https://github.com/LudySu/Synology-LrcPlugin/releases" target="_blank" rel="noopener">GitHub release</a> 下载。有两种口味：<code>netease_org.aum</code> 是清真原味，仅显示歌词原文，适合学霸；<code>netease_trans.aum</code> 是带中文翻译的口味，大众首选。打不开 GitHub 的这里也有<a href="https://pan.baidu.com/s/1gfpgebx" target="_blank" rel="noopener">度娘盘</a>。</p>
+<h1 id="Audio-Station网易歌词插件"><a href="#Audio-Station网易歌词插件" class="headerlink" title="Audio Station网易歌词插件"></a>Audio Station网易歌词插件</h1><p>由于国内版权保护越来越严格，加上各大版权联盟之间互相竞争，导致很多歌曲下架或者只能在一个网站独家播放。虽然这是好事，但在大洗牌完成之前普通用户要听歌就麻烦了不少，要多下载几个 APP。另一方面 Hi-Res 音乐大规模发展，在 mora.jp 上能买到很多楼主喜欢的 ACG 音乐的 Hi-Res 版本，一般为 96kHz/24bit 的 FLAC 文件，普通录音源文件差不多就是这个规格，再压缩一下就是 CD。再加上人在国外很多歌曲都仅限中国大陆地区播放，所以楼主又回到了本地听歌的时代，把歌曲放在群晖 Audio Station 上。</p>
+<a id="more"></a>
+<p><img src="/img/201710/synology_mora.png" alt="mora.jp上的一首免费歌曲，索尼手机卖萌用"></p>
+<p>这样歌词就成了一个大问题，群晖 Audio Station 自带的歌词插件太弱，歌词都找不到。网络上有个千千静听的插件还不错，早年千千静听用户非常多，也贡献了很多歌词和歌词翻译。但现在早已被收购不再维护，而用户也转移到了腾讯、网易、虾米等等新的网络平台，所以需要有一款新的歌词插件才行。楼主非常喜欢网易云音乐 APP，就决定从这里入手弄一个歌词插件，第一次用 PHP 共花了一个多星期的业余时间才搞定。照惯例先放个声明：</p>
+<blockquote>
+<p>免责声明：本歌词插件仅用于研究机学习 PHP 编程、群晖 NAS 开发、计算机网络的目的，任何用户将其用于非法用途概与作者无关。歌词版权归网易及歌词贡献者、歌曲版权所有者等等所有。</p>
+</blockquote>
+<p>歌词都是网易的网友们上传的，很多都带有中文翻译，在此感谢歌词贡献者。</p>
+<h2 id="安装与使用歌词插件"><a href="#安装与使用歌词插件" class="headerlink" title="安装与使用歌词插件"></a>安装与使用歌词插件</h2><p>从 <a href="https://github.com/LudySu/Synology-LrcPlugin/releases" target="_blank" rel="noopener">GitHub release</a> 下载。有两种口味：<code>netease_org.aum</code> 是清真原味，仅显示歌词原文，适合学霸；<code>netease_trans.aum</code> 是带中文翻译的口味，大众首选。打不开 GitHub 的这里也有<a href="https://pan.baidu.com/s/1gfpgebx" target="_blank" rel="noopener">度娘盘</a>。</p>
+<p>去 <code>Audio Station -&gt; 设置 -&gt; 歌词插件 -&gt; 添加</code> 来加入你喜欢口味的 <code>aum</code> 文件，然后记得打勾开启。</p>
+<p><img src="/img/201710/synology_add_plugin.png" alt="添加歌词插件"></p>
+<p><img src="/img/201710/synology_add_plugin2.png" alt="添加完成"></p>
+<p>然后当你在 Audio Station 网页或手机端 DS Audio 播放时歌词会自动下载。</p>
+<p><img src="/img/201710/synology_show_lrc.png" alt="网页播放"></p>
+<p><img src="/img/201710/synology_show_lrc2.jpg" alt="手机播放"></p>
+<p>如果觉得歌词不够匹配，在 <strong>Audio Station</strong> 右键单击那首歌，去 <code>歌曲信息 -&gt; 歌词 -&gt; 从网络搜索</code> 获取所有搜索结果。你可以从第二个开始尝试，因为第一个就是自动下载的结果。</p>
+<p><img src="/img/201710/synology_search_lrc.png" alt="搜索结果"></p>
+<p>下载来看看，觉得不够好的再换回去搜索结果列表，继续换一个。</p>
+<p><img src="/img/201710/synology_download_lrc.png" alt="下载到的歌词"></p>
+<p><strong>NOTE</strong>：下载完成后 lrc 歌词会缓存在 NAS 的歌曲所在文件夹，可以拷贝到其他地方使用。</p>
+<h2 id="歌词插件特色"><a href="#歌词插件特色" class="headerlink" title="歌词插件特色"></a>歌词插件特色</h2><p>歌词搜索列表是根据艺术家、标题的相似程度，从高到低排序的，所以结果列表的第一项（Audio Station只自动下载第一项）一般来说是最佳结果。所以如果你的歌曲文件信息是准确的，匹配成功率会非常高。</p>
+<p>第二个特色如果安装的是 <code>netease_trans.aum</code> 版本会自动添加中文翻译到行末并用<code>【】</code>标注。网易的歌词原文和翻译是两个独立的 lrc 歌词文件，所以本插件就像网易云音乐 APP 一样把它们拼接起来。</p>
+<h1 id="Audio-Station智能播放列表"><a href="#Audio-Station智能播放列表" class="headerlink" title="Audio Station智能播放列表"></a>Audio Station智能播放列表</h1><p>主要讲歌词插件的，顺便加点其他内容吧。播放列表是个麻烦的东西，在一个地方建好了可能过不久又要转移听歌阵地，加上一般喜新厌旧，喜欢新歌单曲循环，所以楼主最常用的列表是<code>最近添加的</code>和 <code>Random100</code>。Audio Station 可以根据你设定的一些条件建立智能播放列表，这样新添加的歌曲只要符合条件就会自动添加进去，方便免维护，需要做的只是确保歌曲信息准确。</p>
+<p>例子一《最新一季歌曲》：建立最近 90 天内添加的新歌曲，就是一个动画季度的时间。Audio Station 虽然自带一个<code>最近添加的</code>播放列表，但只能逐个专辑查看、播放，并不好用。</p>
+<p><img src="/img/201710/synology_new_playlist.png" alt="最新一季歌曲"></p>
+<p>例子二《我的女神们》：包含所有初音未来的歌曲。由于是虚拟歌姬，演出者（艺术家）经常是这样的格式<code>黒うさP feat.初音ミク</code>，所以演出者这项只要包含<code>初音ミク</code>就行，不能精确匹配。后面两项类型（genre）是补充用的。</p>
+<p><img src="/img/201710/synology_new_playlist2.png" alt="我的女神们"></p>
+<p>例子三《梶浦大神》：梶浦由记是幕后大神，仅负责作曲，用智能播放列表就可以把这些歌曲全挑出来。</p>
+<p><img src="/img/201710/synology_new_playlist3.png" alt="梶浦大神"></p>
+<p>还有其他条件可以慢慢探索，可以创建你喜欢的智能播放列表。</p>
+<h2 id="说说-DS-Audio"><a href="#说说-DS-Audio" class="headerlink" title="说说 DS Audio"></a>说说 DS Audio</h2><p>APP 整体上非常不错，还支持推送到支持 WiFi 音箱播放。也比仅仅通过<code>媒体播放器</code> DLNA/UPnP 协议播放的功能要好很多，特别 iOS 上那些 DLNA 播放器 APP 要收费而且 UI 巨丑。最难的的是 Windows 平台也有对应 APP。</p>
+<p>歌词问题解决后，还有个很讨厌的问题是个别音乐的专辑封面死活读取不出来，尝试更换封面等等，完全没发现规律。后来放弃了自制了个 2233 娘做完默认封面，总比白板好。</p>
+<p><img src="/img/201710/synology_2233.jpg" alt="2233专辑封面"></p>
+<h1 id="歌曲信息编辑"><a href="#歌曲信息编辑" class="headerlink" title="歌曲信息编辑"></a>歌曲信息编辑</h1><p>有人可能会说歌曲信息不准确怎么办？在复制音乐进去 NAS 之前用编辑软件 Mp3Tag 先编集一下信息和专辑封面就好。Mp3Tag 是一款依靠自愿捐款的免费软件，好用且强大，有中文版，可以批量修改歌曲信息。格式支持非常好，包括 ALAC、FLAC、DSD 等都支持。原生是 Windows 平台，MacOS／Linux 字体委屈一点也有 wine 版，毕竟这两个平台软件少。</p>
+<p>想要批量编辑的，把需要编辑歌曲全部拖进去，选中所有歌曲，例如想要修改所有歌曲的类型（genre）为 <code>Anime</code>，那么编辑红色框那个类型栏，点击保存就行。其他无需改变的字段它晖显示为 <code>&lt;keep&gt;</code>，表示保留原值。包括专辑封面图片都可以批量更改。</p>
+<p><img src="/img/201710/synology_mp3tag2.png" alt="批量修改"></p>
+<p>现在中档以上手机屏幕分辨率都是 1080p 起步，旗舰机都是 2k 以上，所以专辑封面也是时候升级了。很多下载的歌曲还是史前的 500px 规格，建议找更高分辨率的，至少 1500px 吧。</p>
+<p><img src="/img/201710/synology_mp3tag.png" alt="修改专辑封面"></p>
+<hr>
+<p>本博客微信公众号</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/">编程开发</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/群晖/">群晖</a><a href="/tags/PHP/">PHP</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tsuinte.ru/2017/synology_audio_station_lyrics_plugin/" data-title="群晖NAS进阶使用教程（一）：Audio Station网易歌词插件 | tsuinteru" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/global_financial_crisis_3_global_savings_glut/" title="08金融危机（三）：安全资产与资金过剩">
+  <strong>上一篇：</strong><br/>
+  <span>
+  08金融危机（三）：安全资产与资金过剩</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/swimming-in-the-bubble-jeffrey-greene/"  title="泡沫浮世绘（一）：史上最赚钱个人投资者">
+ <strong>下一篇：</strong><br/> 
+ <span>泡沫浮世绘（一）：史上最赚钱个人投资者
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Audio-Station%E7%BD%91%E6%98%93%E6%AD%8C%E8%AF%8D%E6%8F%92%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">Audio Station网易歌词插件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%AD%8C%E8%AF%8D%E6%8F%92%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">安装与使用歌词插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%8C%E8%AF%8D%E6%8F%92%E4%BB%B6%E7%89%B9%E8%89%B2"><span class="toc-number">1.2.</span> <span class="toc-text">歌词插件特色</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Audio-Station%E6%99%BA%E8%83%BD%E6%92%AD%E6%94%BE%E5%88%97%E8%A1%A8"><span class="toc-number">2.</span> <span class="toc-text">Audio Station智能播放列表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E8%AF%B4-DS-Audio"><span class="toc-number">2.1.</span> <span class="toc-text">说说 DS Audio</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%8C%E6%9B%B2%E4%BF%A1%E6%81%AF%E7%BC%96%E8%BE%91"><span class="toc-number">3.</span> <span class="toc-text">歌曲信息编辑</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/ACG/" title="ACG">ACG<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Android-Debug-and-Profiling/" title="Android_Debug_and_Profiling">Android_Debug_and_Profiling<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/EverydayFlutter/" title="EverydayFlutter">EverydayFlutter<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>14</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Life-Style/" title="Life_Style">Life_Style<sup>12</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/编程开发/" title="编程开发">编程开发<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/金融市场/" title="金融市场">金融市场<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/键盘侠云评测/" title="键盘侠云评测">键盘侠云评测<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/阅读感想/" title="阅读感想">阅读感想<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/鸡汤药丸/" title="鸡汤药丸">鸡汤药丸<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>14</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/database/" title="database">database<sup>14</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/English/" title="English">English<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Flutter/" title="Flutter">Flutter<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/08金融危机/" title="08金融危机">08金融危机<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/下厨房/" title="下厨房">下厨房<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/DIY工具/" title="DIY工具">DIY工具<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日剧/" title="日剧">日剧<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/三体/" title="三体">三体<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VR/" title="VR">VR<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> このツインテールに、夢と願いを込めるんだ <br/>
+			Android Dev | 二次元 | New Zeland</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2024 
+		
+		<a href="http://tsuinte.ru/about" target="_blank" title="正义双马尾">正义双马尾</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'tsuinteru';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-25407559-4', 'tsuinte.ru');  
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

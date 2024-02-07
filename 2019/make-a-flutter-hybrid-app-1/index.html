@@ -1,0 +1,623 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Power of hybrid (I): add flutter to existing apps | tsuinteru</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="正义双马尾">
+    
+
+    
+    <meta name="description" content="UPDATED: Updated for Flutter v1.9.1. TL;DR: this guide gives a real example (which is a minimized version that comes from our real project) when you follow the Official wiki: Add Flutter to existing a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Power of hybrid (I): add flutter to existing apps">
+<meta property="og:url" content="http://tsuinte.ru/2019/make-a-flutter-hybrid-app-1/index.html">
+<meta property="og:site_name" content="tsuinteru">
+<meta property="og:description" content="UPDATED: Updated for Flutter v1.9.1. TL;DR: this guide gives a real example (which is a minimized version that comes from our real project) when you follow the Official wiki: Add Flutter to existing a">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://tsuinte.ru/img/201903/flutter_project_navigation.png">
+<meta property="og:image" content="http://tsuinte.ru/img/201903/flutter_app_screens.jpg">
+<meta property="og:image" content="http://tsuinte.ru/img/201903/flutter_ios_storyboard.png">
+<meta property="article:published_time" content="2019-05-07T12:00:00.000Z">
+<meta property="article:modified_time" content="2019-11-20T00:16:38.000Z">
+<meta property="article:author" content="正义双马尾">
+<meta property="article:tag" content="English">
+<meta property="article:tag" content="Flutter">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://tsuinte.ru/img/201903/flutter_project_navigation.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="tsuinteru" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.jpg">
+    
+    
+    <link rel="apple-touch-icon" href="/img/logo.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/logo.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="tsuinteru">tsuinteru</a></h1>
+				<h2 class="blog-motto">このツインテールに、夢と願いを込めるんだ</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/tags/English">English posts</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:tsuinte.ru">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/make-a-flutter-hybrid-app-1/" title="Power of hybrid (I): add flutter to existing apps" itemprop="url">Power of hybrid (I): add flutter to existing apps</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://tsuinte.ru/about" title="正义双马尾" target="_blank" itemprop="author">正义双马尾</a>
+		
+  <p class="article-time">
+    <time datetime="2019-05-07T12:00:00.000Z" itemprop="datePublished"> 发表于 2019-05-08</time>
+   
+    <p class="article-updated">
+    <time datetime="2019-11-20T00:16:38.000Z" itemprop="updated"> 更新日期 2019-11-20</time>
+    
+  </p>
+</header>
+
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Create-a-Flutter-project"><span class="toc-number">1.</span> <span class="toc-text">1. Create a Flutter project</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Android-app"><span class="toc-number">2.</span> <span class="toc-text">2. Android app</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Add-denpendency-on-Flutter-module"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Add denpendency on Flutter module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Use-Flutter-module"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 Use Flutter module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Hot-reload"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 Hot reload</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-iOS-app"><span class="toc-number">3.</span> <span class="toc-text">3. iOS app</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-Add-denpendency-on-Flutter-module"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 Add denpendency on Flutter module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Use-Flutter-module"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 Use Flutter module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Build-error"><span class="toc-number">3.3.</span> <span class="toc-text">Build error</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-number">4.</span> <span class="toc-text">Reference</span></a></li></ol>
+		
+		</div>
+		
+		<p><strong>UPDATED</strong>: Updated for Flutter <code>v1.9.1</code>.</p>
+<p><strong>TL;DR</strong>: this guide gives a real example (which is a minimized version that comes from our real project) when you follow the <a href="https://github.com/flutter/flutter/wiki/Add-Flutter-to-existing-apps" target="_blank" rel="noopener">Official wiki: Add Flutter to existing apps</a>, covering some common issues you might have. Check out the full <a href="https://github.com/LudySu/FlutterHybridExample" target="_blank" rel="noopener">FlutterHybridExample</a> in Github to see what it looks like when done.</p>
+<p>Consider this situation, you have an app that works for both Android and iOS platforms, you developed them in a native way to get the best performance and user experience possible. Then one day you need to add a new feature to make it more attractive, which means the same thing has to be done twice, one for each platform. You heard of fancy and shinny stuff - Flutter that promises to work for both platforms and claims to bring native performance. But you can’t afford the time in totally rebuild the app, you still need to keep things running for existing users, just like doing an open heart surgery. So my answer is:</p>
+<ul>
+<li>Develop the new feature using Flutter</li>
+<li>Add the new Flutter module into existing native Android and iOS apps</li>
+<li>Write platform specific code in Flutter, and/or add bridging code to Flutter and/or native apps as required</li>
+</ul>
+<a id="more"></a>
+<p>For this approach to be productive:</p>
+<ul>
+<li>The new module should not rely too much on platform specific features</li>
+<li>The new module should not rely too much on communication with existing apps, e.g. calling methods from native app</li>
+</ul>
+<p>Before starting, here are a few prerequsites:</p>
+<ol>
+<li>You have set up Flutter tool chain 1.9.1</li>
+<li>You have set up Android Studio IDE 3.5</li>
+</ol>
+<p>Let’s get started.</p>
+<h1 id="1-Create-a-Flutter-project"><a href="#1-Create-a-Flutter-project" class="headerlink" title="1. Create a Flutter project"></a>1. Create a Flutter project</h1><p>First we create a new Flutter project <code>FlutterHybridExample/flutter_common_module</code> as a sub-module in order to develop a new feature:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> FlutterHybridExample</span><br><span class="line">flutter create -t module --androidx flutter_common_module</span><br></pre></td></tr></table></figure>
+<h1 id="2-Android-app"><a href="#2-Android-app" class="headerlink" title="2. Android app"></a>2. Android app</h1><p>There’s an existing Android minimal app at <code>FlutterHybridExample/android_native_app</code> which represents our existing Android app. It has a TextView saying “This is Android native fragment” and a button labeled “GO TO FLUTTER” that does nothing at this stage.</p>
+<h2 id="2-1-Add-denpendency-on-Flutter-module"><a href="#2-1-Add-denpendency-on-Flutter-module" class="headerlink" title="2.1 Add denpendency on Flutter module"></a>2.1 Add denpendency on Flutter module</h2><p>Here we use the option “Depend on the module’s source code” described in the official wiki. Edit file <code>android_native_app/settings.gradle</code> to include Flutter project as a sub-project, which will look like:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">include &apos;:app&apos;</span><br><span class="line"></span><br><span class="line">setBinding(new Binding([gradle: this]))</span><br><span class="line">evaluate(new File(</span><br><span class="line">        settingsDir.parentFile,</span><br><span class="line">        &apos;flutter_common_module/.android/include_flutter.groovy&apos;</span><br><span class="line">))</span><br></pre></td></tr></table></figure>
+<p>Then edit file <code>android_native_app/app/build.gradle</code> to add denpendency on Flutter module:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation project(&apos;:flutter&apos;)</span><br></pre></td></tr></table></figure>
+<p>After a Gradle sync, you can see <strong>a new sub-project <code>flutter</code> in parallel with your existing main <code>app</code> module</strong> in Android Studio’s project panel (as picture shown below). When you add more dependencies to flutter project, you will see more sub-projects in your Android app.</p>
+<p><img src="/img/201903/flutter_project_navigation.png" alt="After adding flutter sub-module"></p>
+<h2 id="2-2-Use-Flutter-module"><a href="#2-2-Use-Flutter-module" class="headerlink" title="2.2 Use Flutter module"></a>2.2 Use Flutter module</h2><p>You can use it in two ways, one is to create a <code>FlutterView</code> and display it the same way as any Android <code>View</code>, another is to use it as an Android <code>Fragment</code>. Because we need to <strong>register a <code>MessageChannel</code> later to enable calling Android methods at Flutter side</strong>, so it’s a bit easier to just use <code>FlutterView</code>.</p>
+<p>Suppose we have an existing <code>AndroidFragment</code> that represents the existing Android app, now we are loading a new <code>FlutterHostFragment</code> which creates a <code>FlutterView</code> by calling <code>Flutter.createView()</code>:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FlutterHostFragment</span>: <span class="type">Fragment</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">newInstance</span><span class="params">()</span></span>: FlutterHostFragment &#123;</span><br><span class="line">            <span class="keyword">return</span> FlutterHostFragment()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> flutterView: FlutterView? = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreateView</span><span class="params">(inflater: <span class="type">LayoutInflater</span>, container: <span class="type">ViewGroup</span>?, savedInstanceState: <span class="type">Bundle</span>?)</span></span>: View? &#123;</span><br><span class="line">        flutterView = Flutter.createView(activity <span class="keyword">as</span> Activity, lifecycle, <span class="literal">null</span>)</span><br><span class="line">        <span class="keyword">return</span> flutterView</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Then you can build and run the app in the same way building a normal Android one.</p>
+<p><img src="/img/201903/flutter_app_screens.jpg" alt="Screen shots"></p>
+<h2 id="2-3-Hot-reload"><a href="#2-3-Hot-reload" class="headerlink" title="2.3 Hot reload"></a>2.3 Hot reload</h2><p>This is the best part of a dynamic language like Javascript where you can do hot reload that shows the changes to UI instantly. For the compiled languages like Java/Kotlin , even with partial compile and JVM hot bainary swap, it’s still a headache especially there is a long way to get to the screen that is changed.</p>
+<p>Connect a device or launch an emulator. Then attach Flutter to the app by typing commands in terminal:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> FlutterHybridExample/flutter_common_module</span><br><span class="line">flutter attach <span class="comment"># Use flutter attach -d DEVICE_ID if there are multiple devices connected</span></span><br></pre></td></tr></table></figure>
+<p>Then run the app in debug mode from Android Studio. Go to the Flutter screen by hitting button <code>GO TO FLUTTER</code> in the app. You should be albe to see output in the terminal:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Done.</span><br><span class="line">Syncing files to device Nexus 5X...                          5.1s</span><br><span class="line"></span><br><span class="line">🔥  To hot reload changes while running, press &quot;r&quot;. To hot restart (and rebuild state), press &quot;R&quot;.</span><br><span class="line">An Observatory debugger and profiler on Nexus 5X is available at: http://127.0.0.1:59556/</span><br><span class="line">For a more detailed help message, press &quot;h&quot;. To quit, press &quot;q&quot;.</span><br></pre></td></tr></table></figure>
+<p>After you make some changes to Dart code in <code>flutter_common_module</code>, type <code>r</code> key in the terminal, then you can see the changes instanly. You can also paste the URL above into your browser to use the Dart Observatory for setting breakpoints, analyzing memory retention and other debugging tasks.</p>
+<h1 id="3-iOS-app"><a href="#3-iOS-app" class="headerlink" title="3. iOS app"></a>3. iOS app</h1><p>There’s another minimal app at <code>FlutterHybridExample/ios_native_app</code> which represents our existing iOS counterpart. It uses cocoapods for dependencies management.</p>
+<h2 id="3-1-Add-denpendency-on-Flutter-module"><a href="#3-1-Add-denpendency-on-Flutter-module" class="headerlink" title="3.1 Add denpendency on Flutter module"></a>3.1 Add denpendency on Flutter module</h2><p>First add these two lines to your <code>Podfile</code> which calls a script to setup Flutter stuff:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flutter_application_path = &apos;../flutter_common_module&apos;</span><br><span class="line">load File.join(flutter_application_path, &apos;.ios&apos;, &apos;Flutter&apos;, &apos;podhelper.rb&apos;)</span><br></pre></td></tr></table></figure>
+<p>Then for each Xcode target that needs to embed Flutter, call <code>install_all_flutter_pods(flutter_application_path)</code> in the <code>Podfile</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">target &apos;ios_native_app&apos; do</span><br><span class="line">  install_all_flutter_pods(flutter_application_path)</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>Then run <code>pod install</code>, you should be able to see pod output like this without any error:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Analyzing dependencies</span><br><span class="line">Downloading dependencies</span><br><span class="line">Installing Flutter (1.0.0)</span><br><span class="line">Installing FlutterPluginRegistrant (0.0.1)</span><br><span class="line">Installing flutter_common_module (0.0.1)</span><br><span class="line">Generating Pods project</span><br><span class="line">Integrating client project</span><br><span class="line">Pod installation complete! There are 3 dependencies from the Podfile and 3 total pods installed.</span><br></pre></td></tr></table></figure>
+<h2 id="3-2-Use-Flutter-module"><a href="#3-2-Use-Flutter-module" class="headerlink" title="3.2 Use Flutter module"></a>3.2 Use Flutter module</h2><p>The way described in the official wiki (see reference 1 at the end of article) requires modifying <code>AppDelegate</code> to register additoinal Flutter libraries, which I don’t really like. Actually the <code>FlutterViewController</code> class wraps everything up pretty good, so the easiest way is to add a new <code>ViewController</code> in storyboard and set is as subclass <code>FlutterViewController</code>. No code is needed.</p>
+<p>Here we add one more host <code>FlutterHostViewController</code> to embed the <code>FlutterViewController</code> to give a little bit more flexibility.</p>
+<p><img src="/img/201903/flutter_ios_storyboard.png" alt="iOS storyboard"></p>
+<p>And we are all set, just run the app. Hot reload is the same as described in a previous chapter.</p>
+<h2 id="Build-error"><a href="#Build-error" class="headerlink" title="Build error"></a>Build error</h2><p>With Flutter 1.9.1 you might run into this build error in the final phase <code>[CP] Embed Pods Frameworks</code>, saying permission denied when signing file <code>Flutter.framework</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PhaseScriptExecution [CP] Embed Pods Frameworks</span><br><span class="line"></span><br><span class="line">/Users/myuser/Library/Developer/Xcode/DerivedData/ios_native_app/Build/Products/Debug-iphonesimulator/ios_native_app.app/Frameworks/Flutter.framework: replacing existing signature</span><br><span class="line">/Users/myuser/Library/Developer/Xcode/DerivedData/ios_native_app/Build/Products/Debug-iphonesimulator/ios_native_app.app/Frameworks/Flutter.framework: Permission denied</span><br><span class="line">Command PhaseScriptExecution failed with a nonzero exit code</span><br></pre></td></tr></table></figure>
+<p>According to <a href="https://github.com/flutter/flutter/issues/39507#issuecomment-555715584" target="_blank" rel="noopener">a user replied in Flutter issue tracker</a>, it can be fixed by adding a line <code>chmod -R +w $1</code> to script <code>ios_native_app/Pods/Target Support Files/Pods-ios_native_app/Pods-ios_native_app-frameworks.sh</code>. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">code_sign_if_enabled() &#123;</span><br><span class="line">  if [ -n &quot;$&#123;EXPANDED_CODE_SIGN_IDENTITY:-&#125;&quot; -a &quot;$&#123;CODE_SIGNING_REQUIRED:-&#125;&quot; != &quot;NO&quot; -a &quot;$&#123;CODE_SIGNING_ALLOWED&#125;&quot; != &quot;NO&quot; ]; then</span><br><span class="line">    # Use the current code_sign_identity</span><br><span class="line">    echo &quot;Code Signing $1 with Identity $&#123;EXPANDED_CODE_SIGN_IDENTITY_NAME&#125;&quot;</span><br><span class="line">    chmod -R +w $1 # ADD THIS NEW LINE</span><br><span class="line">    local code_sign_cmd=&quot;/usr/bin/codesign --force --sign $&#123;EXPANDED_CODE_SIGN_IDENTITY&#125; $&#123;OTHER_CODE_SIGN_FLAGS:-&#125; --preserve-metadata=identifier,entitlements &apos;$1&apos;&quot;</span><br><span class="line"></span><br><span class="line">    if [ &quot;$&#123;COCOAPODS_PARALLEL_CODE_SIGN&#125;&quot; == &quot;true&quot; ]; then</span><br><span class="line">      code_sign_cmd=&quot;$code_sign_cmd &amp;&quot;</span><br><span class="line">    fi</span><br><span class="line">    echo &quot;$code_sign_cmd&quot;</span><br><span class="line">    eval &quot;$code_sign_cmd&quot;</span><br><span class="line">  fi</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
+<li><a href="https://github.com/flutter/flutter/wiki/Add-Flutter-to-existing-apps" target="_blank" rel="noopener">Official wiki: Add Flutter to existing apps</a></li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/English/">English</a><a href="/tags/Flutter/">Flutter</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tsuinte.ru/2019/make-a-flutter-hybrid-app-1/" data-title="Power of hybrid (I): add flutter to existing apps | tsuinteru" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2019/pregenency-in-nz/" title="新西兰生孩子经验分享">
+  <strong>上一篇：</strong><br/>
+  <span>
+  新西兰生孩子经验分享</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/rikuou/"  title="日剧《陆王》：老年人也要喝鸡汤（一）">
+ <strong>下一篇：</strong><br/> 
+ <span>日剧《陆王》：老年人也要喝鸡汤（一）
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Create-a-Flutter-project"><span class="toc-number">1.</span> <span class="toc-text">1. Create a Flutter project</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Android-app"><span class="toc-number">2.</span> <span class="toc-text">2. Android app</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Add-denpendency-on-Flutter-module"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Add denpendency on Flutter module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Use-Flutter-module"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 Use Flutter module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Hot-reload"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 Hot reload</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-iOS-app"><span class="toc-number">3.</span> <span class="toc-text">3. iOS app</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-Add-denpendency-on-Flutter-module"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 Add denpendency on Flutter module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Use-Flutter-module"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 Use Flutter module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Build-error"><span class="toc-number">3.3.</span> <span class="toc-text">Build error</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-number">4.</span> <span class="toc-text">Reference</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/ACG/" title="ACG">ACG<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Android-Debug-and-Profiling/" title="Android_Debug_and_Profiling">Android_Debug_and_Profiling<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/EverydayFlutter/" title="EverydayFlutter">EverydayFlutter<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Leetcode-Database/" title="Leetcode_Database">Leetcode_Database<sup>14</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Life-Style/" title="Life_Style">Life_Style<sup>12</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/编程开发/" title="编程开发">编程开发<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/通往新西兰/" title="通往新西兰">通往新西兰<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/金融市场/" title="金融市场">金融市场<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/键盘侠云评测/" title="键盘侠云评测">键盘侠云评测<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/阅读感想/" title="阅读感想">阅读感想<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/鸡汤药丸/" title="鸡汤药丸">鸡汤药丸<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>14</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/database/" title="database">database<sup>14</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/新西兰/" title="新西兰">新西兰<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/English/" title="English">English<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Flutter/" title="Flutter">Flutter<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/08金融危机/" title="08金融危机">08金融危机<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/下厨房/" title="下厨房">下厨房<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日本游记/" title="日本游记">日本游记<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/游戏/" title="游戏">游戏<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/DIY工具/" title="DIY工具">DIY工具<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/debug/" title="debug">debug<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/音乐/" title="音乐">音乐<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日剧/" title="日剧">日剧<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/三体/" title="三体">三体<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/群晖/" title="群晖">群晖<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/VR/" title="VR">VR<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> このツインテールに、夢と願いを込めるんだ <br/>
+			Android Dev | 二次元 | New Zeland</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2024 
+		
+		<a href="http://tsuinte.ru/about" target="_blank" title="正义双马尾">正义双马尾</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'tsuinteru';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-25407559-4', 'tsuinte.ru');  
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
